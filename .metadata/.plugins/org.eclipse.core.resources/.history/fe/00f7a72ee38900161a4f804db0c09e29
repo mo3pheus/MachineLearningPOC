@@ -1,0 +1,50 @@
+package org.sanket.codingGym.codeInJava;
+
+import java.util.Random;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
+public class BattleShipSimulatorTest extends TestCase {
+
+	/**
+	 * Create the test case
+	 *
+	 * @param testName
+	 *            name of the test case
+	 * @return
+	 */
+	public BattleShipSimulatorTest(String testName) {
+		super(testName);
+	}
+
+	/**
+	 * @return the suite of tests being tested
+	 */
+	public static Test suite() {
+		return new TestSuite(StudentTest.class);
+	}
+
+	public void letsBattle()
+	{
+		/*
+		 * Create an instace of the BattleSimulator game 
+		 */
+		BattleShipSimulator battle = new BattleShipSimulator();
+		
+		/*
+		 * play until game finishes 
+		 */
+		int i = 0;
+		while( !battle.gameEnded() ){
+			Random r = new Random();
+			
+			int guess = r.nextInt(BattleShipSimulator.MAX_CELL_NO);
+			battle.playGame(guess);
+			i++;
+		}
+		
+		System.out.println("Your score = " + i);
+	}
+}

@@ -1,0 +1,16 @@
+package org.sanket.codingGym.codeInJava;
+
+import junit.framework.TestCase;
+
+public class BattleShipSimulatorTest extends TestCase {
+	public BattleShipSimulatorTest(String  testName)
+	{
+		super(testName);
+	}
+	
+	public String testSuite()
+	{
+		
+	}
+
+}

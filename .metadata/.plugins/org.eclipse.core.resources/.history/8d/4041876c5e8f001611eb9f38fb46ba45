@@ -1,0 +1,66 @@
+package org.sanket.codingGym.codeInJava;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.joda.time.DateTime;
+import org.sanket.codingGym.Interfaces.EntertainAudiences;
+import org.sanket.codingGym.codeInJava.Movie;
+
+public class Theatre {
+
+	private final int NUM_MOVIES = 10;
+
+	Movie[] movies = new Movie[NUM_MOVIES];
+	long[] showTimes = new long[NUM_MOVIES];
+
+	Theatre() {
+		/*
+		 * Iniitalize showTimes
+		 */
+		DateTime d = new DateTime();
+		SimpleDateFormat df = new SimpleDateFormat();
+		df.applyPattern("yyyy-MM-dd");
+
+		try {
+			Date startDate = df.parse("2016-10-10");
+			d = new DateTime(startDate);
+		} catch (ParseException p) {
+			System.out.println(p.getMessage());
+		}
+
+		HorrorMovie h = new HorrorMovie();
+		ComedyMovie c = new ComedyMovie();
+		ThrillerMovie t = new ThrillerMovie();
+
+		for (int i = 0; i < movies.length; i++) {
+			if (i < 4) {
+				movies[i] = c;
+			} else if (i < 8) {
+				movies[i] = t;
+			} else {
+				movies[i] = h;
+			}
+
+			showTimes[i] = d.getMillis();
+			d = d.plusHours(2);
+		}
+	}
+
+	public void operateTheatre() {
+		for (int i = 0; i < movies.length; i++) {
+
+			System.out.println("\n\n It is " + new DateTime(showTimes[i]) + ".");
+
+			movies[i].collectMovieFare();
+			movies[i].playShow();
+			movies[i].affectAudience();
+
+			System.out.println("Test the equals operator");
+			System.out.println(" arr[0], arr[1] = " + movies[0].equals(movies[1]));
+			System.out.println(" arr[7], arr[8] = " + movies[7].equals(movies[8]));
+			System.out.println("Beautiful!!");
+		}
+	}
+}

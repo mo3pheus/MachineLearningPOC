@@ -1,0 +1,9 @@
+package org.sanket.codingGym.codeInJava;
+
+public class ObjectTest {
+	private class Dog{
+		void bark(){
+			System.out.println("I am a dog and I bark!!");
+		}
+	}
+}

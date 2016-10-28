@@ -1,0 +1,89 @@
+package org.sanket.codingGym.codeInJava;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.sanket.codingGym.codeInJava.domain.ListNode;
+
+public class LeetCodeSolutions {
+
+	public static void main(String[] args) {
+
+	}
+
+	/**
+	 * Definition for singly-linked list. public class ListNode { int val;
+	 * ListNode next; ListNode(int x) { val = x; }
+	 * 
+	 * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4) Output: 7 -> 0 -> 8 }
+	 */
+	public class Solution {
+		public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+			ListNode x = null;
+
+			return x;
+		}
+	}
+
+	public boolean sumPresent(int[] A, int num) {
+		boolean present = false;
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for (int i = 0; i < A.length; i++) {
+			int diff = num - A[i];
+			if (!map.containsKey(diff)) {
+				map.put(A[i], i);
+			} else {
+				present = true;
+			}
+		}
+
+		return present;
+	}
+
+	public int getNum(int[] A) {
+		int num = 0;
+		int power = A.length - 1;
+		for (int i = 0; i < A.length; i++) {
+			num += A[i] * (int) Math.pow(10.0d, power);
+			power--;
+		}
+		return num;
+	}
+	
+	public int[] parseNum(int num)
+	{
+		
+		/*
+		 * 1. find out power
+		 * for 4005 - this returns 3
+		 */
+		int pow = findPower(num);
+		
+		int[] A = new int[pow+1];
+		
+		int i=0;
+		while(pow >0 )
+		{
+			A[i] = Math.pow(10, pow);
+			
+			pow--;
+		}
+		
+		
+		
+		return null;
+	}
+	
+	public int findPower(int num)
+	{
+		int power = 0;
+		
+		while( (num / Math.pow(10.0d, power)) > 10.0d )
+		{
+			power++;
+		}
+		
+		return power;
+	}
+
+}

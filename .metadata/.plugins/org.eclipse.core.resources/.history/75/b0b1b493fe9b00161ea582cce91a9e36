@@ -1,0 +1,6 @@
+package org.sanket.codingGym.DataMining.driver;
+
+public class IrisDataDriver {
+
+	NumericalDataExtractor numericalExtractor = new NumericalDataExtractor();
+}

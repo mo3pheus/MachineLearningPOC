@@ -1,0 +1,44 @@
+package org.sanket.codingGym.codeInJava;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.sanket.codingGym.codeInJava.domain.ListNode;
+
+public class LeetCodeSolutions {
+
+	public static void main(String[] args) {
+
+	}
+	
+	/**
+	 * Definition for singly-linked list.
+	 * public class ListNode {
+	 *     int val;
+	 *     ListNode next;
+	 *     ListNode(int x) { val = x; }
+	 * }
+	 */
+	public class Solution {
+	    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+	        
+	    }
+	}
+	
+
+	public boolean sumPresent(int[] A, int num) {
+		boolean present = false;
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for (int i = 0; i < A.length; i++) {
+			int diff = num - A[i];
+			if (!map.containsKey(diff)) {
+				map.put(A[i], i);
+			} else {
+				present = true;
+			}
+		}
+
+		return present;
+	}
+
+}

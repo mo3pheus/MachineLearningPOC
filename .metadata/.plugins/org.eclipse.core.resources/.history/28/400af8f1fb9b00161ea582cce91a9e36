@@ -1,0 +1,23 @@
+package org.sanket.codingGym.DataMining.etl;
+
+import java.util.List;
+import java.io.FileFilter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import org.sanket.codingGym.DataMining.data.IrisDataPoint;
+import org.sanket.codingGym.DataMining.utilities.Environment;
+
+public class NumericalDatasetExtractor {
+	private List<IrisDataPoint> irisData = new ArrayList<IrisDataPoint>();
+	private FileFilter fileWriter;
+	private PrintWriter printWriter;
+
+	NumericalDatasetExtractor(String location){
+		location = Environment.dataLocation + "\\" + location;
+	}
+	
+	public List<IrisDataPoint> getIrisData(){
+		return irisData;
+	}
+}

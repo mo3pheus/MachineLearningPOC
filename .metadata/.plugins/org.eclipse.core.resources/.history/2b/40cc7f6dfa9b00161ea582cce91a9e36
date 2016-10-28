@@ -1,0 +1,5 @@
+package org.sanket.codingGym.DataMining.data;
+
+public class IrisDataPoint {
+
+}

@@ -1,0 +1,8 @@
+package org.sanket.codingGym.DataMining.driver;
+
+import org.sanket.codingGym.DataMining.etl.NumericalDatasetExtractor;
+
+public class IrisDataDriver {
+
+	NumericalDatasetExtractor numericalExtractor = new NumericalDataExtractor("IrisDataset\\iris.data");
+}

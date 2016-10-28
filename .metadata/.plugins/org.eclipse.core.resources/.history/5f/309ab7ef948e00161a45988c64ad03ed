@@ -1,0 +1,19 @@
+package org.sanket.codingGym.codeInJava;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ObjectTest {
+	private class Dog{
+		void bark(){
+			System.out.println("I am a dog and I bark!!");
+		}
+		
+		List<Object> list = new ArrayList<Object>();
+		
+		public static void main(String[] args)
+		{
+			
+		}
+	}
+}

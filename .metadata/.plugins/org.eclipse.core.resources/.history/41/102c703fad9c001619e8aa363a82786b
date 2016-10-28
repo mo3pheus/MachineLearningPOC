@@ -1,0 +1,10 @@
+package org.sanket.codingGym.DataMining.driver;
+
+import org.sanket.codingGym.DataMining.utilities.Environment;
+
+public class KMeansClustererDriver {
+
+	public static void main(String[] args) throws Exception{
+		KMeansClusterer clusterer = new KMeansClusterer(Environment.dataLocation + "//IrisDataset//iris.data");
+	}
+}

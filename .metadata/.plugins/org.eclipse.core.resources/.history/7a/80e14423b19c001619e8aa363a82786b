@@ -1,0 +1,22 @@
+package org.sanket.codingGym.DataMining.driver;
+
+import org.sanket.codingGym.DataMining.algorithms.KMeansClusterer;
+import org.sanket.codingGym.DataMining.utilities.Environment;
+
+import net.sf.javaml.core.Dataset;
+
+public class KMeansClustererDriver {
+
+	public static void main(String[] args) throws Exception {
+		KMeansClusterer clusterer = new KMeansClusterer(Environment.dataLocation + "//IrisDataset//iris.data", 4, ",");
+		Dataset[] clusters = clusterer.cluster();
+		int j = 1;
+		for (Dataset d : clusters) {
+			for (int i = 0; i < d.size(); i++) {
+				System.out.println(
+						" Class = " + j + " sampleId = " + d.get(i).getID() + " sample :: " + d.get(i).entrySet());
+			}
+			j++;
+		}
+	}	
+}

@@ -1,0 +1,53 @@
+package org.sanket.codingGym.DataMining.algorithms;
+
+/* general java imports */
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+/* machine learning imports */
+
+import net.sf.javaml.clustering.Clusterer;
+import net.sf.javaml.clustering.KMeans;
+import net.sf.javaml.core.Dataset;
+import net.sf.javaml.tools.data.FileHandler;
+
+/**
+ * @author sanket This class uses the machine learning library to cluster given
+ *         data
+ */
+public class KMeansClusterer {
+	Clusterer	clusterer;
+	Dataset		dataset;
+
+	public KMeansClusterer(String dataLocation, int numColumns, String delimiter) {
+		try {
+			clusterer = new KMeans();
+			dataset = FileHandler.loadDataset(new File(dataLocation), numColumns, delimiter);
+		} catch (FileNotFoundException fne) {
+			fne.printStackTrace(System.out);
+		} catch (IOException io) {
+			io.printStackTrace(System.out);
+		}
+
+		System.out.println("Dataset size = " + dataset.size());
+	}
+
+	/**
+	 * @param clusters
+	 * @param iterationLimit
+	 * @return retuns the resulting clusters
+	 * 
+	 *         This method takes the loaded dataset and returns the clustered
+	 *         datasets
+	 */
+	public Dataset[] cluster(int clusters, int iterationLimit) {
+		clusterer = new KMeans(clusters, iterationLimit);
+		return (dataset != null) ? clusterer.cluster(dataset) : null;
+	}
+	
+	public Dataset[] cluster(int clusters, int iterationLimit) {
+		clusterer = new KMeans(clusters, iterationLimit);
+		return (dataset != null) ? clusterer.cluster(dataset) : null;
+	}
+}

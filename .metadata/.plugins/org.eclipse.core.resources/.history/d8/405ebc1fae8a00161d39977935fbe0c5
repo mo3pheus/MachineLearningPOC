@@ -1,0 +1,144 @@
+package org.sanket.codingGym.codeInJava;
+
+import java.util.Random;
+
+import org.sanket.codingGym.codeInJava.domain.DotCom;
+
+public class BattleShipSimulator {
+
+	public static final int MAX_CELL_NO = 45;
+	public static final String[] SITES = { "www.pets.com", "www.games.com", "www.target.com", "www.walmart.com",
+			"www.sears.com", "www.gap.com", "www.homeDepot.com", "www.lowes.com", "www.facebook.com", "www.google.com",
+			"www.thermaltake.com", "www.gigaByte.com", "www.hp.com", "www.microsoft.com" };
+
+	public DotCom[] gameBoard = new DotCom[3];
+
+	/*
+	 * There is a bug in this code. It allows in between values e.g. 26, 27, 28
+	 * and then seed 25 will pass
+	 */
+	private boolean noConflict(int seedCell) {
+		boolean noConflict = true;
+		for (int i = 0; i < gameBoard.length; i++) {
+			int j = 0;
+			for (; j < 3; j++) {
+				if (seedCell + j >= gameBoard[i].getStartCellNo()
+						&& seedCell + j <= (gameBoard[i].getStartCellNo() + 3)) {
+					noConflict = false;
+					break;
+				}
+			}
+			if (j != 3) {
+				break;
+			}
+		}
+		return noConflict;
+	}
+	
+	private boolean hitPresent(int guessCell){
+		boolean present = false;
+		
+		for(int i=0; i<gameBoard.length; i++)
+		{
+			int[] healthyCells = gameBoard[i].getHealthyCells();
+			for(int j=0; j<healthyCells.length;j++)
+			{
+				if( healthyCells[j] == guessCell )
+				{
+					present = true;
+					break;
+				}
+			}
+			if(present)
+			{
+				break;
+			}
+		}
+		
+		return present;
+	}
+
+	private void setAffectedDotCom(int seedCell) {
+		int i = 0;
+		for (i = 0; i < gameBoard.length; i++) {
+			if (!gameBoard[i].websiteDead() && seedCell >= gameBoard[i].getStartCellNo()
+					&& seedCell <= (gameBoard[i].getStartCellNo() + 3)) {
+				gameBoard[i].placeHit(seedCell);
+				break;
+			}
+		}
+	}
+
+	/**
+	 * This is the constructor to build the battleship board.
+	 */
+	public BattleShipSimulator() {
+
+		/*
+		 * First initialize all the gameBoards
+		 */
+		for (int i = 0; i < 3; i++) {
+			gameBoard[i] = new DotCom();
+		}
+
+		/*
+		 * Build 3 websites and assign them to the gameBoard. Three random seeds
+		 * will be chosen.
+		 */
+		for (int i = 0; i < gameBoard.length; i++) {
+			Random r = new Random();
+			int seedCell = -2;
+			do {
+				seedCell = r.nextInt(MAX_CELL_NO);
+			} while (!noConflict(seedCell));
+
+			/*
+			 * There is a bug here in that the same website name can be picked
+			 * more than once.
+			 */
+			gameBoard[i].setName(SITES[r.nextInt(SITES.length - 1)]);
+			gameBoard[i].setStartCellNo(seedCell);
+			gameBoard[i].setHealthyCells();
+		}
+
+	}
+	
+	public void printGameBoard()
+	{
+		System.out.println(gameBoard[0].toString());
+		System.out.println(gameBoard[1].toString());
+		System.out.println(gameBoard[2].toString());
+	}
+
+	public boolean playGame(int guess) {
+		/*
+		 * check the guess
+		 */
+		if (hitPresent(guess)) {
+			setAffectedDotCom(guess);
+			printGameBoard();
+			return true;
+		} else {
+			//System.out.println("Sorry you missed - keep playing");
+			return false;
+		}
+	}
+
+	/**
+	 * 
+	 * @return This returns true if all three websites have been completely
+	 *         killed off.
+	 */
+	public boolean gameEnded() {
+		boolean end = true;
+
+		for (DotCom temp : gameBoard) {
+			if (!temp.websiteDead()) {
+				end = false;
+				break;
+			}
+		}
+		return end;
+	}
+
+}

@@ -1,0 +1,12 @@
+package org.sanket.codingGym.BlackBox;
+
+import org.sanket.codingGym.MatrixLogger.Logger;
+
+public class BlackBox {
+	
+	public static void main(String[] args){
+		
+		Logger logger = new Logger("BlackBox", ",");
+	}
+
+}

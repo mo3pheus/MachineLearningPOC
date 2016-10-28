@@ -1,0 +1,38 @@
+package org.sanket.codingGym.codeInJava;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
+public class StudentTest extends TestCase {
+
+	/**
+	 * Create the test case
+	 *
+	 * @param testName
+	 *            name of the test case
+	 * @return
+	 */
+	public  StudentTest(String testName) {
+		super(testName);
+	}
+
+	/**
+	 * @return the suite of tests being tested
+	 */
+	public static Test suite() {
+		return new TestSuite(StudentTest.class);
+	}
+
+	public void testRollNoEntry() {
+		Student s = new Student();
+
+		s.setRollNo(-1);
+		System.out.println("Verify that the roll number is not set.");
+		assertTrue(s.getRollNo() == 0);
+
+		s.setRollNo(234);
+		System.out.println("Verify that the roll number is set to 234.");
+		assertTrue(s.getRollNo() == 234);
+	}
+}

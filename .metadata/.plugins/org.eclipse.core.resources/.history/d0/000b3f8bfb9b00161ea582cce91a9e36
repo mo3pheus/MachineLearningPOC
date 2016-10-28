@@ -1,0 +1,15 @@
+package org.sanket.codingGym.DataMining.etl;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import org.sanket.codingGym.DataMining.data.IrisDataPoint;
+import org.sanket.codingGym.DataMining.utilities.Environment;
+
+public class NumericalDatasetExtractor {
+	List<IrisDataPoint> irisData = new ArrayList<IrisDataPoint>();
+
+	NumericalDatasetExtractor(String location){
+		location = Environment.dataLocation + "\\" + location;
+	}
+}

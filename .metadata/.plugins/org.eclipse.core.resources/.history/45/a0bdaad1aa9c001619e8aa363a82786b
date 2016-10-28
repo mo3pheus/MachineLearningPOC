@@ -1,0 +1,14 @@
+package org.sanket.codingGym.DataMining.algorithms;
+
+import net.sf.javaml.clustering.Clusterer;
+import net.sf.javaml.clustering.KMeans;
+
+public class KMeansClusterer {
+	Clusterer clusterer;
+	
+	
+	KMeansClusterer(String dataLocation){
+		
+	}
+
+}
