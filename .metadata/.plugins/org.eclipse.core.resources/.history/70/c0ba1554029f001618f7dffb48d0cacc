@@ -1,0 +1,16 @@
+package internal.tools.machine.learning;
+
+message DatasetProto{
+
+message FeatureCell{
+	required int32 key=1;
+	required double value=2;
+}
+
+message Sample{
+	required FeatureCell samplePoint;
+	optional int32 classId;
+}
+
+required repeated Sample sampleDataset=1;
+}

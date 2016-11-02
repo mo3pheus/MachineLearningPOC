@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+package org.sanket.codingGym.DataMining.algorithms;
+
+/**
+ * @author sanket
+ *
+ */
+public class GenericClusterer {
+	
+	Dataset data = null;
+	
+	public GenericClusterer(String datasourcePath){
+		
+	}
+
+}

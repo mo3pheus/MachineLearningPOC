@@ -1,0 +1,40 @@
+package org.sanket.codingGym.DataMining.driver;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.sanket.codingGym.DataMining.data.IrisDataPoint;
+import org.sanket.codingGym.DataMining.etl.NumericalDatasetExtractor;
+
+public class IrisDataDriver {
+
+	public static void main(String[] args) throws IOException {
+		NumericalDatasetExtractor numericalExtractor = new NumericalDatasetExtractor("IrisDataset/iris.data");
+		
+		try {
+			fileReader = new FileReader(location);
+		} catch (FileNotFoundException nfe) {
+			nfe.printStackTrace(System.out);
+		}
+
+		bufferedReader = new BufferedReader(fileReader);
+		String line = null;
+		try {
+			line = bufferedReader.readLine();
+			while (line != null) {
+				IrisDataPoint dataPoint = new IrisDataPoint(line, ",");
+				irisData.add(dataPoint);
+				line = bufferedReader.readLine();
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		bufferedReader.close();
+		fileReader.close();
+
+	}
+}

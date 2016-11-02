@@ -1,0 +1,12 @@
+package org.sanket.codingGym.DataMining;
+
+import org.sanket.codingGym.DataMining.algorithms.GenericClusterer;
+
+public class GenericClusteringTest {
+	
+	public static void main(String[] args) {
+	GenericClusterer gc = new GenericClusterer("", 4, ",");
+	
+	
+	}
+}

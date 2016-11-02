@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package org.sanket.codingGym.DataMining.algorithms;
+
+/**
+ * @author sanket
+ *
+ */
+public class GenericClusterer {
+
+}

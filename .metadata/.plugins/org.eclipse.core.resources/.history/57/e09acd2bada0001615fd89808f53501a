@@ -1,0 +1,14 @@
+package org.sanket.codingGym.DataMining;
+
+import org.sanket.codingGym.DataMining.algorithms.GenericClusterer;
+
+public class GenericClusteringTest {
+
+	public static void main(String[] args) {
+		GenericClusterer gc = new GenericClusterer(
+				"/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/DataMining/src/main/resources/datasets/IrisDataset/iris.data",
+				4, ",");
+		gc.KMeansClustering();
+		gc.DBSClustering();
+	}
+}

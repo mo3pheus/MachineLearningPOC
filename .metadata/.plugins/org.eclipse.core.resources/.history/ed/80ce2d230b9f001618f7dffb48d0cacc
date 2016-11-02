@@ -1,0 +1,9 @@
+package org.sanket.codingGym.TestInsanity;
+
+/**
+ * @author sanket This class uses the machine learning library to cluster given
+ *         data
+ */
+public class KMeansClusterer {
+
+}

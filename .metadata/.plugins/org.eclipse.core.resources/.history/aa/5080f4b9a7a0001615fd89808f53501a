@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package org.sanket.codingGym.DataMining.algorithms;
+
+import net.sf.javaml.core.Dataset;
+import net.sf.javaml.sampling.Sampling;
+import net.sf.javaml.sampling.SamplingMethod;
+
+/**
+ * @author sanket
+ *
+ */
+public class GenericClusterer {
+	
+	Dataset data = null;
+	
+	public GenericClusterer(String datasourcePath){
+		
+	}
+
+}

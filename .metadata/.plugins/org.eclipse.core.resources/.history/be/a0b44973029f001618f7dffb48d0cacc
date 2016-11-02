@@ -1,0 +1,19 @@
+package internal.tools.machine.learning;
+
+message Pair{ // a single cell within a sample
+	required int32 key=1;
+	required double value=2;
+}
+
+message Sample{
+	required repeated Pair samplePoint; // represents an n-dimensional sample point 
+	optional int32 classId; // samples can be optionally labeled with a classification
+}
+
+message SampleDataset{
+	required repeated Sample sampleDataset=1; // has a list of one or more samples
+	optional string classificationKey=2; // a string that acts like a key to look up what classId stands for
+	optional string datasetId=3; // a string representing the name of the dataset 
+}
+
+

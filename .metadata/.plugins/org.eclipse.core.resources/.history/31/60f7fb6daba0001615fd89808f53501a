@@ -1,0 +1,10 @@
+package org.sanket.codingGym.DataMining;
+
+public class GenericClusteringTest {
+	
+	public static void main(String[] args) {
+	GenericClusterer gc = new GenericClustrer();
+	
+	
+	}
+}
