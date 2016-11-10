@@ -1,9 +1,0 @@
-package org.sanket.codingGym.DataMining.etl;
-
-import java.util.List;
-import java.util.ArrayList;
-
-public class NumericalDatasetExtractor {
-	List<IrisDataPoint> irisData = new ArrayList<IrisDataPoint>();
-
-}

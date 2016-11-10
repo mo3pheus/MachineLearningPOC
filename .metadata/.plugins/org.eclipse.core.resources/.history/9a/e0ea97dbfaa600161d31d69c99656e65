@@ -1,0 +1,11 @@
+package org.sanket.codingGym.DataMining.algorithms.classification;
+
+public class GenericClassifier {
+	
+	private Dataset inputData;
+	
+	public GenericClassifier(Dataset data){
+		this.inputData = data;
+	}
+
+}

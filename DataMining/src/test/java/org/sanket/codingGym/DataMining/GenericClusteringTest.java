@@ -1,6 +1,6 @@
 package org.sanket.codingGym.DataMining;
 
-import org.sanket.codingGym.DataMining.algorithms.GenericClusterer;
+import org.sanket.codingGym.DataMining.algorithms.clustering.GenericClusterer;
 
 public class GenericClusteringTest {
 
