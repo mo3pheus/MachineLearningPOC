@@ -1,0 +1,10 @@
+package internal.tools.machine.learning;
+
+message Pair{ // a single cell within a sample
+	required int32 key=1;
+	required double value=2;
+}
+
+
+
+
