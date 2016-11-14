@@ -1,0 +1,18 @@
+package org.sanket.codingGym.DataMining.utilities;
+
+import internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto;
+import net.sf.javaml.core.Dataset;
+import net.sf.javaml.core.DefaultDataset;
+
+public class DatasetToProtoConverter {
+	
+	public static Dataset fromProtoToDataset(DatasetProto proto){
+		Dataset data = new DefaultDataset();
+		
+		List<Sample> sample = proto.getSamplesList();
+		//proto.get
+		
+		return data;
+	}
+
+}

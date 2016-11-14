@@ -8077,3 +8077,14 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp
 
 !ENTRY org.eclipse.core.resources 2 10035 2016-11-10 20:55:20.043
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2016-11-13 22:31:16.404 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2016-11-13 23:45:13.003
+!MESSAGE PROTOC: [libprotobuf WARNING google/protobuf/compiler/java/java_file.cc:197] DatasetProto.proto: The default outer class name, "DatasetProto", conflicts with a type declared in the proto file and an alternative outer class name is used: "DatasetProtoOuterClass". To avoid this warning, please use the java_outer_classname option to specify a different outer class name for the .proto file.
+

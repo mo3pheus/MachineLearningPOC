@@ -1,0 +1,31 @@
+package org.sanket.codingGym.DataMining.utilities;
+
+import java.util.List;
+
+import be.abeel.util.Pair;
+import internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto;
+import internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto.Sample;
+import net.sf.javaml.core.Dataset;
+import net.sf.javaml.core.DefaultDataset;
+import net.sf.javaml.core.DenseInstance;
+import net.sf.javaml.core.Instance;
+import net.sf.javaml.tools.InstanceTools;
+
+public class DatasetToProtoConverter {
+	
+	public static Dataset fromProtoToDataset(DatasetProto proto){
+		Dataset data = new DefaultDataset();
+		
+		List<Sample> samples = proto.getSamplesList();
+		for(Sample s: samples){
+			List<Pair> dataPoints = s.getInputVectorList();
+			Instance i = new DenseInstance(dataPoints.size());
+		}
+		
+		//Instance i = InstanceTools.;
+		//proto.get
+		
+		return data;
+	}
+
+}

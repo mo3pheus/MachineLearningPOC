@@ -1,0 +1,47 @@
+package org.sanket.codingGym.DataMining.utilities;
+
+import java.util.List;
+
+import internal.tools.machine.learning.DatasetProtoOuterClass;
+import internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto;
+import internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto.Pair;
+import internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto.Sample;
+import net.sf.javaml.core.Dataset;
+import net.sf.javaml.core.DefaultDataset;
+import net.sf.javaml.core.DenseInstance;
+import net.sf.javaml.core.Instance;
+import net.sf.javaml.tools.InstanceTools;
+
+public class DatasetToProtoConverter {
+	
+	public static Dataset fromProtoToDataset(DatasetProto proto){
+		Dataset data = new DefaultDataset();
+		
+		List<Sample> samples = proto.getSamplesList();
+		for(Sample s: samples){
+			List<Pair> dataPoints = s.getInputVectorList();
+			double[] vals = new double[dataPoints.size()];
+			for(int j=0; j < dataPoints.size(); j++){
+				vals[j] = dataPoints.get(j).getValue();
+			}
+			Instance i = new DenseInstance(vals);
+			i.setClassValue(s.getClassId());
+			data.add(i);
+		}
+		
+		return data;
+	}
+	
+	public static DatasetProto fromDatasetToProto(Dataset data){
+		DatasetProto.Builder builder = DatasetProto.newBuilder();
+		for(int i = 0; i < data.size(); i++){
+			Instance instance = data.get(i);
+			for(int j = 0; j < instance.entrySet().size(); j++ ){
+				lder sampleBuilder = DatasetProto.Sample.newBuilder();
+				builder.setSamples(i, s);
+				
+			}
+		}
+	}
+
+}
