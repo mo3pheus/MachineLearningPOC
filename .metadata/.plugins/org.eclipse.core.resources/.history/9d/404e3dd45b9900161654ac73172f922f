@@ -1,9 +1,0 @@
-package org.sanket.codingGym.BlackBox;
-
-public class BlackBox {
-	
-	public static void main(String[] args){
-		//Logger logger = null;
-	}
-
-}

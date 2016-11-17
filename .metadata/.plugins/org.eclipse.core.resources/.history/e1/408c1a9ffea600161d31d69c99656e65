@@ -1,0 +1,16 @@
+package org.sanket.codingGym.DataMining;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import net.sf.javaml.core.Dataset;
+import net.sf.javaml.tools.data.FileHandler;
+
+public class ClassificationTest {
+
+	public static void main(String[] args){
+		/* datasets/IrisDataset/iris.data */
+		GenericClassifier gc = new GenericClassifier();
+	}
+}

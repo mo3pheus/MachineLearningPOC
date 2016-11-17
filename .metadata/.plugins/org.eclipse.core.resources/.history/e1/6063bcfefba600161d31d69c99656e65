@@ -1,0 +1,24 @@
+package org.sanket.codingGym.DataMining.algorithms.classification;
+
+import net.sf.javaml.core.Dataset;
+
+import net.sf.javaml.classification.KNearestNeighbors;
+import net.sf.javaml.sampling.Sampling;
+import net.sf.javaml.sampling.SamplingMethod;
+
+public class GenericClassifier {
+	
+	private Pair<Dataset,Dataset> inputData;
+	private KNearestNeighbors knn;
+	
+	public GenericClassifier(Dataset data, int classes){
+		Sampling s = Sampling.SubSampling;
+		this.inputData = ;
+		this.knn = new KNearestNeighbors(classes);
+	}
+	
+	public void buildClassifier(){
+		
+	}
+
+}

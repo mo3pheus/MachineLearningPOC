@@ -1,0 +1,22 @@
+package internal.tools.machine.learning;
+
+message DatasetProto{ // a set of samples
+
+message Pair{ // a single cell within a sample
+	required int32 key=1;
+	required double value=2;
+}
+
+message Sample{ // one sample input vector
+	required repeated Pair inputVector=1;
+	optional string classId=2;
+}
+
+	required repeated Sample samples=1;
+	optional repeated string schema=2;
+	optional string notes=3;
+	optional string datasetName=4;
+}
+
+
+

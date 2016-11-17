@@ -1,0 +1,12 @@
+package org.sanket.codingGym.DataMining.utilities;
+
+import DatasetProto;
+
+public class DatasetToProtoConverter {
+	
+	public static Dataset fromProtoToDataset(){
+		Dataset x = null;
+		return x;
+	}
+
+}

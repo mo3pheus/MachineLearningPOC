@@ -1,0 +1,13 @@
+package org.sanket.codingGym.DataMining.utilities;
+
+import DatasetProtoOuterClass;
+import net.sf.javaml.core.Dataset;
+
+public class DatasetToProtoConverter {
+	
+	public static Dataset fromProtoToDataset(){
+		Dataset x = null;
+		return x;
+	}
+
+}

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
 	<item value="3" key="TypeHierarchyViewPart.orientation"/>
-	<item value="0" key="org.eclipse.jdt.uiformatter_page.white_space_tab_page.node"/>
-	<item value="1183" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
-	<item value="1014" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
 	<item value="228" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_x"/>
 	<item value="24" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_y"/>
 	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
-	<item value="1" key="org.eclipse.jdt.uiformatter_page.line_wrapping_tab_page.last_category_index"/>
-	<item value="0" key="org.eclipse.jdt.uiformatter_page.white_space.java_view.inner"/>
 	<item value="4" key="org.eclipse.jdt.uiformatter_page.modify_dialog_tab_page.last_focus_index"/>
 	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
+	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
+	<item value="0" key="org.eclipse.jdt.uiformatter_page.white_space_tab_page.node"/>
+	<item value="1183" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
+	<item value="1014" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
+	<item value="1" key="org.eclipse.jdt.uiformatter_page.line_wrapping_tab_page.last_category_index"/>
+	<item value="/home/sanket/Documents/Tools/javaml-0.1.7/lib" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="0" key="org.eclipse.jdt.uiformatter_page.white_space.java_view.inner"/>
 	<section name="javadoc">
 		<item value="public" key="access"/>
 		<item value="false" key="noindex"/>
@@ -62,6 +63,9 @@
 		<item value="620" key="DIALOG_HEIGHT"/>
 		<item value="583" key="DIALOG_X_ORIGIN"/>
 		<item value="129" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="2" key="pageIndex"/>
 	</section>
 	<section name="completion_proposal_size">
 		<item value="238" key="size.y"/>

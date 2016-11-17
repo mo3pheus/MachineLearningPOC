@@ -1,6 +1,6 @@
 package org.sanket.codingGym.DataMining.driver;
 
-import org.sanket.codingGym.DataMining.algorithms.KMeansClusterer;
+import org.sanket.codingGym.DataMining.algorithms.clustering.KMeansClusterer;
 import org.sanket.codingGym.DataMining.utilities.Environment;
 
 import net.sf.javaml.core.Dataset;

@@ -1,0 +1,9 @@
+package org.sanket.codingGym.DataMining;
+
+public class DatasetProtoConversionTest {
+	
+	public static void main(String[] args){
+		//Get the data into a dataset.
+	}
+
+}

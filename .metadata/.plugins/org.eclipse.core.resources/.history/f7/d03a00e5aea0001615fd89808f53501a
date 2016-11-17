@@ -1,0 +1,30 @@
+package org.sanket.codingGym.DataMining;
+
+import org.sanket.codingGym.DataMining.algorithms.GenericClusterer;
+
+public class GenericClusteringTest {
+
+	private static final String separator = "=========================================================================";
+	
+	public static void main(String[] args) {
+		System.out.println(" IrisData ");
+		GenericClusterer gc = new GenericClusterer(
+				"/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/DataMining/src/main/resources/datasets/IrisDataset/iris.data",
+				4, ",");
+		gc.KMeansClustering();
+		gc.DBSClustering();
+		
+		gc = new GenericClusterer(
+				"/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/DataMining/src/main/resources/datasets/SensorReadings/sensor_readings_2.data",
+				2, ",");
+		gc.KMeansClustering();
+		// Not a good idea on this dataset.
+		//gc.DBSClustering();
+		
+		gc = new GenericClusterer(
+				"/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/DataMining/src/main/resources/datasets/ArabicDigits/Train_Arabic_Digits.txt",
+				13, " ");
+		gc.KMeansClustering();
+		gc.DBSClustering();
+	}
+}

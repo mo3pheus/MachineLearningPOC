@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DataMining/src/main/proto&apos; to &apos;protobuf&apos;" description="Rename resource &apos;proto&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/proto" name="protobuf" stamp="1477876685050" updateReferences="true"/>
+</session>
