@@ -14,4 +14,19 @@
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.sanket.codingGym.MatrixLogger.Logger"/>
+<fullyQualifiedTypeName name="net.sf.javaml.core.Dataset"/>
+<fullyQualifiedTypeName name="net.sf.javaml.core.DefaultDataset"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="net.sf.javaml.core.Instance"/>
+<fullyQualifiedTypeName name="net.sf.javaml.tools.InstanceTools"/>
+<fullyQualifiedTypeName name="net.sf.javaml.core.DenseInstance"/>
+<fullyQualifiedTypeName name="be.abeel.util.Pair"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto.Pair"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProtoOrBuilder"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto.Builder"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto.Sample"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto.Pair.Builder"/>
+<fullyQualifiedTypeName name="org.sanket.codingGym.DataMining.utilities.DatasetToProtoConverter"/>
 </qualifiedTypeNameHistroy>

@@ -17,10 +17,20 @@ public class DatasetProtoConversionTest {
 		System.out.println(DatasetToProtoConverter.fromDatasetToProto(input));
 		System.out.println("================================================");
 		Dataset x = DatasetToProtoConverter.fromProtoToDataset((DatasetToProtoConverter.fromDatasetToProto(input)));
-		for( int i = 0; i < x.size(); i++){
-			System.out.println(x.get(i).entrySet() + (String)x.get(i).classValue());
+		for (int i = 0; i < x.size(); i++) {
+			System.out.println(x.get(i).entrySet() + (String) x.get(i).classValue());
 		}
-		
+
+		// Sensor readings dataset
+		location = "/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/DataMining/src/main/resources/datasets/SensorReadings/sensor_readings_2.data";
+		input = FileHandler.loadDataset(new File(location), 2, ",");
+		System.out.println(DatasetToProtoConverter.fromDatasetToProto(input));
+		System.out.println("================================================");
+		x = DatasetToProtoConverter.fromProtoToDataset((DatasetToProtoConverter.fromDatasetToProto(input)));
+		for (int i = 0; i < x.size(); i++) {
+			System.out.println(x.get(i).entrySet() + (String) x.get(i).classValue());
+		}
+
 	}
 
 }
