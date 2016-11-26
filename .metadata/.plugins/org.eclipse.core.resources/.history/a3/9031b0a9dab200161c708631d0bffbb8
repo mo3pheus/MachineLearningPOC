@@ -1,0 +1,27 @@
+package maze.environment;
+
+import java.awt.Graphics2D;
+
+public class Wall {
+	private int[]		definition	= new int[4];
+	private Graphics2D	g2;
+
+	public Wall(Graphics2D g, int[] definition) {
+		if (definition.length == 4) {
+			this.definition = definition;
+			this.g2 = g2;
+		}
+
+		/*
+		 * Draw the rectangle
+		 * 
+		 * points are (x0,y0) (x0,y1) (x1,y0) (x1,y1)
+		 */
+		this.g2.drawRect(definition[0], definition[1], definition[2], definition[3]);
+	}
+
+	public Graphics2D getGraphics() {
+		return g2;
+	}
+
+}

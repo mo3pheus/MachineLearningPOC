@@ -1,0 +1,91 @@
+package maze.environment;
+
+import java.util.Properties;
+
+import maze.environment.Wall.IllegalWallDefinitionException;
+
+import java.awt.*;
+
+public class Maze {
+	private static final String	FRAME_HEIGHT_PROPERTY	= "maze.environment.frame.height";
+	private static final String	FRAME_WIDTH_PROPERTY	= "maze.environment.frame.width";
+	private static final String	CELL_WIDTH_PROPERTY		= "maze.environment.cell.width";
+	private static final String	NUM_WALLS_PROPERTY		= "maze.environment.num.walls";
+	private static final String	WALL_DEFS_PROPERTY		= "maze.environment.wall.definitions";
+	private static final String	START_POSN_PROPERTY		= "maze.environment.start.position";
+	private static final String	DESTN_POSN_PROPERTY		= "maze.environment.destination.position";
+
+	private String				wallDef;
+	private int					frameHeight;
+	private int					frameWidth;
+	private int					cellWidth;
+	private int					numWalls;
+	private Point				startPosn;
+	private Point				destPosn;
+
+	private Wall[]				walls;
+	private Graphics2D			g2;
+	private Frame				frame;
+
+	/**
+	 * @param properties
+	 * 
+	 *            The following properties are essential.
+	 *            "maze.environment.frame.height",
+	 *            "maze.environment.frame.width", "maze.environment.cell.width",
+	 *            "maze.environment.num.walls",
+	 *            "maze.environment.wall.definitions";
+	 */
+	public Maze(Properties properties) {
+		/*
+		 * Collect properties for maze defintion
+		 */
+		this.frameHeight = Integer.parseInt(properties.getProperty(FRAME_HEIGHT_PROPERTY));
+		this.frameWidth = Integer.parseInt(properties.getProperty(FRAME_WIDTH_PROPERTY));
+		this.cellWidth = Integer.parseInt(properties.getProperty(CELL_WIDTH_PROPERTY));
+		this.numWalls = Integer.parseInt(properties.getProperty(NUM_WALLS_PROPERTY));
+
+		/*
+		 * Define walls and travelCells
+		 */
+		defineEndPoints(properties.getProperty(START_POSN_PROPERTY), properties.getProperty(DESTN_POSN_PROPERTY));
+
+		/*
+		 * Instantiate essentials
+		 */
+		this.frame = new Frame();
+		this.g2 = (Graphics2D) this.frame.getGraphics();
+	}
+
+	private void defineWalls(String wallDef) throws IllegalWallDefinitionException {
+		this.walls = new Wall[this.numWalls];
+
+		int[] walParams = new int[4];
+		String[] walParamStr = wallDef.split(",");
+
+		if (walParams.length != walParamStr.length) {
+			System.out.println(" Wall params and wall Prop string are incompatible.");
+		}
+
+		for (int i = 0; i < walParams.length; i++) {
+			walParams[i] = Integer.parseInt(walParamStr[i]);
+		}
+
+		for (int i = 0; i < numWalls; i++) {
+			walls[i] = new Wall(frame, walParams);
+		}
+	}
+
+	private void defineEndPoints(String startDef, String endDef) {
+		this.startPosn = new Point(Integer.parseInt(startDef.split(",")[0]), Integer.parseInt(startDef.split(",")[1]));
+		this.destPosn = new Point(Integer.parseInt(endDef.split(",")[0]), Integer.parseInt(endDef.split(",")[1]));
+	}
+
+	public void renderMaze() {
+		/*
+		 * 1) Draw the frame 2) draw the grid lines 3) draw the walls 4) set
+		 * originCar 5) set destinationCell
+		 */
+	}
+
+}

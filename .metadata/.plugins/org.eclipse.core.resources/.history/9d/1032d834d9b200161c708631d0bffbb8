@@ -1,0 +1,6 @@
+package maze.environment;
+
+public class Wall {
+	private int[4] bounds;
+
+}

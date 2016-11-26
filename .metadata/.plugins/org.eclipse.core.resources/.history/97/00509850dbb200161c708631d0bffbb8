@@ -1,0 +1,13 @@
+package maze.environment;
+
+import java.util.Properties;
+import java.awt.*;
+
+public class Maze {
+	private int frameHeight;
+	private int frameWidth;
+	private int cellWidth;
+	private int numWalls;
+	
+	
+}

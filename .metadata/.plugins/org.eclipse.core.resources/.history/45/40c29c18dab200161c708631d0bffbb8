@@ -1,0 +1,26 @@
+package maze.environment;
+
+import java.awt.Graphics2D;
+
+public class Wall {
+	private int[] bounds = new int[4];
+	private Graphics2D g2;
+	
+	public Wall(Graphics2D g, int[]bounds){
+		if(bounds.length == 4){
+			this.bounds = bounds;
+			this.g2 = g2;
+		}
+		
+		/*
+		 * Draw the rectangle
+		 */
+		int x0,x1,y0,y1;
+		
+	}
+	
+	public Graphics2D getGraphics(){
+		return g2;
+	}
+
+}

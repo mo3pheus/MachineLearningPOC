@@ -1,0 +1,28 @@
+package maze.environment;
+
+import java.util.Properties;
+import java.awt.*;
+
+public class Maze {
+	private static final String	FRAME_HEIGHT_PROPERTY	= "maze.environment.frame.height";
+	private static final String	FRAME_WIDTH_PROPERTY	= "maze.environment.frame.width";
+	private static final String	CELL_WIDTH_PROPERTY		= "maze.environment.cell.width";
+	private static final String	NUM_WALLS_PROPERTY		= "maze.environment.num.walls";
+
+	private int					frameHeight;
+	private int					frameWidth;
+	private int					cellWidth;
+	private int					numWalls;
+
+	private Wall[]				walls;
+	private Graphics2D			g2;
+	private Frame				frame;
+
+	public Maze(Properties properties) {
+		this.frameHeight = Integer.parseInt(properties.getProperty(FRAME_HEIGHT_PROPERTY));
+		this.frameWidth = Integer.parseInt(properties.getProperty(FRAME_WIDTH_PROPERTY));
+		this.cellWidth = Integer.parseInt
+		
+	}
+
+}

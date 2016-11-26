@@ -1,0 +1,17 @@
+package maze.environment;
+
+import java.io.File;
+import java.io.FileReader;
+import java.util.Properties;
+
+public class MazeDriver {
+	
+	Properties mazeProperties = new Properties();
+	
+	public static void main(String[] args) throws Exception{
+		File propFile = new File("");
+		mazeProperties = FileReader
+		
+	}
+
+}

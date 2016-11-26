@@ -1,0 +1,65 @@
+package org.sanket.codingGym.SwingSet;
+
+import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+public class DrawAndFillApplication extends Frame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private class Listener implements WindowListener{
+
+		public void windowActivated(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void windowClosed(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void windowClosing(WindowEvent e) {
+			// TODO Auto-generated method stub
+			dispose();
+			System.exit(0);
+		}
+
+		public void windowDeactivated(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void windowDeiconified(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void windowIconified(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void windowOpened(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
+	private Listener listener = new Listener();
+
+	public static void main(String[] args){
+		new DrawAndFillApplication();
+	}
+	
+	public DrawAndFillApplication(){
+		super("My Playground");
+		
+		this.setVisible(true);
+		this.setSize(600, 600);
+		this.addWindowListener(listener);
+	}
+}

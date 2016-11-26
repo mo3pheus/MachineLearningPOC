@@ -1,0 +1,10 @@
+package maze.environment;
+
+public class Wall {
+	private int[] bounds = new int[4];
+	
+	public Wall(Graphics2D g){
+		
+	}
+
+}

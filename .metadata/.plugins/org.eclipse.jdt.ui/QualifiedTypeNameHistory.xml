@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="junit.framework.TestCase"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.io.PrintStream"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
@@ -8,10 +7,32 @@
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="junit.framework.Test"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="java.io.FileReader"/>
 <fullyQualifiedTypeName name="java.nio.file.Files"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.sanket.codingGym.MatrixLogger.Logger"/>
+<fullyQualifiedTypeName name="net.sf.javaml.core.Dataset"/>
+<fullyQualifiedTypeName name="net.sf.javaml.core.DefaultDataset"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="net.sf.javaml.core.Instance"/>
+<fullyQualifiedTypeName name="net.sf.javaml.tools.InstanceTools"/>
+<fullyQualifiedTypeName name="net.sf.javaml.core.DenseInstance"/>
+<fullyQualifiedTypeName name="be.abeel.util.Pair"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto.Pair"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProtoOrBuilder"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto.Builder"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto.Sample"/>
+<fullyQualifiedTypeName name="internal.tools.machine.learning.DatasetProtoOuterClass.DatasetProto.Pair.Builder"/>
+<fullyQualifiedTypeName name="org.sanket.codingGym.DataMining.utilities.DatasetToProtoConverter"/>
+<fullyQualifiedTypeName name="junit.framework.TestCase"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.awt.Point"/>
+<fullyQualifiedTypeName name="java.awt.Window"/>
+<fullyQualifiedTypeName name="java.awt.event.WindowListener"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
 </qualifiedTypeNameHistroy>

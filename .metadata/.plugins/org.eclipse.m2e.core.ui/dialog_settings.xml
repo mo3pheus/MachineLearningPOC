@@ -64,6 +64,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/GraphLab"/>
 			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/MatrixLogger"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -77,6 +78,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="org.sanket.codingGym.SwingSet"/>
 			<item value="org.sanket.codingGym.BlackBox"/>
 			<item value="org.sanket.codingGym.MatrixLogger"/>
 			<item value="org.sanket.codingGym.codeInJava"/>
@@ -85,6 +87,7 @@
 			<item value="org.sanket.codingGym"/>
 		</list>
 		<list key="artifactId">
+			<item value="SwingSet"/>
 			<item value="BlackBox"/>
 			<item value="MatrixLogger"/>
 			<item value="codeInJava"/>

@@ -1,0 +1,24 @@
+package org.sanket.codingGym.SwingSet;
+
+import java.awt.Color;
+
+import javax.swing.*;
+
+public class WindowMaker {
+	
+	public static void main(String[] args){
+		JFrame frame = new JFrame();
+		JButton button = new JButton("clickMe");
+		button.setForeground(new Color(255,0,0));
+		button.setSize(40, 20);
+		button.addMouseListener(l);
+		frame.getContentPane().add(button);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(800, 400);
+		frame.setVisible(true);
+	}
+	
+	public static void changeIt(JButton button){
+		button.setText("I am changed!");
+	}
+}

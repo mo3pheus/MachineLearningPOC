@@ -1,0 +1,5 @@
+package maze.environment;
+
+public class MazeDriver {
+
+}
