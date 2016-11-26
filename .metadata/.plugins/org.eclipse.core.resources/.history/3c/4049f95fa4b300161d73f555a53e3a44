@@ -1,0 +1,34 @@
+package maze.environment;
+
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.geom.Area;
+
+public class AlertCell {
+	int			width;
+	int			height;
+	Point		location;
+	Rectangle	alertCell;
+	Area		area;
+	Color		color;
+
+	public AlertCell(int width, int height, Point location, Color color) {
+		this.width = width;
+		this.height = height;
+		this.location = location;
+		this.alertCell = new Rectangle(location.x, location.y, width, height);
+		this.area = new Area(alertCell);
+	}
+
+	public Area getArea() {
+		return area;
+	}
+
+	public Rectangle returnCell() {
+		return alertCell;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+}

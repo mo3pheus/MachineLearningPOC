@@ -1,5 +1,6 @@
 package maze.environment;
 
+import java.awt.Color;
 import java.awt.Frame;
 import java.awt.geom.Rectangle2D;
 
@@ -17,6 +18,8 @@ public class Wall {
 			super(message);
 		}
 	}
+
+	public static final Color WALL_COLOR = Color.darkGray;
 
 	public Wall(Frame frame, int[] definition) throws IllegalWallDefinitionException {
 		if (definition.length == 4 || definition[0] + definition[3] >= frame.getWidth()

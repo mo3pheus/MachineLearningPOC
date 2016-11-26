@@ -1,0 +1,20 @@
+package maze.environment;
+
+import java.awt.Point;
+import java.awt.Rectangle;
+
+public class AlertCell {
+	int width;
+	int height;
+	Point location;
+	Rectangle alertCell;
+	Area area;
+	
+	public AlertCell(int width, int height, Point location){
+		this.width = width;
+		this.height = height;
+		this.location = location;
+		this.alertCell = new Rectangle(location.x, location.y, width, height);
+		this.area = new Area(alertCell);
+	}
+}

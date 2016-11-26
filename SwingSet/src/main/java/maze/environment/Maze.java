@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import maze.environment.Wall.IllegalWallDefinitionException;
 
 import java.awt.*;
+import java.awt.geom.Area;
 import java.awt.geom.Line2D;
 import java.io.FileInputStream;
 
@@ -24,18 +25,18 @@ public class Maze extends Frame {
 	private static final String	START_POSN_PROPERTY		= "maze.environment.start.position";
 	private static final String	DESTN_POSN_PROPERTY		= "maze.environment.destination.position";
 
+	private static final Color	GRID_COLOR				= Color.lightGray;
+
 	private List<Pair>			gridPoints;
-	private String				wallDef;
 	private int					frameHeight;
 	private int					frameWidth;
 	private int					cellWidth;
 	private int					numWalls;
-	private Point				startPosn;
-	private Point				destPosn;
+
+	private AlertCell			origin;
+	private AlertCell			destination;
 
 	private Wall[]				walls;
-	private Line2D[]			grid;
-	private Graphics2D			g2;
 	private MazeListener		mazeListener			= new MazeListener();
 
 	/**
@@ -52,7 +53,7 @@ public class Maze extends Frame {
 		 * Call parent
 		 */
 		super("ROBO-MAZE");
-		
+
 		/*
 		 * Collect properties for maze definition
 		 */
@@ -67,8 +68,8 @@ public class Maze extends Frame {
 		this.gridPoints = new ArrayList<Pair>();
 		this.setVisible(true);
 		this.setName("RoboMaze");
-		//System.out.println(" width = " + getWidth() + " height = " + getHeight());
-		//this.addWindowListener(mazeListener);
+		
+		this.addWindowListener(mazeListener);
 
 		/*
 		 * Define walls, gridPoints, travelCells
@@ -104,8 +105,10 @@ public class Maze extends Frame {
 	}
 
 	private void defineEndPoints(String startDef, String endDef) {
-		this.startPosn = new Point(Integer.parseInt(startDef.split(",")[0]), Integer.parseInt(startDef.split(",")[1]));
-		this.destPosn = new Point(Integer.parseInt(endDef.split(",")[0]), Integer.parseInt(endDef.split(",")[1]));
+		Point startPosn = new Point(Integer.parseInt(startDef.split(",")[0]), Integer.parseInt(startDef.split(",")[1]));
+		Point destPosn = new Point(Integer.parseInt(endDef.split(",")[0]), Integer.parseInt(endDef.split(",")[1]));
+		origin = new AlertCell(2 * cellWidth, 2 * cellWidth, startPosn, Color.cyan);
+		destination = new AlertCell(2 * cellWidth, 2 * cellWidth, destPosn, Color.green);
 	}
 
 	private void defineGrid() {
@@ -120,7 +123,9 @@ public class Maze extends Frame {
 		}
 	}
 
-	public void renderMaze(Graphics2D g2) {
+	private void drawGrid(Graphics2D g2) {
+		g2.setColor(GRID_COLOR);
+
 		/*
 		 * Draw the grid
 		 */
@@ -135,35 +140,103 @@ public class Maze extends Frame {
 			g2.drawLine((int) linePoints.getA().getX(), (int) linePoints.getA().getY(), (int) linePoints.getB().getX(),
 					(int) linePoints.getB().getY());
 		}
-		
+	}
+
+	private void drawWalls(Graphics2D g2) {
+		g2.setColor(Wall.WALL_COLOR);
+
 		/*
 		 * Draw walls
 		 */
-		for(int i = 0; i<walls.length; i++){
+		for (int i = 0; i < walls.length; i++) {
 			g2.setColor(Color.darkGray);
 			g2.fill(walls[i].getWall());
 		}
-		
+	}
+
+	private void drawAlertCells(Graphics2D g2) {
 		/*
 		 * Draw start and end positions
 		 */
-		g2.setColor(Color.cyan);
-		g2.fill(new Rectangle(startPosn.x, startPosn.y, cellWidth, cellWidth));
-		g2.setColor(Color.green);
-		g2.fill(new Rectangle(destPosn.x, destPosn.y, cellWidth, cellWidth));
+		g2.setColor(origin.getColor());
+		g2.fill(origin.getCell());
+		g2.setColor(destination.getColor());
+		g2.fill(destination.getCell());
+	}
 
+	/**
+	 * @param g2
+	 * @throws Exception
+	 * 
+	 *             Some bug in the navigation code, its not moving
+	 */
+	private void navigate(Graphics2D g2) throws Exception {
+		if (origin.getLocation().equals(destination.getLocation())) {
+			return;
+		}
+
+		/*
+		 * reduce horizontal distance
+		 */
+		while (origin.getLocation().x != destination.getLocation().x) {
+			g2.clearRect(origin.getCell().x, origin.getCell().y, origin.getCell().height, origin.getCell().width);
+			int x = origin.getLocation().x;
+
+			if (origin.getLocation().x < destination.getLocation().x) {
+				x += cellWidth;
+				origin.setLocation(new Point(x, origin.getLocation().y));
+			} else {
+				x -= cellWidth;
+				origin.setLocation(new Point(x, origin.getLocation().y));
+			}
+			Thread.sleep(200l);
+			drawGrid(g2);
+			drawWalls(g2);
+			drawAlertCells(g2);
+			g2.fill(origin.getCell());
+		}
+
+		/*
+		 * reduce vertical distance
+		 */
+		while (origin.getLocation().y != destination.getLocation().y) {
+			g2.clearRect(origin.getCell().x, origin.getCell().y, origin.getCell().height, origin.getCell().width);
+
+			int y = origin.getLocation().y;
+			if (origin.getLocation().y < destination.getLocation().y) {
+				y = y + cellWidth;
+				origin.setLocation(new Point(origin.getLocation().x, y));
+			} else {
+				y = y - cellWidth;
+				origin.setLocation(new Point(origin.getLocation().x, y));
+			}
+			Thread.sleep(200l);
+			drawGrid(g2);
+			drawWalls(g2);
+			drawAlertCells(g2);
+			g2.fill(origin.getCell());
+		}
 	}
 
 	public void paint(Graphics g) {
 		super.paint(g);
-		renderMaze((Graphics2D) g);
+		Graphics2D g2 = (Graphics2D) g;
+
+		/*
+		 * navigate
+		 */
+		try {
+			navigate(g2);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) throws Exception {
 		System.out.println("Hello from the RoboMaze");
-		// FileInputStream propFile = new FileInputStream(args[0]);
 		FileInputStream propFile = new FileInputStream(
 				"//home/sanket//Documents//Code//MyProjects//Java/MavenProjects//codingGym//SwingSet//src//main//resources//mazeDefinition.properties");
+		//FileInputStream propFile = new FileInputStream(args[0]);
 		Properties mazeProperties = new Properties();
 		mazeProperties.load(propFile);
 
