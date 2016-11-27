@@ -9839,3 +9839,91 @@ org.eclipse.core.runtime.CoreException: Launch configuration KMeansClustererDriv
 2016-11-26 15:08:52,057 [Worker-249] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2016-11-26 15:08:52,059 [Worker-249] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-11-26 15:08:52,059 [Worker-249] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-26 15:42:54,201 [Worker-260] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-26 15:42:54,203 [Worker-260] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-26 15:42:54,208 [Worker-260] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-26 15:42:54,208 [Worker-260] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-26 15:43:39,010 [Worker-255] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-26 15:43:39,010 [Worker-255] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-26 15:43:39,011 [Worker-255] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-26 15:43:39,011 [Worker-255] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 00:59:22,558 [Worker-454] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 00:59:22,559 [Worker-454] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 00:59:22,560 [Worker-454] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 00:59:22,560 [Worker-454] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:11:49,125 [Worker-462] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:11:49,126 [Worker-462] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:11:49,129 [Worker-462] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:11:49,129 [Worker-462] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:13:07,110 [Worker-458] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:13:07,110 [Worker-458] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:13:07,111 [Worker-458] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:13:07,111 [Worker-458] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:13:59,695 [Worker-459] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:13:59,696 [Worker-459] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:13:59,697 [Worker-459] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:13:59,698 [Worker-459] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:14:22,574 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:14:22,574 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:14:22,575 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:14:22,575 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:17:58,406 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:17:58,406 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:17:58,406 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:17:58,406 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:23:17,366 [Worker-466] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:23:17,366 [Worker-466] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:23:17,367 [Worker-466] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:23:17,368 [Worker-466] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:23:57,426 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:23:57,426 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:23:57,428 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:23:57,428 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:24:11,416 [Worker-469] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:24:11,419 [Worker-469] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:24:11,420 [Worker-469] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:24:11,420 [Worker-469] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:45:13,912 [Worker-473] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:45:13,913 [Worker-473] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:45:13,913 [Worker-473] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:45:13,913 [Worker-473] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:46:06,756 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:46:06,756 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:46:06,757 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:46:06,757 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:46:57,195 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:46:57,196 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:46:57,197 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:46:57,197 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:48:23,680 [Worker-473] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:48:23,680 [Worker-473] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:48:23,681 [Worker-473] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:48:23,681 [Worker-473] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:49:38,050 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:49:38,050 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:49:38,051 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:49:38,051 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:49:54,211 [Worker-476] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:49:54,211 [Worker-476] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:49:54,211 [Worker-476] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:49:54,212 [Worker-476] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:50:51,555 [Worker-475] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:50:51,556 [Worker-475] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:50:51,557 [Worker-475] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:50:51,557 [Worker-475] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:51:50,765 [Worker-474] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:51:50,766 [Worker-474] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:51:50,767 [Worker-474] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:51:50,767 [Worker-474] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:52:22,055 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:52:22,055 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:52:22,056 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:52:22,056 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:54:40,819 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:54:40,820 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:54:40,820 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:54:40,820 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources
+2016-11-27 01:57:01,900 [Worker-474] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:57:01,900 [Worker-474] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-27 01:57:01,901 [Worker-474] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-27 01:57:01,901 [Worker-474] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/SwingSet/src/test/resources

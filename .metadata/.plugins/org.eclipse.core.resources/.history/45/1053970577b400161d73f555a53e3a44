@@ -168,7 +168,7 @@ public class Maze extends Frame {
 		g2.setColor(color);
 		g2.drawLine(x0, y0 + (int) (h / 2.0d), x0 + w, y0 + (int) (h / 2.0d));
 		g2.drawLine(x0 + (int) (w / 2.0d), y0, x0 + (int) (w / 2.0d), y0 + h);
-		System.out.println(x0 + (int) (w / 2.0d) + ", " + y0 + ", " + x0 + (int) (w / 2.0d) + ", " + y0 + h);
+		System.out.println(x0 + ", " + (int) (w / 2.0d) + ", " + y0 + ", " + x0 + (int) (w / 2.0d) + ", " + y0 + h);
 	}
 
 	private void navigateRobo(Graphics2D g2) throws Exception {

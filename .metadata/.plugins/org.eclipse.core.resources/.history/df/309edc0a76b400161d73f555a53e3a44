@@ -19,7 +19,7 @@ public class Wall {
 		}
 	}
 
-	public static final Color WALL_COLOR = Color.RED;
+	public static final Color WALL_COLOR = Color.darkGray;
 
 	public Wall(Frame frame, int[] definition) throws IllegalWallDefinitionException {
 		if (definition.length == 4 || definition[0] + definition[3] >= frame.getWidth()

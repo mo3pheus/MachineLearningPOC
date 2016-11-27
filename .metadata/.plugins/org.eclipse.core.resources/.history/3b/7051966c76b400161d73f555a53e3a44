@@ -168,7 +168,6 @@ public class Maze extends Frame {
 		g2.setColor(color);
 		g2.drawLine(x0, y0 + (int) (h / 2.0d), x0 + w, y0 + (int) (h / 2.0d));
 		g2.drawLine(x0 + (int) (w / 2.0d), y0, x0 + (int) (w / 2.0d), y0 + h);
-		System.out.println(x0 + (int) (w / 2.0d) + ", " + y0 + ", " + x0 + (int) (w / 2.0d) + ", " + y0 + h);
 	}
 
 	private void navigateRobo(Graphics2D g2) throws Exception {
@@ -186,20 +185,20 @@ public class Maze extends Frame {
 			origin.setLocation(new Point(x, y));
 			g2.setColor(origin.getColor());
 			g2.fillRect(x, y, origin.getCell().width, origin.getCell().height);
-			Thread.sleep(20);
+			Thread.sleep(10);
 			g2.clearRect(x, y, origin.getCell().width, origin.getCell().height);
+			Thread.sleep(10);
 			reDrawLines(origin, GRID_COLOR, g2, x, y, origin.getCell().width, origin.getCell().height);
 		}
-
-		System.out.println("====================================================");
 
 		for (int y = origin.getLocation().y; y <= destination.getLocation().y; y++) {
 			int x = origin.getLocation().x;
 			origin.setLocation(new Point(x, y));
 			g2.setColor(origin.getColor());
 			g2.fillRect(x, y, origin.getCell().width, origin.getCell().height);
-			Thread.sleep(20);
+			Thread.sleep(10);
 			g2.clearRect(x, y, origin.getCell().width, origin.getCell().height);
+			Thread.sleep(10);
 			reDrawLines(origin, GRID_COLOR, g2, x, y, origin.getCell().width, origin.getCell().height);
 		}
 	}

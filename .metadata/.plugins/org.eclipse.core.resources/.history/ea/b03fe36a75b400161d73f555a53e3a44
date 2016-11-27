@@ -150,6 +150,7 @@ public class Maze extends Frame {
 		 * Draw walls
 		 */
 		for (int i = 0; i < walls.length; i++) {
+			g2.setColor(Color.darkGray);
 			g2.fill(walls[i].getWall());
 		}
 	}
@@ -164,17 +165,16 @@ public class Maze extends Frame {
 		g2.fill(destination.getCell());
 	}
 
-	private void reDrawLines(AlertCell alertCell, Color color, Graphics2D g2, int x0, int y0, int w, int h) {
+	private void reDrawLines(AlertCell alertCell,Color color,Graphics2D g2, int x0, int y0, int h, int w){
 		g2.setColor(color);
-		g2.drawLine(x0, y0 + (int) (h / 2.0d), x0 + w, y0 + (int) (h / 2.0d));
-		g2.drawLine(x0 + (int) (w / 2.0d), y0, x0 + (int) (w / 2.0d), y0 + h);
-		System.out.println(x0 + (int) (w / 2.0d) + ", " + y0 + ", " + x0 + (int) (w / 2.0d) + ", " + y0 + h);
+		g2.drawLine(x0, y0 + (int)(h/2,0d), x0+w, y0 + (int)(h/2.0d));
+		g2.drawLine(x0+(int)(w/2.0d), y0, x0+(int)(w/2.0d), y0 + h);
 	}
 
 	private void navigateRobo(Graphics2D g2) throws Exception {
 		g2.setColor(origin.getColor());
 		AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER);
-		// ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f);
+		ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f);
 		g2.setComposite(ac);
 		if (origin.getLocation().equals(destination.getLocation())) {
 			System.out.println("Robo is already at the destination!");
@@ -184,23 +184,67 @@ public class Maze extends Frame {
 		for (int x = origin.getLocation().x; x <= destination.getLocation().x; x++) {
 			int y = origin.getLocation().y;
 			origin.setLocation(new Point(x, y));
-			g2.setColor(origin.getColor());
 			g2.fillRect(x, y, origin.getCell().width, origin.getCell().height);
 			Thread.sleep(20);
 			g2.clearRect(x, y, origin.getCell().width, origin.getCell().height);
 			reDrawLines(origin, GRID_COLOR, g2, x, y, origin.getCell().width, origin.getCell().height);
 		}
 
-		System.out.println("====================================================");
-
 		for (int y = origin.getLocation().y; y <= destination.getLocation().y; y++) {
 			int x = origin.getLocation().x;
 			origin.setLocation(new Point(x, y));
-			g2.setColor(origin.getColor());
 			g2.fillRect(x, y, origin.getCell().width, origin.getCell().height);
 			Thread.sleep(20);
 			g2.clearRect(x, y, origin.getCell().width, origin.getCell().height);
 			reDrawLines(origin, GRID_COLOR, g2, x, y, origin.getCell().width, origin.getCell().height);
+		}
+	}
+
+	/**
+	 * @param g2
+	 * @throws Exception
+	 * 
+	 *             Some bug in the navigation code, its not moving
+	 */
+	private void navigate(Graphics2D g2) throws Exception {
+		if (origin.getLocation().equals(destination.getLocation())) {
+			return;
+		}
+
+		/*
+		 * reduce horizontal distance
+		 */
+		while (origin.getLocation().x != destination.getLocation().x) {
+			g2.clearRect(origin.getCell().x, origin.getCell().y, origin.getCell().height, origin.getCell().width);
+			int x = origin.getLocation().x;
+
+			if (origin.getLocation().x < destination.getLocation().x) {
+				x += cellWidth;
+				origin.setLocation(new Point(x, origin.getLocation().y));
+			} else {
+				x -= cellWidth;
+				origin.setLocation(new Point(x, origin.getLocation().y));
+			}
+			Thread.sleep(200l);
+			// g2.fill(origin.getCell());
+		}
+
+		/*
+		 * reduce vertical distance
+		 */
+		while (origin.getLocation().y != destination.getLocation().y) {
+			g2.clearRect(origin.getCell().x, origin.getCell().y, origin.getCell().height, origin.getCell().width);
+
+			int y = origin.getLocation().y;
+			if (origin.getLocation().y < destination.getLocation().y) {
+				y = y + cellWidth;
+				origin.setLocation(new Point(origin.getLocation().x, y));
+			} else {
+				y = y - cellWidth;
+				origin.setLocation(new Point(origin.getLocation().x, y));
+			}
+			Thread.sleep(200l);
+			// g2.fill(origin.getCell());
 		}
 	}
 
