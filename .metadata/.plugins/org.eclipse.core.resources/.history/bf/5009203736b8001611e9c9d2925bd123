@@ -1,0 +1,24 @@
+package org.sanket.codingGym.DataMining;
+
+import java.text.DateFormat;
+import java.util.Date;
+
+public class OreBoundaryDetection {
+	
+	private class blastHoleGeo{
+		public double east;
+		public double north;
+		public String bhId;
+		public Date date;
+		public DateFormat df = new SimpleDateFormat("");
+		
+		public blastHoleGeo(String dataPoint){
+			String[] values = dataPoint.split(",");
+			
+		}
+		
+	}
+	
+	
+
+}

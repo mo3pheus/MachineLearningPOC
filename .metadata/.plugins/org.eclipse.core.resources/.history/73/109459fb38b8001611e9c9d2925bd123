@@ -1,0 +1,53 @@
+package org.sanket.codingGym.DataMining;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class OreBoundaryDetection {
+
+	private class blastHoleGeo {
+		public double		east;
+		public double		north;
+		public String		bhId;
+		public Date			date;
+		public DateFormat	df	= new SimpleDateFormat("yyyyMMdd");
+
+		public blastHoleGeo(String dataPoint) {
+			String[] values = dataPoint.split(",");
+			try {
+				bhId = values[0];
+				east = Double.parseDouble(values[1]);
+				north = Double.parseDouble(values[2]);
+				date = df.parse(values[10]);
+			} catch (Exception e) {
+				e.printStackTrace(System.out);
+			}
+		}
+	}
+
+	private enum COMP {
+		FE, P, SIO2, AL2O3, LOI, CAO, MN, MGO, TIO2, K2O, S, NA2O
+	}
+
+	private class mineralComp {
+		// Schema - BHID FROM TO FE P SIO2 AL2O3 LOI CAO MN MGO TIO2 K2O S NA2O
+		public String	bhId;
+		public int		fromDepthInM;
+		public int		toDepthInM;
+		public double[]	composition;
+		
+		public mineralComp(String dataPoint){
+			String[] values = dataPoint.split(",");
+			
+			bhId = values[0];
+			fromDepthInM = Integer.parseInt(values[1]);
+			toDepthInM = Integer.parseInt(values[2]);
+			COMP x = COMP.FE;
+			while( x != COMP.NA2O){
+				x++;
+			}
+		}
+	}
+
+}

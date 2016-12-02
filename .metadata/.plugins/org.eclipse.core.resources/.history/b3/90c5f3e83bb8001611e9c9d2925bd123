@@ -1,0 +1,94 @@
+package org.sanket.codingGym.DataMining;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class OreBoundaryDetection {
+
+	private class BlastHoleGeo {
+		public double		east;
+		public double		north;
+		public String		bhId;
+		public Date			date;
+		public DateFormat	df	= new SimpleDateFormat("yyyyMMdd");
+
+		public BlastHoleGeo(String dataPoint) {
+			String[] values = dataPoint.split(",");
+			try {
+				bhId = values[0];
+				east = Double.parseDouble(values[1]);
+				north = Double.parseDouble(values[2]);
+				date = df.parse(values[10]);
+			} catch (Exception e) {
+				e.printStackTrace(System.out);
+			}
+		}
+	}
+
+	private enum MINERAL_TYPE {
+		FE, P, SIO2, AL2O3, LOI, CAO, MN, MGO, TIO2, K2O, S, NA2O
+	}
+
+	private class MineralComp {
+		// Schema - BHID FROM TO FE P SIO2 AL2O3 LOI CAO MN MGO TIO2 K2O S NA2O
+		public String	bhId;
+		public int		fromDepthInM;
+		public int		toDepthInM;
+		public double[]	composition;
+
+		public MineralComp(String dataPoint) {
+			String[] values = dataPoint.split(",");
+
+			bhId = values[0];
+			fromDepthInM = Integer.parseInt(values[1]);
+			toDepthInM = Integer.parseInt(values[2]);
+			int j = 0;
+			for (int i = 3; i < 15; i++) {
+				composition[j] = Double.parseDouble(values[i]);
+			}
+		}
+
+		private boolean isMineral() {
+			boolean mineral = false;
+			if (composition[0] > 30.0d && composition[1] <= 50.0d && composition[2] <= 5.0d) {
+				mineral = true;
+			}
+			return mineral;
+		}
+	}
+
+	private List<BlastHoleGeo>	drillGeoData	= new ArrayList<BlastHoleGeo>();
+	private List<MineralComp>	minerologyData	= new ArrayList<MineralComp>();
+
+	public static void main(String[] args) {
+		String thisLine = null;
+		BufferedReader geoReader, mineralReader;
+		try {
+			// open input stream test.txt for reading purpose.
+			URL url = Maze.class.getClassLoader().getResource("mazeDefinition.properties");
+			geoReader = new BufferedReader(new FileReader("c:/test.txt"));
+			while ((thisLine = geoReader.readLine()) != null) {
+				System.out.println(thisLine);
+			}
+			geoReader.close();
+
+			mineralReader = new BufferedReader(new FileReader("c:/test.txt"));
+			while ((thisLine = geoReader.readLine()) != null) {
+				System.out.println(thisLine);
+			}
+			mineralReader.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		}
+
+	}
+
+}
