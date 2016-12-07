@@ -1,0 +1,17 @@
+maze.environment.frame.height=1000
+maze.environment.frame.width=1000
+maze.environment.cell.width=10
+maze.environment.start.position=50,50
+maze.environment.destination.position=600,800
+maze.environment.num.walls=2
+maze.environment.wall.definitions.0=100,100,20,100
+maze.environment.wall.definitions.1=500,500,20,200
+
+#Grid
+maze.environment.grid.color=darkGray
+
+#Wall
+maze.environment.wall.color=red
+
+#Destination
+maze.environment.destination.color=green

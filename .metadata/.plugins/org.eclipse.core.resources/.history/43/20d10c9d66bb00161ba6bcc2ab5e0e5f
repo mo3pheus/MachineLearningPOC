@@ -1,0 +1,36 @@
+package org.sanket.codingGym.iMazeForRobot.data;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+import java.awt.Graphics2D;
+import java.awt.Point;
+
+public class Grid {
+	private class Line {
+		public Point	x;
+		public Point	y;
+
+		public Line(int x1, int y1, int x2, int y2) {
+			if (x1 == x2 && y1 == y2) {
+				throw new RuntimeException("Both points are one and the same - you can not draw a line of 0 length.");
+			}
+		}
+	}
+
+	private List<Line> gridLines;
+
+	public Grid(Properties mazeDefintiion) {
+		gridLines = new ArrayList<Line>();
+	}
+
+	/**
+	 * @param g2
+	 * 
+	 *            This function takes all the graphical elements in the class
+	 *            and draws them on the graphics2D object passed in.
+	 */
+	public void buildGrid(Graphics2D g2) {
+
+	}
+}

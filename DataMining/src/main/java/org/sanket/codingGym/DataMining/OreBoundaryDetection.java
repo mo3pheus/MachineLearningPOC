@@ -17,14 +17,7 @@ public class OreBoundaryDetection {
 	}
 
 	private static Map<String, BlastHoleGeo>	drillGeoData	= new HashMap<String, BlastHoleGeo>();
-	private static Map<String, MineralComp>		minerologyData	= new HashMap<String, MineralComp>();
-
-	private static class Tuple {
-		BlastHoleGeo	b;
-		MineralComp		m;
-	}
-
-	private static Map<String, Tuple> view = new HashMap<String, Tuple>();
+	private static List<MineralComp>			minerologyData	= new ArrayList<MineralComp>();
 
 	public static void main(String[] args) throws Exception {
 		String thisLine = null;
@@ -39,7 +32,7 @@ public class OreBoundaryDetection {
 				BlastHoleGeo bg = new BlastHoleGeo(thisLine);
 				drillGeoData.put(bg.bhId, bg);
 				if (bg != null) {
-					//System.out.println(bg.toString());
+					// System.out.println(bg.toString());
 				}
 			}
 
@@ -58,9 +51,9 @@ public class OreBoundaryDetection {
 			while ((thisLine = mineralReader.readLine()) != null) {
 				/* System.out.println(thisLine); */
 				MineralComp mineralData = new MineralComp(thisLine);
-				minerologyData.put(mineralData.bhId, mineralData);
+				minerologyData.add(mineralData);
 				if (mineralData != null) {
-					//System.out.println(mineralData.toString());
+					// System.out.println(mineralData.toString());
 				}
 			}
 			mineralReader.close();
@@ -72,16 +65,19 @@ public class OreBoundaryDetection {
 		System.out.println("DrillData size = " + drillGeoData.size());
 		System.out.println("Mineral Data size = " + minerologyData.size());
 
-		for (String bhId : drillGeoData.keySet()) {
-			try {
-				System.out.println("BHID = " + (drillGeoData.get(bhId)).toString() + " mineral ="
-						+ minerologyData.get(bhId).isMineral());
-			} catch (Exception e) {
+		/*
+		 * for (String bhId : drillGeoData.keySet()) { try {
+		 * System.out.println("BHID = " + (drillGeoData.get(bhId)).toString() +
+		 * " mineral =" + minerologyData.get(bhId).isMineral()); } catch
+		 * (Exception e) {
+		 * }
+		 * 
+		 * }
+		 */
 
-			}
-
+		for (int i = 0; i < minerologyData.size(); i++) {
+			MineralComp temp = minerologyData.get(i);
+			System.out.println(" BHID = " + drillGeoData.get(temp.bhId).toString() + "::" + temp.toString());
 		}
-
 	}
-
 }

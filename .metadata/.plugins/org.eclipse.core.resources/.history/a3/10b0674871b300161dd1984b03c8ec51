@@ -1,7 +1,0 @@
-maze.environment.frame.height=1000
-maze.environment.frame.width=1000
-maze.environment.num.walls=2
-maze.environment.wall.definitions=something
-maze.environment.cell.width=20
-maze.environment.start.position=100,100
-maze.environment.destination.position=600,800

@@ -1,0 +1,49 @@
+package org.sanket.codingGym.iMazeForRobot.environment;
+
+import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+import org.sanket.codingGym.iMazeForRobot.data.Grid;
+import org.sanket.codingGym.iMazeForRobot.data.IDrawStuff;
+import org.sanket.codingGym.iMazeForRobot.data.Robot;
+import org.sanket.codingGym.iMazeForRobot.data.Wall;
+
+/**
+ * @author sanket
+ * 
+ *         This class defines the maze structure and all graphical elements that
+ *         go into it.
+ *
+ */
+public class MazeBuilder<T> {
+	private Properties	mazeDefinition	= null;
+	private List<Wall>	walls;
+	private Robot		robot;
+	private Grid		grid;
+
+	public MazeBuilder(Properties mazeDefinition) {
+		this.mazeDefinition = mazeDefinition;
+		this.robot = new Robot(mazeDefinition);
+		this.grid = new Grid(mazeDefinition);
+	}
+
+	private void buildWalls() {
+		walls = new ArrayList<Wall>();
+	}
+
+	public void build() {
+		for (int i = 0; i < walls.size(); i++) {
+			Wall w = walls.get(i);
+
+		}
+	}
+
+	public <T extends IDrawStuff> void render(List<T> elements, Graphics2D g2) {
+		for (int i = 0; i < elements.size(); i++) {
+			elements.get(i).build(g2);
+		}
+	}
+
+}

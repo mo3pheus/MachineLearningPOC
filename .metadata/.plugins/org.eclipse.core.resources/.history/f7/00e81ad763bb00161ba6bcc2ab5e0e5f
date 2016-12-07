@@ -1,0 +1,7 @@
+package org.sanket.codingGym.iMazeForRobot.data;
+
+public class Wall {
+	public Wall(Properties mazeDefinition){
+		
+	}
+}

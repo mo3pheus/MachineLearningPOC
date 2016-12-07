@@ -1,0 +1,13 @@
+package org.sanket.codingGym.iMazeForRobot.data;
+
+import java.util.Properties;
+
+public class Robot {
+	public Robot(Properties mazeDefinition){
+		
+	}
+	
+	public void buildRobot(Graphics2D g2){
+		
+	}
+}

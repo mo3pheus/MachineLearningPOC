@@ -1,7 +1,0 @@
-package maze.environment;
-
-
-
-public class MazeListener implements WindowListener{
-
-}

@@ -1,0 +1,26 @@
+package org.sanket.codingGym.iMazeForRobot.environment;
+
+import java.util.List;
+import java.util.Properties;
+
+import org.sanket.codingGym.iMazeForRobot.data.Grid;
+import org.sanket.codingGym.iMazeForRobot.data.Robot;
+import org.sanket.codingGym.iMazeForRobot.data.Wall;
+
+/**
+ * @author sanket
+ * 
+ * 	This class defines the maze structure and all graphical elements that go into it. 
+ *
+ */
+public class MazeBuilder {
+	private Properties mazeDefinition = null;
+	private List<Wall> walls;
+	private Robot robot;
+	private Grid grid;
+	
+	public MazeBuilder(Properties mazeDefinition){
+		this.mazeDefinition = mazeDefinition;
+	}
+
+}
