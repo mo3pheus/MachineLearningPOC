@@ -3,6 +3,7 @@ package org.sanket.codingGym.iMazeForRobot.environment;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -83,7 +84,7 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 		this.setSize(frameHeight, frameWidth);
 		this.setVisible(true);
 
-		//walls
+		// walls
 		try {
 			defineWalls(mazeDefinition);
 		} catch (Exception e) {
@@ -93,17 +94,52 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 			walls[i].build();
 		}
 		elements.addAll((Collection<? extends T>) Arrays.asList(walls));
-		
-		//destination
+
+		// destination
 		elements.add((T) new Cell(mazeDefinition));
-		
+
 		System.out.println(elements.size());
 	}
 
+	private List<Point> getRobotPath() {
+		List<Point> points = new ArrayList<Point>();
+		Cell temp = new Cell(mazeDefinition);
+
+		// move horizontally, y = robotStartLocation.y
+		for (int x = robot.getLocation().x; x != temp.getLocation().x;) {
+			Point tmp = new Point(x, robot.getLocation().y);
+			points.add(tmp);
+			x = (x < temp.getLocation().x) ? (x + 1) : (x - 1);
+		}
+
+		// move vertically, x = startPosition of temp
+		for (int y = robot.getLocation().y; y != temp.getLocation().y;) {
+			Point tmp = new Point(temp.getLocation().x, y);
+			points.add(tmp);
+			y = (y < temp.getLocation().y) ? (y + 1) : (y - 1);
+		}
+
+		try {
+			Thread.sleep(200l);
+			System.out.println(" Points size = " + points.size());
+		} catch (Exception e) {
+		}
+		return points;
+	}
+
 	public void render(List<T> elements, Graphics2D g2) {
+		/* Draw the maze */
 		for (int i = 0; i < elements.size(); i++) {
 			elements.get(i).build();
 			elements.get(i).draw(g2);
+		}
+
+		/* Animate the maze. */
+		try {
+			AnimationEngine.animate(elements, g2, getRobotPath(), 0,
+					Integer.parseInt(mazeDefinition.getProperty(Cell.CELL_WIDTH)));
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 

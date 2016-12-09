@@ -1,0 +1,21 @@
+package org.sanket.codingGym.iMazeForRobot.environment;
+
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.util.List;
+
+import org.sanket.codingGym.iMazeForRobot.data.IDrawStuff;
+import org.sanket.codingGym.iMazeForRobot.data.Robot;
+
+public class AnimationEngine {
+	
+	public static void animate(List<? extends IDrawStuff> elements, Graphics2D g2, List<Point> positions, int robotIndex, int cellWidth){
+		Robot robot = (Robot)elements.get(robotIndex);
+		Point currentLocation = robot.getLocation();
+		g2.clearRect(currentLocation.x, currentLocation.y, cellWidth, cellWidth);
+		for(<? extends IDrawStuff>t: elements){
+			
+		}
+	}
+
+}

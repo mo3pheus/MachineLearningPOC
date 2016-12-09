@@ -18,8 +18,9 @@ import org.sanket.codingGym.iMazeForRobot.environment.EnvironmentUtils;
 public class Robot implements IDrawStuff {
 	private static final String	ROBOT_START_LOCATION	= "maze.environment.robot.position";
 	private static final String	roboImageLocation		= "robot-tool.png";
+	//private static final String	roboImageLocation		= "r2d2-128.png";
 	private Properties			mazeDefinition;
-	private Point				startLocation			= null;
+	private Point				location			= null;
 
 	private BufferedImage		robotImage;
 
@@ -37,7 +38,7 @@ public class Robot implements IDrawStuff {
 		}
 		robotImage = (BufferedImage) img;
 
-		startLocation = new Point(Integer.parseInt(mazeDefinition.getProperty(ROBOT_START_LOCATION).split(",")[0]),
+		location = new Point(Integer.parseInt(mazeDefinition.getProperty(ROBOT_START_LOCATION).split(",")[0]),
 				Integer.parseInt(mazeDefinition.getProperty(ROBOT_START_LOCATION).split(",")[1]));
 	}
 
@@ -49,6 +50,14 @@ public class Robot implements IDrawStuff {
 		AffineTransform at = new AffineTransform();
 		int cellWidth = Integer.parseInt(mazeDefinition.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 		at.scale(cellWidth, cellWidth);
-		g2.drawImage(robotImage, null, startLocation.x, startLocation.y);
+		g2.drawImage(robotImage, null, location.x, location.y);
+	}
+	
+	public Point getLocation(){
+		return location;
+	}
+	
+	public void setLocation(Point location){
+		this.location = location;
 	}
 }
