@@ -19,7 +19,6 @@ import org.sanket.codingGym.iMazeForRobot.data.Robot;
 import org.sanket.codingGym.iMazeForRobot.data.Wall;
 
 import org.sanket.codingGym.iMazeForRobot.data.Wall.IllegalWallDefinitionException;
-import org.sanket.codingGym.iMazeForRobot.navigation.NavigationEngine;
 
 /**
  * @author sanket
@@ -111,7 +110,7 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 
 		/* Animate the maze. */
 		try {
-			AnimationEngine.animate(elements, g2, NavigationEngine.getRobotPath(robot, mazeDefinition), 0,
+			AnimationEngine.animate(elements, g2, getRobotPath(), 0,
 					Integer.parseInt(mazeDefinition.getProperty(Cell.CELL_WIDTH)));
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -12302,3 +12302,19 @@ org.eclipse.core.runtime.CoreException: Launch configuration DrawAndFillApplicat
 2016-12-08 21:54:54,296 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
 2016-12-08 21:54:54,306 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-12-08 21:54:54,306 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/iMazeForRobot/src/test/resources
+2016-12-08 22:04:47,579 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-08 22:04:47,580 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2016-12-08 22:04:47,582 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-08 22:04:47,585 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/iMazeForRobot/src/test/resources
+2016-12-08 22:05:48,986 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-08 22:05:48,987 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2016-12-08 22:05:48,988 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-08 22:05:48,988 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/iMazeForRobot/src/test/resources
+2016-12-08 22:10:30,507 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-08 22:10:30,510 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2016-12-08 22:10:30,511 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-08 22:10:30,511 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/iMazeForRobot/src/test/resources
+2016-12-08 22:10:57,515 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-08 22:10:57,519 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2016-12-08 22:10:57,520 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-08 22:10:57,520 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/iMazeForRobot/src/test/resources

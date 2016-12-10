@@ -18,7 +18,7 @@ import org.sanket.codingGym.iMazeForRobot.environment.EnvironmentUtils;
 public class Robot implements IDrawStuff {
 	private static final String	ROBOT_START_LOCATION	= "maze.environment.robot.position";
 	private static final String	roboImageLocation		= "robot-tool.png";
-	//private static final String	roboImageLocation		= "robot-of-long-arms-and-short-legs.png";
+	//private static final String	roboImageLocation		= "r2d2-128.png";
 	private Properties			mazeDefinition;
 	private Point				location			= null;
 

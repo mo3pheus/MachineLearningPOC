@@ -19,7 +19,6 @@ import org.sanket.codingGym.iMazeForRobot.data.Robot;
 import org.sanket.codingGym.iMazeForRobot.data.Wall;
 
 import org.sanket.codingGym.iMazeForRobot.data.Wall.IllegalWallDefinitionException;
-import org.sanket.codingGym.iMazeForRobot.navigation.NavigationEngine;
 
 /**
  * @author sanket
@@ -102,6 +101,32 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 		System.out.println(elements.size());
 	}
 
+	private List<Point> getRobotPath() {
+		List<Point> points = new ArrayList<Point>();
+		Cell temp = new Cell(mazeDefinition);
+
+		// move horizontally, y = robotStartLocation.y
+		for (int x = robot.getLocation().x; x != temp.getLocation().x;) {
+			Point tmp = new Point(x, robot.getLocation().y);
+			points.add(tmp);
+			x = (x < temp.getLocation().x) ? (x + 5) : (x - 5);
+		}
+
+		// move vertically, x = startPosition of temp
+		for (int y = robot.getLocation().y; y != temp.getLocation().y;) {
+			Point tmp = new Point(temp.getLocation().x, y);
+			points.add(tmp);
+			y = (y < temp.getLocation().y) ? (y + 5) : (y - 5);
+		}
+
+		try {
+			Thread.sleep(200l);
+			System.out.println(" Points size = " + points.size());
+		} catch (Exception e) {
+		}
+		return points;
+	}
+
 	public void render(List<T> elements, Graphics2D g2) {
 		/* Draw the maze */
 		for (int i = 0; i < elements.size(); i++) {
@@ -111,7 +136,7 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 
 		/* Animate the maze. */
 		try {
-			AnimationEngine.animate(elements, g2, NavigationEngine.getRobotPath(robot, mazeDefinition), 0,
+			AnimationEngine.animate(elements, g2, getRobotPath(), 0,
 					Integer.parseInt(mazeDefinition.getProperty(Cell.CELL_WIDTH)));
 		} catch (Exception e) {
 			e.printStackTrace();
