@@ -1,0 +1,9 @@
+package org.sanket.codingGym.iMazeForRobot.data;
+
+public class MazeFactory {
+	
+	public <? extends IDrawStuff> getMazeObject(String name, Properties mazeConfiguration){
+		
+	}
+
+}
