@@ -32,7 +32,6 @@
 <fullyQualifiedTypeName name="java.io.FileReader"/>
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="java.awt.Frame"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
@@ -43,4 +42,5 @@
 <fullyQualifiedTypeName name="java.awt.image.BufferedImageOp"/>
 <fullyQualifiedTypeName name="java.awt.geom.AffineTransform"/>
 <fullyQualifiedTypeName name="org.sanket.codingGym.iMazeForRobot.data.IDrawStuff"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
 </qualifiedTypeNameHistroy>

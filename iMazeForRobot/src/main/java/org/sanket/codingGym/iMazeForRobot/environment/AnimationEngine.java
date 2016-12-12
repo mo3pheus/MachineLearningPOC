@@ -22,9 +22,10 @@ public class AnimationEngine {
 			}
 			robot.draw(g2);
 			robot.setLocation(positions.get(j));
-			Thread.sleep(200);
-			g2.clearRect(currentLocation.x, currentLocation.y, cellWidth, cellWidth);
+			Thread.sleep(25);
+			if (j != positions.size() - 1) {
+				g2.clearRect(currentLocation.x, currentLocation.y, cellWidth, cellWidth);
+			}
 		}
 	}
-
 }

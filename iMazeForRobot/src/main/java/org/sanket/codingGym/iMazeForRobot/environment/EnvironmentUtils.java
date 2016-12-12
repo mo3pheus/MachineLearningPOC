@@ -22,7 +22,11 @@ public class EnvironmentUtils {
 			return Color.blue;
 		} else if (color.equals("green")) {
 			return Color.green;
-		} else {
+		} else if( color.equals("orange")){
+			return Color.orange;
+		} 
+		
+		else {
 			System.out.println(" Color is unknown - known choices are red, lightGray, darkGray, blue, green " + color);
 			return null;
 		}

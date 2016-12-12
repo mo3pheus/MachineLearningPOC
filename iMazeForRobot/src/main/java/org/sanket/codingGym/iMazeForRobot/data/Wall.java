@@ -14,7 +14,7 @@ public class Wall implements IDrawStuff {
 	private int[]				definition	= new int[4];
 	private Properties			mazeDefinition;
 
-	public class IllegalWallDefinitionException extends Exception {
+	public static class IllegalWallDefinitionException extends Exception {
 
 		/**
 		 * 

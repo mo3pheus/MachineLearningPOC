@@ -7,10 +7,60 @@ import java.util.Properties;
 
 import org.sanket.codingGym.iMazeForRobot.data.Cell;
 import org.sanket.codingGym.iMazeForRobot.data.Robot;
+import org.sanket.codingGym.iMazeForRobot.environment.EnvironmentUtils;
 
 public class NavigationEngine {
 
-	public static List<Point> getRobotPath(Robot robot, Properties mazeDefinition) {
+	private Properties		mazeConfiguration;
+	private Robot			robot;
+	private Cell			destination;
+	private int[]			wallParams;
+	private List<NavNode>	adjacencyMatrix;
+	private List<Point>		path;
+	private int				frameLength;
+	private int				cellWidth;
+
+	public class NavNode {
+		List<Point>	adjacentNodes;
+		Point		location;
+		int			id;
+
+		public NavNode(int id, Point p) {
+			location = p;
+			this.id = id;
+			this.adjacentNodes = findAdjacentNodes(location);
+		}
+
+		public int getID() {
+			return id;
+		}
+
+		public Point getLocation() {
+			return location;
+		}
+
+		public List<Point> getAdjacentNodes() {
+			return adjacentNodes;
+		}
+
+		public void setAdjacentNodes(List<Point> adNodes) {
+			adjacentNodes = adNodes;
+		}
+	}
+
+	public NavigationEngine(Properties mazeConfig, Robot robot, final int[] wallParams) {
+		/* load the basics */
+		this.mazeConfiguration = mazeConfig;
+		this.robot = robot;
+		destination = new Cell(mazeConfiguration);
+		this.wallParams = wallParams;
+		this.frameLength = Integer.parseInt(mazeConfiguration.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+		this.cellWidth = Integer.parseInt(mazeConfiguration.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+
+		fillAdjacencyMatrix();
+	}
+
+	public List<Point> getDemoRobotPath(Robot robot, Properties mazeDefinition) {
 		List<Point> points = new ArrayList<Point>();
 		Cell temp = new Cell(mazeDefinition);
 
@@ -18,14 +68,14 @@ public class NavigationEngine {
 		for (int x = robot.getLocation().x; x != temp.getLocation().x;) {
 			Point tmp = new Point(x, robot.getLocation().y);
 			points.add(tmp);
-			x = (x < temp.getLocation().x) ? (x + 3) : (x - 3);
+			x = (x < temp.getLocation().x) ? (x + 1) : (x - 1);
 		}
 
 		// move vertically, x = startPosition of temp
 		for (int y = robot.getLocation().y; y != temp.getLocation().y;) {
 			Point tmp = new Point(temp.getLocation().x, y);
 			points.add(tmp);
-			y = (y < temp.getLocation().y) ? (y + 3) : (y - 3);
+			y = (y < temp.getLocation().y) ? (y + 1) : (y - 1);
 		}
 
 		try {
@@ -35,4 +85,50 @@ public class NavigationEngine {
 		}
 		return points;
 	}
+
+	public List<Point> getPath() {
+		return path;
+	}
+
+	/**
+	 * Given the wall definitions, fill the adjacencyMatrix.
+	 */
+	private void fillAdjacencyMatrix() {
+		int i = 0;
+		for (int x = 0; x < frameLength; x = x + cellWidth) {
+			for (int y = 0; y < frameLength; y = y + cellWidth) {
+				i = i + 1;
+				Point temp = new Point(x, y);
+				NavNode navNode = new NavNode(i, temp);
+				adjacencyMatrix.add(navNode);
+
+			}
+		}
+	}
+
+	private List<Point> findAdjacentNodes(Point p) {
+		/* one node can have at most 4 adjacent nodes */
+		Point[] adNodes = { new Point(p.x, p.y + cellWidth), new Point(p.x, p.y - cellWidth),
+				new Point(p.x + cellWidth, p.y), new Point(p.x - cellWidth, p.y) };
+
+		List<Point> adPoints = new ArrayList<Point>();
+		for (Point tmp : adNodes) {
+			if (tmp.x >= 0 && tmp.y >= 0 && !hitsWall(tmp)) {
+				adPoints.add(tmp);
+			}
+		}
+		return adPoints;
+	}
+
+	/**
+	 * Figure out if the given Point intersects with any wall
+	 * 
+	 * @param p
+	 * @return
+	 */
+	private boolean hitsWall(Point p) {
+
+		return false;
+	}
+
 }

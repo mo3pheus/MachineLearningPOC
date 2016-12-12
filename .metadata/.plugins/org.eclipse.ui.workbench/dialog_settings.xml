@@ -16,6 +16,13 @@
 		<list key="textArray">
 		</list>
 	</section>
+	<section name="PreferencesImportWizard">
+		<item value="/home/sanket/Documents/Tools/eclipseThemes/theme-90.epf" key=""/>
+		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="/home/sanket/Documents/Tools/eclipseThemes/theme-90.epf"/>
+			<item value="/home/sanket/Documents/Tools/eclipseThemes/theme-1004.epf"/>
+		</list>
+	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.m2e.core.wizards.Maven2ProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
@@ -30,8 +37,9 @@
 		<item value="-163" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="ImportExportAction">
-		<item value="org.eclipse.m2e.core.wizards.Maven2ImportWizard" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<item value="org.eclipse.ui.wizards.import.Preferences" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
 			<item value="org.eclipse.m2e"/>
 		</list>
 	</section>

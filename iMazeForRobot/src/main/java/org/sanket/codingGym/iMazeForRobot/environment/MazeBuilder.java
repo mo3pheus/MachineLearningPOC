@@ -3,7 +3,6 @@ package org.sanket.codingGym.iMazeForRobot.environment;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -15,6 +14,7 @@ import java.util.Properties;
 import org.sanket.codingGym.iMazeForRobot.data.Cell;
 import org.sanket.codingGym.iMazeForRobot.data.Grid;
 import org.sanket.codingGym.iMazeForRobot.data.IDrawStuff;
+import org.sanket.codingGym.iMazeForRobot.data.MazeFactory;
 import org.sanket.codingGym.iMazeForRobot.data.Robot;
 import org.sanket.codingGym.iMazeForRobot.data.Wall;
 
@@ -33,6 +33,8 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 	 * 
 	 */
 	private static final long	serialVersionUID	= 1L;
+	private MazeFactory			mazeFactory;
+	private NavigationEngine	navCore;
 	private Wall[]				walls;
 	private Robot				robot;
 	private Grid				grid;
@@ -43,9 +45,11 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 
 	public MazeBuilder(Properties mazeDefinition) {
 		super("ROBO MAZE");
+		mazeFactory = new MazeFactory();
 		this.mazeDefinition = mazeDefinition;
-		this.robot = new Robot(mazeDefinition);
-		this.grid = new Grid(mazeDefinition);
+		this.robot = (Robot) mazeFactory.getMazeObject("Robot", mazeDefinition);
+		this.grid = (Grid) mazeFactory.getMazeObject("Grid", mazeDefinition);
+		navCore = new NavigationEngine(mazeDefinition, robot);
 
 		/*
 		 * Build the graphics
@@ -62,15 +66,15 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 			String[] walParamStr = wallDef.split(",");
 			int[] walParams = new int[4];
 			if (walParamStr.length != 4) {
-				System.out.println(" Wall params and wall Prop string are incompatible.");
-				return;
+				throw new IllegalWallDefinitionException(" Wall params and wall Prop string are incompatible.");
 			}
 
 			for (int j = 0; j < walParams.length; j++) {
 				walParams[j] = Integer.parseInt(walParamStr[j]);
 			}
 
-			walls[i] = new Wall(mazeDefinition, walParams);
+			navCore.setWallParams(walParams);
+			walls[i] = (Wall) mazeFactory.getMazeObject(mazeDefinition, walParams);
 		}
 	}
 
@@ -111,7 +115,7 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 
 		/* Animate the maze. */
 		try {
-			AnimationEngine.animate(elements, g2, NavigationEngine.getRobotPath(robot, mazeDefinition), 0,
+			AnimationEngine.animate(elements, g2, navCore.getDemoRobotPath(robot, mazeDefinition), 0,
 					Integer.parseInt(mazeDefinition.getProperty(Cell.CELL_WIDTH)));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -131,7 +135,7 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 		Properties mazeProperties = new Properties();
 		mazeProperties.load(propFile);
 
-		new MazeBuilder(mazeProperties);
+		new MazeBuilder<IDrawStuff>(mazeProperties);
 	}
 
 }

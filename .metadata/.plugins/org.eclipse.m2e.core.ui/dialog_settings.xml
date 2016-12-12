@@ -39,6 +39,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/"/>
 			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/bitBucketRepos/gaussiananomalydetection"/>
 			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/bitBucketRepos"/>
 		</list>
