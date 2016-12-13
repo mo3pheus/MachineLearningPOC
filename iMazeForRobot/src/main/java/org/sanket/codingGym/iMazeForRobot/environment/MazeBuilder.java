@@ -3,7 +3,11 @@ package org.sanket.codingGym.iMazeForRobot.environment;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +21,6 @@ import org.sanket.codingGym.iMazeForRobot.data.IDrawStuff;
 import org.sanket.codingGym.iMazeForRobot.data.MazeFactory;
 import org.sanket.codingGym.iMazeForRobot.data.Robot;
 import org.sanket.codingGym.iMazeForRobot.data.Wall;
-
 import org.sanket.codingGym.iMazeForRobot.data.Wall.IllegalWallDefinitionException;
 import org.sanket.codingGym.iMazeForRobot.navigation.NavigationEngine;
 
@@ -42,6 +45,7 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 	private List<T>				elements			= new ArrayList<T>();
 	private Properties			mazeDefinition;
 	private int					numWalls;
+	private boolean             executed            = false;
 
 	public MazeBuilder(Properties mazeDefinition) {
 		super("ROBO MAZE");
@@ -49,18 +53,31 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 		this.mazeDefinition = mazeDefinition;
 		this.robot = (Robot) mazeFactory.getMazeObject("Robot", mazeDefinition);
 		this.grid = (Grid) mazeFactory.getMazeObject("Grid", mazeDefinition);
-		navCore = new NavigationEngine(mazeDefinition, robot);
-
+		
 		/*
 		 * Build the graphics
 		 */
 		build();
 	}
+	
+	private void writeToFile(){
+	    try
+        {
+            FileWriter fw = new FileWriter(new File("output//NavEngineOutputFile" + System.currentTimeMillis() + ".csv"));
+            fw.write(navCore.toString());
+            fw.close();
+        }
+        catch (IOException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+	}
 
 	private void defineWalls(Properties properties) throws IllegalWallDefinitionException {
 		this.numWalls = Integer.parseInt(properties.getProperty(EnvironmentUtils.NUM_WALLS_PROPERTY));
 		this.walls = new Wall[this.numWalls];
-
+		
 		for (int i = 0; i < numWalls; i++) {
 			String wallDef = properties.getProperty(EnvironmentUtils.WALL_DEFS_PROPERTY + "." + Integer.toString(i));
 			String[] walParamStr = wallDef.split(",");
@@ -72,11 +89,12 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 			for (int j = 0; j < walParams.length; j++) {
 				walParams[j] = Integer.parseInt(walParamStr[j]);
 			}
-
-			navCore.setWallParams(walParams);
+			
 			walls[i] = (Wall) mazeFactory.getMazeObject(mazeDefinition, walParams);
 		}
-	}
+		navCore = new NavigationEngine(mazeDefinition, robot, walls);
+		System.out.println(navCore.toString());
+    }
 
 	@SuppressWarnings("unchecked")
 	private void build() {
@@ -102,30 +120,47 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 
 		// destination
 		elements.add((T) new Cell(mazeDefinition));
-
 		System.out.println(elements.size());
 	}
 
 	public void render(List<T> elements, Graphics2D g2) {
+	    executed = !executed;
+	    
 		/* Draw the maze */
 		for (int i = 0; i < elements.size(); i++) {
 			elements.get(i).build();
 			elements.get(i).draw(g2);
 		}
+		
+		/* Save off the navEngine output */
+		//writeToFile();
+		
+		/* print the path if it was found */
+		if(navCore.getPath() != null){
+			List<Point> path = navCore.getPath();
+			System.out.println(" Path found is = ");
+			for(Point p:path){
+				System.out.println(" x = " + p.x + " y = " + p.y);
+			}
+		}
 
 		/* Animate the maze. */
-		try {
+		/*try {
 			AnimationEngine.animate(elements, g2, navCore.getDemoRobotPath(robot, mazeDefinition), 0,
 					Integer.parseInt(mazeDefinition.getProperty(Cell.CELL_WIDTH)));
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	public void paint(Graphics g) {
 		super.paint(g);
-		Graphics2D g2 = (Graphics2D) g;
-		render(elements, g2);
+		if(!executed){
+    		Graphics2D g2 = (Graphics2D) g;
+    		render(elements, g2);
+		} else{
+		    System.exit(1);
+		}
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -137,5 +172,4 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 
 		new MazeBuilder<IDrawStuff>(mazeProperties);
 	}
-
 }

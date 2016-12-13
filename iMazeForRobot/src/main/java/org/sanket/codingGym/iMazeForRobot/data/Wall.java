@@ -2,6 +2,7 @@ package org.sanket.codingGym.iMazeForRobot.data;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.geom.Rectangle2D;
 import java.util.Properties;
 import org.sanket.codingGym.iMazeForRobot.data.IDrawStuff;
@@ -12,6 +13,7 @@ public class Wall implements IDrawStuff {
 	private int					frameWidth;
 	private int					frameHeight;
 	private int[]				definition	= new int[4];
+	private int					cellWidth;
 	private Properties			mazeDefinition;
 
 	public static class IllegalWallDefinitionException extends Exception {
@@ -30,6 +32,7 @@ public class Wall implements IDrawStuff {
 		this.mazeDefinition = mazeDefinition;
 		this.frameHeight = Integer.parseInt(mazeDefinition.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
 		this.frameWidth = Integer.parseInt(mazeDefinition.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+		this.cellWidth = Integer.parseInt(mazeDefinition.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 
 		if (definition.length == 4 || definition[0] + definition[3] >= frameWidth
 				|| definition[1] + definition[2] >= frameHeight) {
@@ -44,6 +47,12 @@ public class Wall implements IDrawStuff {
 	public void build() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public boolean intersects(Point p){
+		Rectangle2D cell = new Rectangle2D.Double(p.x, p.y, cellWidth, cellWidth);
+		Rectangle2D wl = getWall();
+		return cell.intersects(wl);
 	}
 
 	public Color getColor() {
