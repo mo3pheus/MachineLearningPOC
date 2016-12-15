@@ -33,7 +33,11 @@ public class NavigationEngine {
 		this.adjacencyMatrix = new ArrayList<NavNode>();
 
 		fillAdjacencyMatrix();
-		this.pathFinder = new PathFinder(robot.getLocation(), destination.getLocation(), adjacencyMatrix);
+		
+		this.robot.build();
+		destination.build();
+		
+		this.pathFinder = new PathFinder(this.robot.getLocation(), destination.getLocation(), adjacencyMatrix);
 		this.path = pathFinder.findPath();
 	}
 

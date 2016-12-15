@@ -38,9 +38,11 @@
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.sanket.codingGym.iMazeForRobot.environment.EnvironmentUtils"/>
 <fullyQualifiedTypeName name="java.awt.Image"/>
-<fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="java.awt.image.BufferedImageOp"/>
 <fullyQualifiedTypeName name="java.awt.geom.AffineTransform"/>
 <fullyQualifiedTypeName name="org.sanket.codingGym.iMazeForRobot.data.IDrawStuff"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.awt.geom.Rectangle2D.Double"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.awt.Point"/>
 </qualifiedTypeNameHistroy>

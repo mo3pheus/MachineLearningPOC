@@ -18,7 +18,6 @@ import java.util.Properties;
 import org.sanket.codingGym.iMazeForRobot.data.Cell;
 import org.sanket.codingGym.iMazeForRobot.data.Grid;
 import org.sanket.codingGym.iMazeForRobot.data.IDrawStuff;
-import org.sanket.codingGym.iMazeForRobot.data.MazeFactory;
 import org.sanket.codingGym.iMazeForRobot.data.Robot;
 import org.sanket.codingGym.iMazeForRobot.data.Wall;
 import org.sanket.codingGym.iMazeForRobot.data.Wall.IllegalWallDefinitionException;
@@ -36,7 +35,6 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 	 * 
 	 */
 	private static final long	serialVersionUID	= 1L;
-	private MazeFactory			mazeFactory;
 	private NavigationEngine	navCore;
 	private Wall[]				walls;
 	private Robot				robot;
@@ -45,39 +43,36 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 	private List<T>				elements			= new ArrayList<T>();
 	private Properties			mazeDefinition;
 	private int					numWalls;
-	private boolean             executed            = false;
+	private boolean				executed			= false;
 
 	public MazeBuilder(Properties mazeDefinition) {
 		super("ROBO MAZE");
-		mazeFactory = new MazeFactory();
 		this.mazeDefinition = mazeDefinition;
-		this.robot = (Robot) mazeFactory.getMazeObject("Robot", mazeDefinition);
-		this.grid = (Grid) mazeFactory.getMazeObject("Grid", mazeDefinition);
-		
+		this.robot = new Robot(mazeDefinition);
+		this.grid = new Grid(mazeDefinition);
+
 		/*
 		 * Build the graphics
 		 */
 		build();
 	}
-	
-	private void writeToFile(){
-	    try
-        {
-            FileWriter fw = new FileWriter(new File("output//NavEngineOutputFile" + System.currentTimeMillis() + ".csv"));
-            fw.write(navCore.toString());
-            fw.close();
-        }
-        catch (IOException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+
+	private void writeToFile() {
+		try {
+			FileWriter fw = new FileWriter(
+					new File("output//NavEngineOutputFile" + System.currentTimeMillis() + ".csv"));
+			fw.write(navCore.toString());
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private void defineWalls(Properties properties) throws IllegalWallDefinitionException {
 		this.numWalls = Integer.parseInt(properties.getProperty(EnvironmentUtils.NUM_WALLS_PROPERTY));
 		this.walls = new Wall[this.numWalls];
-		
+
 		for (int i = 0; i < numWalls; i++) {
 			String wallDef = properties.getProperty(EnvironmentUtils.WALL_DEFS_PROPERTY + "." + Integer.toString(i));
 			String[] walParamStr = wallDef.split(",");
@@ -89,12 +84,11 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 			for (int j = 0; j < walParams.length; j++) {
 				walParams[j] = Integer.parseInt(walParamStr[j]);
 			}
-			
-			walls[i] = (Wall) mazeFactory.getMazeObject(mazeDefinition, walParams);
+
+			walls[i] = new Wall(mazeDefinition, walParams);
 		}
-		navCore = new NavigationEngine(mazeDefinition, robot, walls);
-		System.out.println(navCore.toString());
-    }
+		// System.out.println(navCore.toString());
+	}
 
 	@SuppressWarnings("unchecked")
 	private void build() {
@@ -124,42 +118,46 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 	}
 
 	public void render(List<T> elements, Graphics2D g2) {
-	    executed = !executed;
-	    
+		executed = !executed;
+
 		/* Draw the maze */
 		for (int i = 0; i < elements.size(); i++) {
 			elements.get(i).build();
 			elements.get(i).draw(g2);
 		}
-		
+
 		/* Save off the navEngine output */
-		//writeToFile();
-		
+		// writeToFile();
+
 		/* print the path if it was found */
-		if(navCore.getPath() != null){
+		if (navCore != null && navCore.getPath() != null) {
 			List<Point> path = navCore.getPath();
 			System.out.println(" Path found is = ");
-			for(Point p:path){
+			for (Point p : path) {
 				System.out.println(" x = " + p.x + " y = " + p.y);
 			}
 		}
 
 		/* Animate the maze. */
-		/*try {
-			AnimationEngine.animate(elements, g2, navCore.getDemoRobotPath(robot, mazeDefinition), 0,
-					Integer.parseInt(mazeDefinition.getProperty(Cell.CELL_WIDTH)));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}*/
+		/*
+		 * try { AnimationEngine.animate(elements, g2,
+		 * navCore.getDemoRobotPath(robot, mazeDefinition), 0,
+		 * Integer.parseInt(mazeDefinition.getProperty(Cell.CELL_WIDTH))); }
+		 * catch (Exception e) { e.printStackTrace(); }
+		 */
 	}
 
 	public void paint(Graphics g) {
-		super.paint(g);
-		if(!executed){
-    		Graphics2D g2 = (Graphics2D) g;
-    		render(elements, g2);
-		} else{
-		    System.exit(1);
+		if (!executed) {
+			navCore = new NavigationEngine(mazeDefinition, robot, walls);
+			if (navCore.getPath() == null) {
+				System.out.println("Path is still null");
+			}
+			super.paint(g);
+			Graphics2D g2 = (Graphics2D) g;
+			render(elements, g2);
+		} else {
+			System.exit(1);
 		}
 	}
 

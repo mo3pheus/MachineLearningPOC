@@ -5,145 +5,142 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class PathFinder
-{
-    private Point         destination;
-    private List<NavNode> graph;
-    private List<NavNode> open;
-    private List<NavNode> closed;
-    private NavNode start;
-    
+public class PathFinder {
+	private Point			destination;
+	private List<NavNode>	graph;
+	private List<NavNode>	open;
+	private List<NavNode>	closed;
+	private NavNode			start;
 
-    public PathFinder(Point source, Point destination, List<NavNode> graph)
-    {
-    	if (graph == null || graph.isEmpty())
-        {
-            System.out.println(" Cant have an empty adjacencyMatrix! ");
-            return;
-        }
+	public PathFinder(Point source, Point destination, List<NavNode> graph) {
+		if (graph == null || graph.isEmpty()) {
+			System.out.println(" Cant have an empty adjacencyMatrix! ");
+			return;
+		} else {
+			System.out.println(" Graph length = " + graph.size());
+		}
 
-    	this.graph = graph;
-        this.destination = destination;
-        
-        start = null;
-        for(NavNode n:graph){
-        	if(n.getLocation().equals(source)){
-        		start = n;
-        	}
-        }
-    }
-    
-    private List<Point> getAdjacentNodes(NavNode n){
-    	for(NavNode t:graph){
-    		if(t.getLocation().equals(n.getLocation())){
-    			return t.getAdjacentNodes();
-    		}
-    	}
-    	return null;
-    }
+		this.graph = graph;
+		this.destination = destination;
+		
+		start = null;
+		for (NavNode n : graph) {
+			/*if (n.getLocation() == null || source == null) {
+				System.out.println(" Location was null!");
+			} else {
+				System.out.println(" Source = " + source.x + "," + source.y + " Node = " + n.getLocation().x + ","
+						+ n.getLocation().y);
+			}*/
 
-    private static float computeManhattanDistance(Point a, Point b)
-    {
-        float dx = (float) Math.abs((double) (a.x - b.x));
-        float dy = (float) Math.abs((double) (a.y - b.y));
-        return dx + dy;
-    }
+			if (n.getLocation().equals(source)) {
+				start = n;
+				break;
+			}
+		}
 
-    public List<Point> findPath() throws NullPointerException
-    {
-        // Initialize open and closed list
-        open = new ArrayList<NavNode>();
-        closed = new ArrayList<NavNode>();
+		if (start == null) {
+			throw new RuntimeException(" Start not found");
+		} else {
+			System.out.println(" Start found => " + start.toString());
+		}
+	}
 
-        // insert the starting Node
-        start.f = 0;
-        open.add(start);
+	private List<Point> getAdjacentNodes(NavNode n) {
+		for (NavNode t : graph) {
+			if (t.getLocation().equals(n.getLocation())) {
+				return t.getAdjacentNodes();
+			}
+		}
+		return null;
+	}
 
-        // iterate
-        while (!open.isEmpty())
-        {
-            int loc = leastF(open);
-            NavNode q = open.remove(loc);
+	private static float computeManhattanDistance(Point a, Point b) {
+		float dx = (float) Math.abs((double) (a.x - b.x));
+		float dy = (float) Math.abs((double) (a.y - b.y));
+		return dx + dy;
+	}
 
-            /*
-             * generate q's 8 successors and set their parents to q
-             */
-            List<NavNode> successors = new ArrayList<NavNode>();
-            for (Point successor : q.getAdjacentNodes())
-            {
-                NavNode tmp = new NavNode(successor);
-                tmp.parent = q;
-                tmp.setAdjacentNodes(getAdjacentNodes(tmp));
-                successors.add(tmp);
-            }
+	public List<Point> findPath() throws NullPointerException {
+		// Initialize open and closed list
+		open = new ArrayList<NavNode>();
+		closed = new ArrayList<NavNode>();
 
-            for (NavNode tmp : successors)
-            {
-            	//reached the destination
-                if (tmp.getLocation().equals(destination))
-                {
-                    return extractLoc(tmp);
-                }
+		// insert the starting Node
+		start.f = 0;
+		open.add(start);
 
-                tmp.g = q.g + computeManhattanDistance(tmp.getLocation(), q.getLocation());
-                tmp.h = computeManhattanDistance(tmp.getLocation(), destination);
-                tmp.f = tmp.g + tmp.h;
+		// iterate
+		while (!open.isEmpty()) {
+			int loc = leastF(open);
+			NavNode q = open.remove(loc);
 
-                if (!lowerFPresent(tmp, open) && !lowerFPresent(tmp, closed))
-                {
-                    open.add(tmp);
-                }
-            }
+			/*
+			 * generate q's 8 successors and set their parents to q
+			 */
+			List<NavNode> successors = new ArrayList<NavNode>();
+			for (Point successor : q.getAdjacentNodes()) {
+				NavNode tmp = new NavNode(successor);
+				tmp.parent = q;
+				tmp.setAdjacentNodes(getAdjacentNodes(tmp));
+				successors.add(tmp);
+			}
 
-            closed.add(q);
-        }
-        return null;
-    }
+			for (NavNode tmp : successors) {
+				// reached the destination
+				if (tmp.getLocation().equals(destination)) {
+					return extractLoc(tmp);
+				}
 
-    private boolean lowerFPresent(NavNode candidate, List<NavNode> list)
-    {
-        for (NavNode tmp : list)
-        {
-            if (tmp.f < candidate.f)
-            {
-                return true;
-            }
-        }
+				tmp.g = q.g + computeManhattanDistance(tmp.getLocation(), q.getLocation());
+				tmp.h = computeManhattanDistance(tmp.getLocation(), destination);
+				tmp.f = tmp.g + tmp.h;
 
-        return false;
-    }
+				if (!lowerFPresent(tmp, open) && !lowerFPresent(tmp, closed)) {
+					open.add(tmp);
+				}
+			}
 
-    private int leastF(List<NavNode> list)
-    {
-        if (list == null || list.isEmpty())
-        {
-            return -1;
-        }
+			closed.add(q);
+		}
+		return null;
+	}
 
-        int loc = 0;
-        float f = Float.MAX_VALUE;
-        for (int i = 0; i < list.size(); i++)
-        {
-            if (list.get(i).f < f)
-            {
-                loc = i;
-            }
-        }
+	private boolean lowerFPresent(NavNode candidate, List<NavNode> list) {
+		for (NavNode tmp : list) {
+			if (tmp.f < candidate.f) {
+				return true;
+			}
+		}
 
-        return loc;
-    }
+		return false;
+	}
 
-    public static List<Point> extractLoc(NavNode dest)
-    {
-        List<Point> pointsList = new ArrayList<Point>();
-        NavNode tmp = dest;
-        while(tmp.parent != null){
-        	pointsList.add(tmp.getLocation());
-        	tmp = tmp.parent;
-        }
-        
-        Collections.reverse(pointsList);
+	private int leastF(List<NavNode> list) {
+		if (list == null || list.isEmpty()) {
+			return -1;
+		}
 
-        return pointsList;
-    }
+		int loc = 0;
+		float f = Float.MAX_VALUE;
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).f < f) {
+				loc = i;
+			}
+		}
+
+		return loc;
+	}
+
+	public static List<Point> extractLoc(NavNode dest) {
+		List<Point> pointsList = new ArrayList<Point>();
+		NavNode tmp = dest;
+		while (tmp.parent != null) {
+			pointsList.add(tmp.getLocation());
+			tmp = tmp.parent;
+		}
+
+		Collections.reverse(pointsList);
+
+		return pointsList;
+	}
 }

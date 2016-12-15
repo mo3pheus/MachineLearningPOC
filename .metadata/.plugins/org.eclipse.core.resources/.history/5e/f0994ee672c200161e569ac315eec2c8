@@ -1,0 +1,7 @@
+package org.sanket.codingGym.P4VDataScienceEngine;
+
+message Constraint{
+	required double xCoef=1;
+	required double yCoef=2;
+	optional String description=3;
+}
