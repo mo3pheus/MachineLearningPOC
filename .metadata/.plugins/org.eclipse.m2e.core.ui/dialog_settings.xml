@@ -39,6 +39,10 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/media/sanket/BlackDrive/CodeRepository/Egen.Solutions/BHPB/"/>
+			<item value="/media/sanket/BlackDrive/CodeRepository/Egen.Solutions/BHPB/UserStoryOne"/>
+			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/BHPB_P4V"/>
+			<item value="/home/sanket/Documents/Code/hack/MachineLearningPOC-SupportProtobuf/DataMining"/>
 			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/"/>
 			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/bitBucketRepos/gaussiananomalydetection"/>
 			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/bitBucketRepos"/>
@@ -65,6 +69,9 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/AdvancedMatrix"/>
+			<item value="/home/sanket/Documents/Code/hack/MachineLearningPOC-SupportProtobuf/DataMining"/>
+			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/iMazeForRobot"/>
 			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/GraphLab"/>
 			<item value="/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/codingGym/MatrixLogger"/>
 		</list>
@@ -79,19 +86,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="org.sanket.codingGym.SwingSet"/>
-			<item value="org.sanket.codingGym.BlackBox"/>
-			<item value="org.sanket.codingGym.MatrixLogger"/>
-			<item value="org.sanket.codingGym.codeInJava"/>
+			<item value="learning.solutions.advanced.matrix"/>
 		</list>
 		<list key="groupId">
-			<item value="org.sanket.codingGym"/>
+			<item value="learning.solutions"/>
 		</list>
 		<list key="artifactId">
-			<item value="SwingSet"/>
-			<item value="BlackBox"/>
-			<item value="MatrixLogger"/>
-			<item value="codeInJava"/>
+			<item value="advanced.matrix"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

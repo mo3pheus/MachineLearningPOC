@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;P4VDataScienceEngine/src/main/protobuf&apos; to &apos;proto&apos;" description="Rename resource &apos;protobuf&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/protobuf" name="proto" stamp="1481771395547" updateReferences="true"/>
-</session>

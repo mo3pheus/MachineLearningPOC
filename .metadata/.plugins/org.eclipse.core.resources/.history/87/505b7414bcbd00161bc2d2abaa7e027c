@@ -1,7 +1,0 @@
-package org.sanket.codingGym.iMazeForRobot.environment;
-
-public class AnimationEngine {
-	
-	public static void animate(List<? extends IDrawStuff> elements, Graphics2D g2, int robotIndex)
-
-}

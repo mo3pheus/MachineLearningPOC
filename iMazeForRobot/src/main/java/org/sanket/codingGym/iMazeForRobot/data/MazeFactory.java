@@ -17,8 +17,9 @@ public class MazeFactory {
 		return null;
 	}
 
-	public IDrawStuff getMazeObject(Properties mazeConfiguration, int[] definition) throws IllegalWallDefinitionException {
-			return new Wall(mazeConfiguration, definition);
+	public IDrawStuff getMazeObject(Properties mazeConfiguration, int[] definition)
+			throws IllegalWallDefinitionException {
+		return new Wall(mazeConfiguration, definition);
 	}
 
 }

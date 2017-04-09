@@ -1,0 +1,68 @@
+package solutions.egen.bhpb.p4v.UserStoryOne.kafka;
+
+import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.util.Properties;
+
+import com.google.protobuf.InvalidProtocolBufferException;
+
+import kafka.consumer.Consumer;
+import kafka.consumer.ConsumerConfig;
+import kafka.consumer.ConsumerIterator;
+import kafka.consumer.KafkaStream;
+import kafka.consumer.Whitelist;
+import kafka.javaapi.consumer.ConsumerConnector;
+import solutions.egen.bhpb.UserStoryOne.GanttInfo.GanttPacket;
+import solutions.egen.bhpb.UserStoryOne.InterruptInfo.InterruptProto;
+import solutions.egen.bhpb.p4v.UserStoryOne.DataScienceEngine.DataScienceCortex;
+
+public class InterruptConsumer extends Thread {
+	public final static String	clientId	= "SimpleConsumerDemoClient";
+	public final static String	TOPIC		= "MySourceTopic";
+	
+	private ConsumerConnector	consumerConnector;
+	private DataScienceCortex schedulingBrain;
+
+	public static void main(String[] argv) throws UnsupportedEncodingException {
+		InterruptConsumer interruptHandler = new InterruptConsumer();
+		interruptHandler.start();
+	}
+
+	public InterruptConsumer() {
+		Properties properties = new Properties();
+		properties.put("zookeeper.connect", "localhost:2181");
+		properties.put("group.id", "test-group");
+		ConsumerConfig consumerConfig = new ConsumerConfig(properties);
+		consumerConnector = Consumer.createJavaConsumerConnector(consumerConfig);
+		
+		//Initiate the dataScienceEngine
+		schedulingBrain = new DataScienceCortex();
+	}
+
+	public InterruptConsumer(Properties consumerProperties) {
+		ConsumerConfig consumerConfig = new ConsumerConfig(consumerProperties);
+		consumerConnector = Consumer.createJavaConsumerConnector(consumerConfig);
+	}
+
+	@Override
+	public void run() {
+		List<KafkaStream<byte[], byte[]>> consumerMap = consumerConnector
+				.createMessageStreamsByFilter(new Whitelist("InterruptInlet"));
+		KafkaStream<byte[], byte[]> stream = consumerMap.get(0);
+		ConsumerIterator<byte[], byte[]> it = stream.iterator();
+		try {
+			while (it.hasNext()) {
+				//get the interrupt from queue
+				InterruptProto interrupt =InterruptProto.parseFrom(it.next().message().clone());
+				
+				//send the interrupt to the dataScienceEngine
+				GanttPacket gp = schedulingBrain.handleInterrupt(interrupt);
+				
+				System.out.println(gp.toByteArray());
+			}
+		} catch (InvalidProtocolBufferException pb) {
+
+		}
+
+	}
+}

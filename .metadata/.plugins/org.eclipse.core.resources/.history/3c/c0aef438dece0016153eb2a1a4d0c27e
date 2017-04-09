@@ -1,0 +1,79 @@
+package solutions.egen.bhpb.p4v.UserStoryOne.DataScienceEngine;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.joda.time.DateTime;
+
+import solutions.egen.bhpb.UserStoryOne.GanttInfo.GanttPacket;
+import solutions.egen.bhpb.UserStoryOne.GanttInfo.GanttPacket.TaskGroup;
+import solutions.egen.bhpb.UserStoryOne.GanttInfo.GanttPacket.Task;
+import solutions.egen.bhpb.UserStoryOne.InterruptInfo.InterruptProto;
+
+public class DataScienceCortex {
+
+	private Map<String, GanttPacket>	scheduleTable;
+	private Map<String, Long>			delayPredictor;
+
+	public DataScienceCortex() {
+		scheduleTable = new HashMap<String, GanttPacket>();
+		delayPredictor = new HashMap<String, Long>();
+
+		// setup the scheduleTable and delayPredictor
+	}
+
+	public GanttPacket handleInterrupt(InterruptProto interrupt) {
+
+		String ganttLookUpId = "";
+		GanttPacket schedule = scheduleTable.get(ganttLookUpId);
+		List<TaskGroup> taskGroup = schedule.getProjectsList();
+
+		Task affectedTask = findTask("taskId", taskGroup);
+		affectedTask = modifyTask(affectedTask, interrupt.getInterrupt().getInterruptType());
+
+		GanttPacket.Builder ganttPacketBuilder = GanttPacket.newBuilder();
+		TaskGroup.Builder tgBuilder = TaskGroup.newBuilder();
+		tgBuilder.addAllTaskList(getRelevantTaskGroup(taskGroup, interrupt).getTaskListList());
+		ganttPacketBuilder.addProjects(tgBuilder.build());
+		return ganttPacketBuilder.build();
+	}
+
+	private TaskGroup getRelevantTaskGroup(List<TaskGroup> tgList, InterruptProto interrupt) {
+		TaskGroup group = null;
+
+		for (TaskGroup tg : tgList) {
+			for (Task t : tg.getTaskListList()) {
+				if (t.getId().equals(interrupt.getInterrupt().getInterruptType())) {
+					group = tg;
+					break;
+				}
+			}
+		}
+		return group;
+	}
+
+	private Task modifyTask(Task input, String interruptId) {
+		Long delayHours =  input.get(interruptId);
+
+		if (delayHours == null) {
+			return null;
+		}
+
+		DateTime startDate = new DateTime(input.getStartDate());
+		DateTime endDate = new DateTime(input.getEndDate());
+		endDate = endDate.plusHours(delayHours.intValue());
+
+		Task.Builder taskBuilder = Task.newBuilder();
+		taskBuilder.setName(input.getName());
+		taskBuilder.setEndDate(endDate.getMillis());
+		taskBuilder.setId(input.getId());
+		taskBuilder.setStartDate(startDate.getMillis());
+
+		return taskBuilder.build();
+	}
+
+	private Task findTask(String taskId, List<TaskGroup> tg) {
+		return null;
+	}
+}

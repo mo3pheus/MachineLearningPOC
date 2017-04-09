@@ -1,0 +1,174 @@
+package egen.solutions.InterruptFactory;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Random;
+
+import org.joda.time.DateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
+
+import kafka.javaapi.producer.Producer;
+import kafka.producer.KeyedMessage;
+import kafka.producer.ProducerConfig;
+
+import solutions.egen.bhpb.UserStoryOne.EnvironmentStatus.Environment;
+import solutions.egen.bhpb.UserStoryOne.EnvironmentStatus.Environment.InterruptInfo;
+import solutions.egen.bhpb.UserStoryOne.EnvironmentStatus.Environment.InterruptInfo.Interrupt;
+
+public class InterruptProducer {
+	private Producer<byte[], byte[]>	kafkaTrain;
+	private InputStream					inputStream;
+	private Properties					kafkaProperties;
+	private Map<String, Long>			interruptTypes;
+	private String[]					interruptType;
+	private String						ganttJson;
+
+	private void loadSampleSchedule() {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		try {
+			JsonReader jReader = new JsonReader(new FileReader(""));
+			Project project = (Project) gson.fromJson(jReader, Project.class);
+			ganttJson = gson.toJson(project);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private String getRandomInterruptType() {
+		Random rand = new Random();
+		int x = rand.nextInt(interruptType.length) + 1;
+		if (x >= interruptType.length) {
+			x--;
+		}
+		return interruptType[x];
+	}
+
+	private byte[] generateEnvironmentStatus() {
+		Environment.Builder statusBuilder = Environment.newBuilder();
+		statusBuilder.setInterruptInfo(generateInterrupt());
+		statusBuilder.setGanttJSON(ganttJson);
+		return statusBuilder.build().toByteArray();
+	}
+
+	private InterruptInfo generateInterrupt() {
+		DateTime interruptDate = new DateTime();
+		interruptDate = interruptDate.plusDays(1);
+		InterruptInfo.Builder iBuilder = InterruptInfo.newBuilder();
+		Interrupt.Builder interruptBuilder = Interrupt.newBuilder();
+
+		interruptBuilder.setEquipmentId("EX1234");
+		String intType = getRandomInterruptType();
+		System.out.println(intType);
+		interruptBuilder.setInterruptType(intType);
+		interruptBuilder.setFailureType("");
+		interruptBuilder.setHumanError(false);
+		interruptBuilder.setNewEvent(false);
+
+		iBuilder.setInterrupt(interruptBuilder.build());
+		iBuilder.setTimeStamp(interruptDate.getMillis());
+		iBuilder.setInterruptId(213);
+		iBuilder.setHandled(false);
+		iBuilder.setExpectedDelayHours(interruptTypes.get(intType));
+		iBuilder.setNotes("This is a test packet");
+		iBuilder.setSiteId(4563);
+		iBuilder.setSenderId("RepStationId1235");
+
+		return iBuilder.build();
+	}
+
+	public void loadInterruptTypes() {
+		try {
+			InputStream inpStream = new FileInputStream(
+					"D:\\CodeRepository\\Egen.Solutions\\BHPB\\InterruptFactory\\src\\main\\resources\\InterruptDelayDB.data");
+			Properties dbProp = new Properties();
+			dbProp.load(inpStream);
+			interruptType = new String[dbProp.size()];
+
+			int i = 0;
+			for (String key : dbProp.stringPropertyNames()) {
+				interruptTypes.put(key, Long.parseLong(dbProp.getProperty(key)));
+				interruptType[i] = key;
+				System.out.println(" Key = " + key + " Value = " + dbProp.getProperty(key));
+				i++;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace(System.out);
+		}
+	}
+
+	public InterruptProducer(KafkaShipmentBuilder kafkaShipmentBuilder) {
+		/*
+		 * Set up Kafka producer
+		 */
+		try {
+			inputStream = new FileInputStream(kafkaShipmentBuilder.propertyFileLocation);
+			kafkaProperties = new Properties();
+			kafkaProperties.load(inputStream);
+			kafkaProperties.put("sourceTopic", kafkaShipmentBuilder.sourceTopic);
+			// kafkaProperties.put("metadata.broker.list", "<Kafka broker IP
+			// address>:9092");
+			kafkaTrain = new Producer<byte[], byte[]>(new ProducerConfig(kafkaProperties));
+			interruptTypes = new HashMap<String, Long>();
+			loadInterruptTypes();
+			loadSampleSchedule();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void sendMessage() throws InterruptedException {
+		for (int i = 0; i < 10; i++) {
+			byte[] outputKafkaBytes = generateEnvironmentStatus();
+			kafkaTrain.send(
+					new KeyedMessage<byte[], byte[]>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
+			System.out.println(" Sending canned interrupt messages to " + kafkaProperties.getProperty("sourceTopic"));
+			Thread.sleep(100l);
+		}
+	}
+
+	public void cleanUp() {
+		try {
+			this.inputStream.close();
+			this.kafkaTrain.close();
+		} catch (IOException io) {
+			io.printStackTrace();
+		}
+	}
+
+	public static class KafkaShipmentBuilder {
+		private String	sourceTopic;
+		private String	propertyFileLocation;
+
+		public KafkaShipmentBuilder withPropertyFileAt(String fileLocation) {
+			this.propertyFileLocation = fileLocation;
+
+			/*
+			 * try{ } catch(Exception e){ }
+			 */
+
+			return this;
+		}
+
+		public KafkaShipmentBuilder withSourceTopic(String sourceTopic) {
+			this.sourceTopic = sourceTopic;
+			return this;
+		}
+
+		public KafkaShipmentBuilder build() throws Exception {
+			return new KafkaShipmentBuilder();
+		}
+	}
+
+}

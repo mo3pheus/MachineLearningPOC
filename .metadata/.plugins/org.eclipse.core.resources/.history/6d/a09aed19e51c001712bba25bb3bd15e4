@@ -1,0 +1,5 @@
+package learning.solutions.advanced.matrix.domain;
+
+public class Wall {
+
+}

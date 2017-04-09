@@ -1,0 +1,32 @@
+package egen.solutions.InterruptFactory;
+
+import java.net.URL;
+
+import egen.solutions.InterruptFactory.InterruptProducer.KafkaShipmentBuilder;
+
+public class InterruptDriver
+{
+    public static void main(String[] args)
+    {
+        System.out.println("This is the driver class for interruptProducer");
+        URL url = InterruptDriver.class.getClassLoader().getResource("kafkaProperties.properties");
+        String kafkaPropLocation = url.getPath();
+
+        KafkaShipmentBuilder ksBuilder = (new KafkaShipmentBuilder()).withSourceTopic("p4v_devel_queue").withPropertyFileAt(kafkaPropLocation);
+
+        InterruptProducer ip = new InterruptProducer(ksBuilder);
+        try
+        {
+            ip.sendMessage();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace(System.out);
+        }
+        finally
+        {
+            ip.cleanUp();
+        }
+
+    }
+}

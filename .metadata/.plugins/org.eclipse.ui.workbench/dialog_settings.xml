@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="564" key="DIALOG_X_ORIGIN"/>
-		<item value="91" key="DIALOG_Y_ORIGIN"/>
+		<item value="-201" key="DIALOG_X_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="-1" key="dialogHeight"/>
@@ -17,15 +17,19 @@
 		</list>
 	</section>
 	<section name="PreferencesImportWizard">
-		<item value="/home/sanket/Documents/Tools/eclipseThemes/theme-90.epf" key=""/>
+		<item value="/home/sanket/Documents/Tools/eclipseThemes/theme-4371.epf" key=""/>
 		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="/home/sanket/Documents/Tools/eclipseThemes/theme-4371.epf"/>
 			<item value="/home/sanket/Documents/Tools/eclipseThemes/theme-90.epf"/>
+			<item value="/home/sanket/Documents/Tools/eclipseThemes/theme-1288.epf"/>
+			<item value="/home/sanket/Documents/Tools/eclipseThemes/theme-32.epf"/>
 			<item value="/home/sanket/Documents/Tools/eclipseThemes/theme-1004.epf"/>
 		</list>
 	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.m2e.core.wizards.Maven2ProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
 			<item value="org.eclipse.m2e"/>
 		</list>
 	</section>
@@ -37,7 +41,7 @@
 		<item value="-163" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="ImportExportAction">
-		<item value="org.eclipse.ui.wizards.import.Preferences" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<item value="org.eclipse.e4.ui.importer.wizard" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
 			<item value="org.eclipse.m2e"/>

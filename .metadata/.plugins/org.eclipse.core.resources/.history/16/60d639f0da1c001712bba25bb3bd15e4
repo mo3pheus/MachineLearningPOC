@@ -1,0 +1,17 @@
+package learning.solutions.advanced.matrix.domain;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+public class Cell extends MatrixElement{
+
+	@Override
+	public void draw(Graphics2D g2) {
+	}
+
+	@Override
+	public Color getColor() {
+		return null;
+	}
+
+}

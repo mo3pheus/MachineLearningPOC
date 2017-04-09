@@ -1,7 +1,0 @@
-package org.sanket.codingGym.iMazeForRobot.environment;
-
-public class EnvironmentUtils {
-	public static Color findColor(String color){
-		
-	}
-}

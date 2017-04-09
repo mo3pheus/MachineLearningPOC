@@ -1,0 +1,25 @@
+package solutions.egen.bhpb.UserStoryOne;
+
+option java_outer_classname = "LinearProgrammingModule";
+
+message LPProto{
+
+	message Constraint{
+		required double xCoef = 1;
+		required double yCoef = 2;
+		optional string description = 3;
+	}
+	
+	message Objective{
+		required double xCoef = 1;
+		required double yCoef = 2;
+		required bool maximize = 3;
+		required bool selected = 4;
+		optional string description = 5;
+	}
+
+	repeated Constraint constraints = 1;
+	repeated Objective objectives = 2;
+	optional double output1 = 3;
+	optional double output2 = 4;
+}

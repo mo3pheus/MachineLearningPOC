@@ -1,5 +1,0 @@
-package org.sanket.codingGym.iMazeForRobot.data;
-
-public interface IDrawStuff {
-	public void build(Graphics2D);
-}

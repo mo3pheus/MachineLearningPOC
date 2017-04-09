@@ -1,0 +1,15 @@
+package learning.solutions.advanced.matrix.driver;
+
+import java.awt.Frame;
+
+import learning.solutions.advanced.matrix.domain.VirtualElement;
+
+public class MatrixArchitect extends Frame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4198825794676956718L;
+	private [] VirtualElement elements = null;
+	
+}

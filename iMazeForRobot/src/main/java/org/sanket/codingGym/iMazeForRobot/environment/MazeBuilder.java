@@ -117,7 +117,7 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 		System.out.println(elements.size());
 	}
 
-	public void render(List<T> elements, Graphics2D g2) {
+	public void render(Graphics2D g2) {
 		executed = !executed;
 
 		/* Draw the maze */
@@ -139,12 +139,13 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 		}
 
 		/* Animate the maze. */
-		/*
-		 * try { AnimationEngine.animate(elements, g2,
-		 * navCore.getDemoRobotPath(robot, mazeDefinition), 0,
-		 * Integer.parseInt(mazeDefinition.getProperty(Cell.CELL_WIDTH))); }
-		 * catch (Exception e) { e.printStackTrace(); }
-		 */
+		try {
+			AnimationEngine.animate(elements, g2, navCore.getDemoRobotPath(robot, mazeDefinition), 0,
+					Integer.parseInt(mazeDefinition.getProperty(Cell.CELL_WIDTH)));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public void paint(Graphics g) {
@@ -155,7 +156,7 @@ public class MazeBuilder<T extends IDrawStuff> extends Frame {
 			}
 			super.paint(g);
 			Graphics2D g2 = (Graphics2D) g;
-			render(elements, g2);
+			render(g2);
 		} else {
 			System.exit(1);
 		}

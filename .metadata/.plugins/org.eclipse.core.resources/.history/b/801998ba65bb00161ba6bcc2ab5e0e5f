@@ -1,7 +1,0 @@
-package org.sanket.codingGym.iMazeForRobot.data;
-
-public class Robot {
-	public Robot(Properties mazeDefinition){
-		
-	}
-}

@@ -1,0 +1,11 @@
+package learning.solutions.advanced.matrix.domain;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+public abstract class MatrixElement {
+
+	public abstract void draw();
+
+	public abstract Color getColor();
+}

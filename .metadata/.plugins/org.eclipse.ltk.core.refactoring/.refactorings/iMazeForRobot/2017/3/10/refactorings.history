@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 3 elements from project &apos;iMazeForRobot&apos;&#x0A;- Original project: &apos;iMazeForRobot&apos;&#x0A;- Original elements:&#x0A;     NavEngineOutputFile1481592581656.csv&#x0A;     NavEngineOutputFile1481594149953.csv&#x0A;     NavEngineOutputFile1481594321518.csv" description="Delete elements" element1="output/NavEngineOutputFile1481594149953.csv" element2="output/NavEngineOutputFile1481592581656.csv" element3="output/NavEngineOutputFile1481594321518.csv" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="3" stamp="1488759261219" subPackages="false" version="1.0"/>
+</session>
