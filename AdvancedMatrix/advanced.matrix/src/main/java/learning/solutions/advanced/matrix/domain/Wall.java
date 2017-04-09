@@ -15,7 +15,7 @@ public class Wall extends VirtualElement {
 	private int					frameHeight;
 	private int					cellWidth;
 	private int[]				definition		= new int[4];
-	private Properties			mazeDefinition	= null;
+	private Properties			matrixConfig	= null;
 	private MatrixElement		existingWorld	= null;
 
 	public static class IllegalWallDefinitionException extends Exception {
@@ -37,6 +37,8 @@ public class Wall extends VirtualElement {
 	
 	public Wall(MatrixElement existingWorld){
 		this.existingWorld = existingWorld;
+		this.matrixConfig = existingWorld.getMatrixConfig();
+		build();
 	}
 
 	public boolean intersects(Point p) {
@@ -64,15 +66,14 @@ public class Wall extends VirtualElement {
 	}
 
 	@Override
-	public void build(Properties mazeDefinition) {
-		this.mazeDefinition = mazeDefinition;
-		this.frameHeight = Integer.parseInt(mazeDefinition.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
-		this.frameWidth = Integer.parseInt(mazeDefinition.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
-		this.cellWidth = Integer.parseInt(mazeDefinition.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+	public void build() {
+		this.frameHeight = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+		this.frameWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+		this.cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 	}
 
 	@Override
 	public Color getColor() {
-		return EnvironmentUtils.findColor(mazeDefinition.getProperty(WALL_COLOR));
+		return EnvironmentUtils.findColor(matrixConfig.getProperty(WALL_COLOR));
 	}
 }

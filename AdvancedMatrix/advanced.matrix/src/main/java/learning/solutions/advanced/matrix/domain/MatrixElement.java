@@ -18,4 +18,8 @@ public abstract class MatrixElement {
 	public Properties getMatrixConfig() {
 		return matrixConfig;
 	}
+	
+	public void setMatrixConfig(Properties matrixConfig){
+		this.matrixConfig = matrixConfig;
+	}
 }

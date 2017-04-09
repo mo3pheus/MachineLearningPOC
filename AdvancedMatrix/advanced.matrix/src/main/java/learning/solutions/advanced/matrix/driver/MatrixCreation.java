@@ -21,13 +21,11 @@ public class MatrixCreation {
 		matrixConfig.load(propFile);
 
 		MatrixElement matrix = new BlankSlate(matrixConfig);
-		matrix.setProperties(matrixConfig);
 		matrix = new Grid(matrix);
 		matrix = new Robot(matrix);
 
 		MatrixArchitect creator = new MatrixArchitect(matrixConfig);
 		creator.setMatrix(matrix);
-		
 	}
 
 }

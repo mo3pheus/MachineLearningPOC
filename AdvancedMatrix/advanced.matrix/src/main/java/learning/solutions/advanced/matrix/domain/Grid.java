@@ -12,8 +12,8 @@ import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 public class Grid extends VirtualElement {
 	private static final String	GRID_COLOR		= "maze.environment.grid.color";
 	private List<Line>			gridLines		= null;
-	private Properties			matrixConfig	= null;
 	private MatrixElement		existingWorld	= null;
+	private Properties			matrixConfig	= null;
 
 	private class Line {
 		public Point	x;
@@ -24,14 +24,14 @@ public class Grid extends VirtualElement {
 			y = new Point(x2, y2);
 		}
 	}
-	
-	public Grid(MatrixElement existingWorld){
+
+	public Grid(MatrixElement existingWorld) {
 		this.existingWorld = existingWorld;
-		build(existingWorld.getMatrixConfig());
+		this.matrixConfig = existingWorld.getMatrixConfig();
+		build();
 	}
 
-	public void build(Properties mazeDefinition) {
-		this.matrixConfig = mazeDefinition;
+	public void build() {
 		gridLines = new ArrayList<Line>();
 
 		int frameHeight = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
@@ -46,7 +46,7 @@ public class Grid extends VirtualElement {
 
 	@Override
 	public Color getColor() {
-		return EnvironmentUtils.findColor(matrixConfig.getProperty(GRID_COLOR));
+		return EnvironmentUtils.findColor(existingWorld.getMatrixConfig().getProperty(GRID_COLOR));
 	}
 
 	@Override

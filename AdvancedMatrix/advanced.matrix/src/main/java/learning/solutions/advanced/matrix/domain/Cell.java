@@ -23,11 +23,11 @@ public class Cell extends VirtualElement {
 
 	public Cell(VirtualElement existingWorld) {
 		this.existingWorld = existingWorld;
+		this.matrixConfig = existingWorld.getMatrixConfig();
+		build();
 	}
 
-	public void build(Properties matrixConfig) {
-		this.matrixConfig = matrixConfig;
-
+	public void build() {
 		cellWidth = Integer.parseInt(matrixConfig.getProperty(CELL_WIDTH));
 		location = new Point(Integer.parseInt(matrixConfig.getProperty(CELL_LOCATION).split(",")[0]),
 				Integer.parseInt(matrixConfig.getProperty(CELL_LOCATION).split(",")[1]));

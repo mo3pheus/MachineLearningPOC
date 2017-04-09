@@ -31,12 +31,12 @@ public class Robot extends VirtualElement {
 
 	public Robot(MatrixElement existingWorld) {
 		this.existingWorld = existingWorld;
-		build(existingWorld.getMatrixConfig());
+		this.matrixConfig = existingWorld.getMatrixConfig();
+		build();
 	}
 
 	@Override
-	public void build(Properties mazeDefinition) {
-		this.matrixConfig = mazeDefinition;
+	public void build() {
 		BufferedImage img = null;
 		try {
 			img = ImageIO.read(new File(Robot.class.getClassLoader().getResource(roboImageLocation).getPath()));
