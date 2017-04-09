@@ -16,8 +16,7 @@ public class Wall extends VirtualElement {
 	private int					cellWidth;
 	private int[]				definition		= new int[4];
 	private Properties			matrixConfig	= null;
-	private MatrixElement		existingWorld	= null;
-
+	
 	public static class IllegalWallDefinitionException extends Exception {
 
 		/**
@@ -35,9 +34,8 @@ public class Wall extends VirtualElement {
 				(double) definition[3]);
 	}
 	
-	public Wall(MatrixElement existingWorld){
-		this.existingWorld = existingWorld;
-		this.matrixConfig = existingWorld.getMatrixConfig();
+	public Wall(Properties matrixConfig){
+		this.matrixConfig = matrixConfig;
 		build();
 	}
 
@@ -62,7 +60,6 @@ public class Wall extends VirtualElement {
 	public void draw(Graphics2D g2) {
 		g2.setColor(getColor());
 		g2.fill(getWall());
-		existingWorld.draw(g2);
 	}
 
 	@Override

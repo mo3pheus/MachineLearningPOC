@@ -18,7 +18,6 @@ public class Robot extends VirtualElement {
 	private static final String	roboImageLocation		= "robot-tool.png";
 	private Properties			matrixConfig			= null;
 	private Point				location				= null;
-	private MatrixElement		existingWorld			= null;
 	private BufferedImage		robotImage				= null;
 
 	public Point getLocation() {
@@ -29,9 +28,8 @@ public class Robot extends VirtualElement {
 		this.location = location;
 	}
 
-	public Robot(MatrixElement existingWorld) {
-		this.existingWorld = existingWorld;
-		this.matrixConfig = existingWorld.getMatrixConfig();
+	public Robot(Properties matrixConfig) {
+		this.matrixConfig = matrixConfig;
 		build();
 	}
 
@@ -60,6 +58,5 @@ public class Robot extends VirtualElement {
 		int cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 		at.scale(cellWidth, cellWidth);
 		g2.drawImage(robotImage, null, location.x, location.y);
-		existingWorld.draw(g2);
 	}
 }

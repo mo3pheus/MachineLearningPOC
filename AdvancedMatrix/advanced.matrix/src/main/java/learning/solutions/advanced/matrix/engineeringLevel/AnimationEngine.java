@@ -4,11 +4,12 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.List;
 
+import learning.solutions.advanced.matrix.domain.BlankSlate;
+import learning.solutions.advanced.matrix.domain.MatrixElement;
 import learning.solutions.advanced.matrix.domain.Robot;
-import learning.solutions.advanced.matrix.domain.VirtualElement;
 
 public class AnimationEngine {
-	public static void animate(List<VirtualElement> elements, Graphics2D canvas, List<Point> positions, int robotIndex,
+	public static void animate(List<MatrixElement> elements, Graphics2D canvas, List<Point> positions, int robotIndex,
 			int cellWidth) throws Exception {
 		Robot robot = (Robot) elements.get(robotIndex);
 
@@ -25,6 +26,15 @@ public class AnimationEngine {
 			if (j != positions.size() - 1) {
 				canvas.clearRect(currentLocation.x, currentLocation.y, cellWidth, cellWidth);
 			}
+		}
+	}
+	
+	public static void animateRobot(Graphics2D canvas, List<Point> positions, int cellWidth) {
+		MatrixElement matrix = new BlankSlate();
+		
+		for(int i = 0; i < positions.size(); i++){
+			Point position = positions.get(i);
+			
 		}
 	}
 }

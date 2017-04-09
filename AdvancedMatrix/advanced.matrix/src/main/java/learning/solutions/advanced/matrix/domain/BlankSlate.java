@@ -3,21 +3,19 @@ package learning.solutions.advanced.matrix.domain;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.util.Properties;
 
 public class BlankSlate extends MatrixElement {
-	public static final String	WINDOW_WIDTH	= "maze.environment.window.width";
+	public static final String WINDOW_WIDTH = "maze.environment.window.width";
 
-	private Point				location		= null;
-	
+	private Point location = null;
+
 	@Override
 	public Color getColor() {
 		return Color.WHITE;
 	}
 
-	public BlankSlate(Properties matrixConfig) {
+	public BlankSlate() {
 		location = new Point(0, 0);
-		this.setMatrixConfig(matrixConfig);
 	}
 
 	public Point getLocation() {

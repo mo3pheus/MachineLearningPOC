@@ -7,7 +7,7 @@ public class EnvironmentUtils {
 	public static final String	FRAME_WIDTH_PROPERTY	= "maze.environment.frame.width";
 	public static final String	CELL_WIDTH_PROPERTY		= "maze.environment.cell.width";
 	public static final String	NUM_WALLS_PROPERTY		= "maze.environment.num.walls";
-	public static final String	WALL_DEFS_PROPERTY		= "maze.environment.wall.definitions";
+	public static final String	WALL_DEFS_PROPERTY		= "maze.environment.wall.definitions.";
 	public static final String	START_POSN_PROPERTY		= "maze.environment.start.position";
 	public static final String	DESTN_POSN_PROPERTY		= "maze.environment.destination.position";
 
