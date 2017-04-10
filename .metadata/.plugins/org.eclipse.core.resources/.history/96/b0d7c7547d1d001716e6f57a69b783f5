@@ -1,0 +1,9 @@
+package learning.solutions.advnaced.matrix.utils;
+
+public class MatrixDataIllusion {
+	
+	public static List<Point> generateRobotPositions(Point start, Point end){
+		
+		
+	}
+}

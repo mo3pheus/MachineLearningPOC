@@ -1,40 +1,68 @@
 package learning.solutions.advanced.matrix.engineeringLevel;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import learning.solutions.advanced.matrix.domain.BlankSlate;
+import learning.solutions.advanced.matrix.domain.Cell;
+import learning.solutions.advanced.matrix.domain.Grid;
 import learning.solutions.advanced.matrix.domain.MatrixElement;
 import learning.solutions.advanced.matrix.domain.Robot;
+import learning.solutions.advanced.matrix.domain.WallBuilder;
+import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 
 public class AnimationEngine {
-	public static void animate(List<MatrixElement> elements, Graphics2D canvas, List<Point> positions, int robotIndex,
-			int cellWidth) throws Exception {
-		Robot robot = (Robot) elements.get(robotIndex);
+	public static void animateRobot(Graphics2D canvas, List<Point> positions, Properties matrixConfig)
+			throws Exception {
 
-		for (int j = 0; j < positions.size(); j++) {
-			Point currentLocation = robot.getLocation();
-			for (int i = 0; i < elements.size(); i++) {
-				if (i != robotIndex) {
-					elements.get(i).draw(canvas);
-				}
+		if (positions.isEmpty()) {
+			throw new Exception("List of positions is empty!");
+		}
+
+		int cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+		Point oldPosition = positions.get(0);
+		for (int i = 0; i < positions.size(); i++) {
+			canvas.clearRect(oldPosition.x, oldPosition.y, cellWidth, cellWidth);
+
+			Point position = positions.get(i);
+			List<MatrixElement> matrixCitizens = new ArrayList<MatrixElement>();
+			Robot robot = new Robot(matrixConfig);
+			robot.setLocation(position);
+			Cell cell = new Cell(matrixConfig);
+			Grid grid = new Grid(matrixConfig);
+			WallBuilder wallBuilder = new WallBuilder(matrixConfig);
+			matrixCitizens.add(grid);
+			matrixCitizens.add(cell);
+			matrixCitizens.add(wallBuilder);
+			matrixCitizens.add(robot);
+
+			try {
+				Thread.sleep(Long.parseLong(matrixConfig.getProperty(EnvironmentUtils.ANIMATION_PACE_DELAY)));
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
-			robot.draw(canvas);
-			robot.setLocation(positions.get(j));
-			Thread.sleep(25);
-			if (j != positions.size() - 1) {
-				canvas.clearRect(currentLocation.x, currentLocation.y, cellWidth, cellWidth);
-			}
+
+			createMatrix(matrixCitizens, canvas);
+			oldPosition = position;
 		}
 	}
-	
-	public static void animateRobot(Graphics2D canvas, List<Point> positions, int cellWidth) {
-		MatrixElement matrix = new BlankSlate();
-		
-		for(int i = 0; i < positions.size(); i++){
-			Point position = positions.get(i);
-			
+
+	private static void createMatrix(List<MatrixElement> matrixCitizens, Graphics2D canvas) {
+		for (MatrixElement mCitizen : matrixCitizens) {
+			mCitizen.draw(canvas);
 		}
+	}
+
+	private static Cell generateBlankCell(Point position, Properties matrixConfig) {
+		Cell blankCell = new Cell(matrixConfig);
+		blankCell.setLocation(position);
+		blankCell.setColor(Color.WHITE);
+		return blankCell;
 	}
 }

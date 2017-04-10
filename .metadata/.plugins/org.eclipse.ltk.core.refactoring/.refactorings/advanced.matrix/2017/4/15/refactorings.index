@@ -9,3 +9,11 @@
 1491717008367	Delete element
 1491720916397	Move compilation unit
 1491721252907	Rename local variable 'g2'
+1491781723535	Rename field 'matrixDefinition'
+1491782615215	Rename package 'learning.solutions.advnaced.matrix.utils'
+1491782707753	Rename package 'learning.solutions.advanced.matrix.utils'
+1491782867889	Delete element
+1491783169339	Delete element
+1491783275305	Move compilation unit
+1491783312699	Move compilation unit
+1491783907092	Delete element

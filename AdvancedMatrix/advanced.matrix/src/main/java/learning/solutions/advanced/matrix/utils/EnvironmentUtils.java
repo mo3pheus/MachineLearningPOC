@@ -10,6 +10,8 @@ public class EnvironmentUtils {
 	public static final String	WALL_DEFS_PROPERTY		= "maze.environment.wall.definitions.";
 	public static final String	START_POSN_PROPERTY		= "maze.environment.start.position";
 	public static final String	DESTN_POSN_PROPERTY		= "maze.environment.destination.position";
+	public static final String	ROBOT_START_LOCATION	= "maze.environment.robot.position";
+	public static final String	ANIMATION_PACE_DELAY	= "maze.environment.animation.pace.delay";
 
 	public static Color findColor(String color) {
 		if (color.equals("red")) {

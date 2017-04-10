@@ -14,7 +14,6 @@ import javax.imageio.ImageIO;
 import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 
 public class Robot extends VirtualElement {
-	private static final String	ROBOT_START_LOCATION	= "maze.environment.robot.position";
 	private static final String	roboImageLocation		= "robot-tool.png";
 	private Properties			matrixConfig			= null;
 	private Point				location				= null;
@@ -43,8 +42,8 @@ public class Robot extends VirtualElement {
 		}
 		robotImage = (BufferedImage) img;
 
-		location = new Point(Integer.parseInt(matrixConfig.getProperty(ROBOT_START_LOCATION).split(",")[0]),
-				Integer.parseInt(matrixConfig.getProperty(ROBOT_START_LOCATION).split(",")[1]));
+		location = new Point(Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]),
+				Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[1]));
 	}
 
 	@Override

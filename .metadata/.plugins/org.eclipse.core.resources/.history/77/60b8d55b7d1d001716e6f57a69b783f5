@@ -1,0 +1,14 @@
+package learning.solutions.advnaced.matrix.utils;
+
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MatrixDataIllusion {
+	
+	public static List<Point> generateRobotPositions(Point start, Point end){
+		List<Point> positions = new ArrayList<Point>();
+		
+		
+	}
+}

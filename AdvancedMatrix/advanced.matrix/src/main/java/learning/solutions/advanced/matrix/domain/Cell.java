@@ -12,6 +12,7 @@ public class Cell extends VirtualElement {
 	public static final String	CELL_WIDTH		= "maze.environment.cell.width";
 	public static final String	CELL_LOCATION	= "maze.environment.cell.location";
 	public static final String	CELL_COLOR		= "maze.environment.cell.color";
+	private Color				cellColor		= null;
 	private Point				location		= null;
 	private Properties			matrixConfig	= null;
 	private int					cellWidth;
@@ -35,9 +36,17 @@ public class Cell extends VirtualElement {
 		return location;
 	}
 
+	public void setLocation(Point location) {
+		this.location = location;
+	}
+
+	public void setColor(Color cellColor) {
+		this.cellColor = cellColor;
+	}
+
 	@Override
 	public void draw(Graphics2D g2) {
-		g2.setColor(getColor());
+		g2.setColor((cellColor == null) ? getColor() : cellColor);
 		g2.fill(getCell());
 	}
 

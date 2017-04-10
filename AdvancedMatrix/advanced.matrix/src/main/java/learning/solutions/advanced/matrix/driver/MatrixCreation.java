@@ -1,5 +1,6 @@
 package learning.solutions.advanced.matrix.driver;
 
+import java.awt.Point;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -10,10 +11,10 @@ import java.util.Properties;
 import learning.solutions.advanced.matrix.domain.MatrixElement;
 import learning.solutions.advanced.matrix.domain.Robot;
 import learning.solutions.advanced.matrix.domain.WallBuilder;
-import learning.solutions.advanced.matrix.domain.BlankSlate;
 import learning.solutions.advanced.matrix.domain.Cell;
 import learning.solutions.advanced.matrix.domain.Grid;
 import learning.solutions.advanced.matrix.domain.MatrixArchitect;
+import learning.solutions.advanced.matrix.domain.MatrixDataIllusion;
 
 public class MatrixCreation {
 
@@ -36,7 +37,7 @@ public class MatrixCreation {
 		elements.add(wallBuilder);
 		elements.add(robot);
 
-		MatrixArchitect creator = new MatrixArchitect(elements,matrixConfig);
+		MatrixArchitect creator = new MatrixArchitect(elements, matrixConfig);
 		System.out.println(creator.getHeight());
 	}
 }
