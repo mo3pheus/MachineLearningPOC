@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import learning.solutions.advanced.matrix.domain.BlankSlate;
 import learning.solutions.advanced.matrix.domain.Cell;
 import learning.solutions.advanced.matrix.domain.Grid;
 import learning.solutions.advanced.matrix.domain.MatrixElement;
@@ -40,29 +39,22 @@ public class AnimationEngine {
 			matrixCitizens.add(wallBuilder);
 			matrixCitizens.add(robot);
 
-			try {
-				Thread.sleep(Long.parseLong(matrixConfig.getProperty(EnvironmentUtils.ANIMATION_PACE_DELAY)));
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-
-			createMatrix(matrixCitizens, canvas);
+			createMatrix(matrixCitizens, canvas, matrixConfig);
 			oldPosition = position;
 		}
 	}
 
-	private static void createMatrix(List<MatrixElement> matrixCitizens, Graphics2D canvas) {
+	private static void createMatrix(List<MatrixElement> matrixCitizens, Graphics2D canvas, Properties matrixConfig) {
 		for (MatrixElement mCitizen : matrixCitizens) {
 			mCitizen.draw(canvas);
 		}
-	}
 
-	private static Cell generateBlankCell(Point position, Properties matrixConfig) {
-		Cell blankCell = new Cell(matrixConfig);
-		blankCell.setLocation(position);
-		blankCell.setColor(Color.WHITE);
-		return blankCell;
+		try {
+			Thread.sleep(Long.parseLong(matrixConfig.getProperty(EnvironmentUtils.ANIMATION_PACE_DELAY)));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }

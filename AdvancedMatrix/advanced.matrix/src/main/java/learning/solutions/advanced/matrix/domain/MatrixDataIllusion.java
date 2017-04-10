@@ -19,7 +19,7 @@ public class MatrixDataIllusion {
 
 		while (startY != end.y) {
 			startY = (startY > end.y) ? (startY - STEP_SIZE) : (startY + STEP_SIZE);
-			Point tempPoint = (startY > end.y) ? new Point(startX, --startY) : new Point(startX, startY++);
+			Point tempPoint = new Point(startX, startY);
 			positions.add(tempPoint);
 		}
 

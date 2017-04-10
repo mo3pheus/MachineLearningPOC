@@ -1,6 +1,5 @@
 package learning.solutions.advanced.matrix.driver;
 
-import java.awt.Point;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -14,7 +13,6 @@ import learning.solutions.advanced.matrix.domain.WallBuilder;
 import learning.solutions.advanced.matrix.domain.Cell;
 import learning.solutions.advanced.matrix.domain.Grid;
 import learning.solutions.advanced.matrix.domain.MatrixArchitect;
-import learning.solutions.advanced.matrix.domain.MatrixDataIllusion;
 
 public class MatrixCreation {
 
