@@ -1,7 +1,0 @@
-package learning.solutions.advanced.matrix.driver;
-
-import java.awt.Frame;
-
-public class MatrixArchitect extends Frame{
-
-}

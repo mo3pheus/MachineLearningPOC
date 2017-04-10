@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.awt.Window"/>
-<fullyQualifiedTypeName name="java.awt.event.WindowListener"/>
-<fullyQualifiedTypeName name="java.io.FileInputStream"/>
-<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
 <fullyQualifiedTypeName name="org.sanket.codingGym.iMazeForRobot.environment.EnvironmentUtils"/>
 <fullyQualifiedTypeName name="java.awt.Image"/>
 <fullyQualifiedTypeName name="java.awt.image.BufferedImageOp"/>
@@ -13,7 +7,6 @@
 <fullyQualifiedTypeName name="org.sanket.codingGym.iMazeForRobot.data.IDrawStuff"/>
 <fullyQualifiedTypeName name="java.awt.geom.Rectangle2D.Double"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
-<fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="internal.tools.machine.learning.LPProtoOuterClass.LPProtoOrBuilder"/>
 <fullyQualifiedTypeName name="internal.tools.machine.learning.LPProtoOuterClass"/>
 <fullyQualifiedTypeName name="internal.tools.machine.learning.LPProtoOuterClass.LPProto"/>
@@ -37,12 +30,10 @@
 <fullyQualifiedTypeName name="solutions.egen.bhpb.UserStoryOne.GanttInfo.GanttPacket"/>
 <fullyQualifiedTypeName name="solutions.egen.bhpb.UserStoryOne.GanttInfo.GanttPacket.Builder"/>
 <fullyQualifiedTypeName name="solutions.egen.bhpb.p4v.UserStoryOne.utilities.JSonConverter"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="solutions.egen.bhpb.p4v.UserStoryOne.utilities.Task"/>
 <fullyQualifiedTypeName name="solutions.egen.bhpb.p4v.UserStoryOne.utilities.Project"/>
 <fullyQualifiedTypeName name="solutions.egen.bhpb.p4v.UserStoryOne.ProjectConversionUtil"/>
 <fullyQualifiedTypeName name="solutions.egen.bhpb.p4v.UserStoryOne.utilities.TaskGroup"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="com.google.gson.Gson"/>
@@ -50,14 +41,23 @@
 <fullyQualifiedTypeName name="com.google.gson.stream.JsonReader"/>
 <fullyQualifiedTypeName name="java.io.FileReader"/>
 <fullyQualifiedTypeName name="java.awt.Graphics2D"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="java.awt.Frame"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.VirtualElement"/>
-<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.utils.EnvironmentUtils"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.MatrixElement"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.BlankSlate"/>
-<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.Grid"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.Robot"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.MatrixArchitect"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.Cell"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.Grid"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.WallBuilder"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.engineeringLevel.AnimationEngine"/>
+<fullyQualifiedTypeName name="learning.solutions.advnaced.matrix.utils.MatrixDataIllusion"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.utils.MatrixDataIllusion"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.MatrixDataIllusion"/>
+<fullyQualifiedTypeName name="java.awt.Point"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.utils.EnvironmentUtils"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="java.util.Properties"/>
 </qualifiedTypeNameHistroy>
