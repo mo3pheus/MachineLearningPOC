@@ -4,6 +4,7 @@ import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import learning.solutions.advanced.matrix.engineeringLevel.AnimationEngine;
@@ -16,7 +17,7 @@ public class MatrixArchitect extends Frame {
 	 */
 	private static final long	serialVersionUID	= 4198825794676956718L;
 	private Properties			matrixConfig		= null;
-	private List<MatrixElement>	matrix				= null;
+	private List<Point>			robotPositions		= null;
 
 	private void render(Graphics2D canvas) {
 		String robotStPositionStr = matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION);
@@ -25,12 +26,14 @@ public class MatrixArchitect extends Frame {
 				Integer.parseInt(robotStPositionStr.split(",")[1]));
 		Point robotEndLocation = new Point(Integer.parseInt(robotEndPositionStr.split(",")[0]),
 				Integer.parseInt(robotEndPositionStr.split(",")[1]));
-		List<Point> robotPositions = MatrixDataIllusion.generateRobotPositions(robotStartLocation, robotEndLocation);
+		robotPositions = (robotPositions == null)
+				? MatrixDataIllusion.generateRobotPositions(robotStartLocation, robotEndLocation) : robotPositions;
 		try {
 			AnimationEngine.animateRobot(canvas, robotPositions, matrixConfig);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.exit(NORMAL);
 	}
 
 	public void paint(Graphics g) {
@@ -39,10 +42,14 @@ public class MatrixArchitect extends Frame {
 		render(canvas);
 	}
 
-	public MatrixArchitect(List<MatrixElement> matrix, Properties matrixDefinition) {
+	public void setRobotPositions(List<Point> robotPositions) {
+		this.robotPositions = new ArrayList<Point>();
+		this.robotPositions = robotPositions;
+	}
+
+	public MatrixArchitect(Properties matrixDefinition) {
 		super("Matrix");
 		this.matrixConfig = matrixDefinition;
-		this.matrix = matrix;
 
 		int frameHeight = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
 		int frameWidth = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
