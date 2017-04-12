@@ -3,15 +3,18 @@ package learning.solutions.advanced.matrix.utils;
 import java.awt.Color;
 
 public class EnvironmentUtils {
-	public static final String	FRAME_HEIGHT_PROPERTY	= "maze.environment.frame.height";
-	public static final String	FRAME_WIDTH_PROPERTY	= "maze.environment.frame.width";
-	public static final String	CELL_WIDTH_PROPERTY		= "maze.environment.cell.width";
-	public static final String	NUM_WALLS_PROPERTY		= "maze.environment.num.walls";
-	public static final String	WALL_DEFS_PROPERTY		= "maze.environment.wall.definitions.";
-	public static final String	START_POSN_PROPERTY		= "maze.environment.start.position";
-	public static final String	DESTN_POSN_PROPERTY		= "maze.environment.destination.position";
-	public static final String	ROBOT_START_LOCATION	= "maze.environment.robot.position";
-	public static final String	ANIMATION_PACE_DELAY	= "maze.environment.animation.pace.delay";
+	public static final String	FRAME_HEIGHT_PROPERTY				= "maze.environment.frame.height";
+	public static final String	FRAME_WIDTH_PROPERTY				= "maze.environment.frame.width";
+	public static final String	CELL_WIDTH_PROPERTY					= "maze.environment.cell.width";
+	public static final String	NUM_WALLS_PROPERTY					= "maze.environment.num.walls";
+	public static final String	WALL_DEFS_PROPERTY					= "maze.environment.wall.definitions.";
+	public static final String	START_POSN_PROPERTY					= "maze.environment.start.position";
+	public static final String	DESTN_POSN_PROPERTY					= "maze.environment.destination.position";
+	public static final String	ROBOT_START_LOCATION				= "maze.environment.robot.position";
+	public static final String	ANIMATION_PACE_DELAY				= "maze.environment.animation.pace.delay";
+	public static final String	ANIMATION_STEP_SIZE					= "maze.environment.animation.step.size";
+	public static final String	ANIMATION_PROFILE_NUMBER_POSITIONS	= "maze.environment.animation.number.positions";
+	public static final String	ANIMATION_PROFILE_POSITION_HEADER	= "maze.environment.animation.position.";
 
 	public static Color findColor(String color) {
 		if (color.equals("red")) {
@@ -26,6 +29,12 @@ public class EnvironmentUtils {
 			return Color.green;
 		} else if (color.equals("orange")) {
 			return Color.orange;
+		} else if (color.equals("darkGreen")) {
+			return new Color(0, 153, 51);
+		} else if (color.equals("brown")) {
+			return new Color(102, 51, 0);
+		} else if (color.equals("royalBlue")) {
+			return new Color(0, 102, 255);
 		}
 
 		else {

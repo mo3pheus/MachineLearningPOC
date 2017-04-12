@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Properties;
 import learning.solutions.advanced.matrix.engineeringLevel.AnimationEngine;
 import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
+import learning.solutions.advanced.matrix.utils.MatrixDataIllusion;
 
 public class MatrixArchitect extends Frame {
 
@@ -20,14 +21,8 @@ public class MatrixArchitect extends Frame {
 	private List<Point>			robotPositions		= null;
 
 	private void render(Graphics2D canvas) {
-		String robotStPositionStr = matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION);
-		String robotEndPositionStr = matrixConfig.getProperty(EnvironmentUtils.DESTN_POSN_PROPERTY);
-		Point robotStartLocation = new Point(Integer.parseInt(robotStPositionStr.split(",")[0]),
-				Integer.parseInt(robotStPositionStr.split(",")[1]));
-		Point robotEndLocation = new Point(Integer.parseInt(robotEndPositionStr.split(",")[0]),
-				Integer.parseInt(robotEndPositionStr.split(",")[1]));
-		robotPositions = (robotPositions == null)
-				? MatrixDataIllusion.generateRobotPositions(robotStartLocation, robotEndLocation) : robotPositions;
+		robotPositions = (robotPositions == null) ? MatrixDataIllusion.generateAnimationProfile(matrixConfig)
+				: robotPositions;
 		try {
 			AnimationEngine.animateRobot(canvas, robotPositions, matrixConfig);
 		} catch (Exception e) {
