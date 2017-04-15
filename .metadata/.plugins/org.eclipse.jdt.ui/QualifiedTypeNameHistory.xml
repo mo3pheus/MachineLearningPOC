@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.sanket.codingGym.iMazeForRobot.environment.EnvironmentUtils"/>
-<fullyQualifiedTypeName name="java.awt.Image"/>
-<fullyQualifiedTypeName name="java.awt.image.BufferedImageOp"/>
-<fullyQualifiedTypeName name="java.awt.geom.AffineTransform"/>
-<fullyQualifiedTypeName name="org.sanket.codingGym.iMazeForRobot.data.IDrawStuff"/>
-<fullyQualifiedTypeName name="java.awt.geom.Rectangle2D.Double"/>
-<fullyQualifiedTypeName name="java.util.Collections"/>
-<fullyQualifiedTypeName name="internal.tools.machine.learning.LPProtoOuterClass.LPProtoOrBuilder"/>
-<fullyQualifiedTypeName name="internal.tools.machine.learning.LPProtoOuterClass"/>
-<fullyQualifiedTypeName name="internal.tools.machine.learning.LPProtoOuterClass.LPProto"/>
-<fullyQualifiedTypeName name="internal.tools.machine.learning.LPProtoOuterClass.LPProto.Builder"/>
-<fullyQualifiedTypeName name="internal.tools.machine.learning.LPProtoOuterClass.LPProto.Constraint"/>
-<fullyQualifiedTypeName name="internal.tools.machine.learning.LPProtoOuterClass.LPProto.Constraint.Builder"/>
-<fullyQualifiedTypeName name="internal.tools.machine.learning.LPProtoOuterClass.LPProto.Objective.Builder"/>
-<fullyQualifiedTypeName name="internal.tools.machine.learning.LPProtoOuterClass.LPProto.Objective"/>
 <fullyQualifiedTypeName name="solutions.egen.bhpb.UserStoryOne.LinearProgrammingModule.LPProto"/>
 <fullyQualifiedTypeName name="solutions.egen.bhpb.UserStoryOne.LinearProgrammingModule.LPProto.Constraint"/>
 <fullyQualifiedTypeName name="solutions.egen.bhpb.UserStoryOne.LinearProgrammingModule.LPProto.Objective"/>
@@ -46,7 +31,6 @@
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.MatrixElement"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.BlankSlate"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.Robot"/>
-<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.MatrixArchitect"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.Cell"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.Grid"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.WallBuilder"/>
@@ -59,5 +43,21 @@
 <fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.utils.EnvironmentUtils"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.MatrixCommunication"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.MatrixCommunication.MatrixCall"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.driver.MatrixCreation"/>
 <fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
+<fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
+<fullyQualifiedTypeName name="com.google.protobuf.ByteString"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.utils.SerializationUtil"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.PortableMatrixConfig"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.domain.MatrixArchitect"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.kafka.MatrixController"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.kafka.MatrixController.KafkaShipmentBuilder"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.kafka.MatrixReceptor"/>
 </qualifiedTypeNameHistroy>

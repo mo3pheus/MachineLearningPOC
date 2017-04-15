@@ -1,0 +1,20 @@
+package learning.solutions.advanced.matrix.domain;
+
+import java.io.Serializable;
+
+import learning.solutions.advanced.matrix.driver.MatrixCreation;
+
+public class PortableMatrixConfig implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6620959159452485240L;
+	
+	private Properties matrixConfig = null;
+	
+	public PortableMatrixConfig(){
+		matrixConfig = MatrixCreation.getMatrixConfig();
+	}
+	
+}

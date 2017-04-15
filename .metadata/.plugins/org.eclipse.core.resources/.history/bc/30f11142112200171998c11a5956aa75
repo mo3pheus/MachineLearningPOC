@@ -1,0 +1,43 @@
+package learning.solutions.advanced.matrix.domain;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.Properties;
+
+import learning.solutions.advanced.matrix.driver.MatrixCreation;
+
+public class PortableMatrixConfig implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6620959159452485240L;
+	
+	private Properties matrixConfig = null;
+	
+	public PortableMatrixConfig(){
+		try {
+			matrixConfig = MatrixCreation.getMatrixConfig();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public byte[] serialize(){
+		ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
+		try {
+			ObjectOutputStream out = new ObjectOutputStream(byteOut);
+			out.writeObject(this);
+			return byteOut.toByteArray();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public void 
+}

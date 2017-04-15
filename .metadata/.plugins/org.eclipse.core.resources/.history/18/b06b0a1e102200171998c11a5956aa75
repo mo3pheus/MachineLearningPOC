@@ -1,0 +1,12 @@
+package learning.solutions.advanced.matrix.domain;
+
+import java.io.Serializable;
+
+public class PortableMatrixConfig implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6620959159452485240L;
+	
+}

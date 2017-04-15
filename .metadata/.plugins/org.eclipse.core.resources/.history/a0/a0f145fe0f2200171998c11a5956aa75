@@ -1,0 +1,7 @@
+package learning.solutions.advanced.matrix.domain;
+
+import java.io.Serializable;
+
+public class PortableMatrixConfig implements Serializable{
+	
+}

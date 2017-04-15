@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="javaml">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/DataMining/target/classes/javaml/javaml-0.1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DataMining/target/classes/javaml/libsvm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DataMining/target/classes/javaml/ajt-2.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DataMining/target/classes/javaml/Jama-1.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DataMining/target/classes/javaml/commons-math-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DataMining/target/classes/javaml/weka.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

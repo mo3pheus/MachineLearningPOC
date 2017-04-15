@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package learning.solutions.advanced.matrix.kafka;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+import com.google.protobuf.InvalidProtocolBufferException;
+
+import kafka.javaapi.producer.Producer;
+import kafka.producer.KeyedMessage;
+import kafka.producer.ProducerConfig;
+
+/**
+ * @author sanketkorgaonkar
+ *
+ */
+public class MatrixController extends Thread {
+
+	
+}

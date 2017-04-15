@@ -1,0 +1,6 @@
+zookeeper.connect=localhost:2181
+group.id=zion.main.frame.broadcast
+auto.offset.reset=largest
+source.topic=secure_voodoo_com_0
+destination.topic=secure_voodoo_com_master
+metadata.broker.list=localhost:9092

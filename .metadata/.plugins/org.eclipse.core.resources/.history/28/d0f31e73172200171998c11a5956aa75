@@ -1,0 +1,12 @@
+package learning.solutions.advanced.matrix.driver;
+
+import learning.solutions.advanced.matrix.kafka.MatrixController;
+import learning.solutions.advanced.matrix.kafka.MatrixController.KafkaShipmentBuilder;
+
+public class CommandControl {
+	public static void main(String[] args){
+		KafkaShipmentBuilder builder = new KafkaShipmentBuilder();
+		MatrixController zionComs = new MatrixController();
+	}
+
+}

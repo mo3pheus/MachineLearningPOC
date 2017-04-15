@@ -1,0 +1,10 @@
+package learning.solutions.advanced.matrix.driver;
+
+import learning.solutions.advanced.matrix.kafka.MatrixController;
+
+public class CommandControl {
+	public static void main(String[] args){
+		MatrixController zionComs = new MatrixController();
+	}
+
+}
