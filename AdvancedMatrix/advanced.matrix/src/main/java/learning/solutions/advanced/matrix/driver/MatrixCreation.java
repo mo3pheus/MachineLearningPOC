@@ -12,12 +12,16 @@ public class MatrixCreation {
 
 	public static void main(String[] args) throws IOException {
 		System.out.println("Hello to the Robo-Maze_World");
-		URL url = MatrixCreation.class.getClassLoader().getResource("mazeDefinition.properties");
+
+		MatrixArchitect creator = new MatrixArchitect(getMatrixConfig());
+
+	}
+
+	public static Properties getMatrixConfig() throws IOException {
+		URL url = MatrixCreation.class.getResource("/mazeDefinition.properties");
 		FileInputStream propFile = new FileInputStream(url.getPath());
 		matrixConfig = new Properties();
 		matrixConfig.load(propFile);
-
-		MatrixArchitect creator = new MatrixArchitect(matrixConfig);
-		creator.dispose();
+		return matrixConfig;
 	}
 }

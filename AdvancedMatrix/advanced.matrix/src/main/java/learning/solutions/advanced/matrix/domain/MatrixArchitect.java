@@ -19,6 +19,7 @@ public class MatrixArchitect extends Frame {
 	private static final long	serialVersionUID	= 4198825794676956718L;
 	private Properties			matrixConfig		= null;
 	private List<Point>			robotPositions		= null;
+	private boolean				animationComplete	= false;
 
 	private void render(Graphics2D canvas) {
 		robotPositions = (robotPositions == null) ? MatrixDataIllusion.generateAnimationProfile(matrixConfig)
@@ -29,6 +30,7 @@ public class MatrixArchitect extends Frame {
 			e.printStackTrace();
 		}
 		canvas.dispose();
+		animationComplete = true;
 		// System.exit(NORMAL);
 	}
 
@@ -51,5 +53,9 @@ public class MatrixArchitect extends Frame {
 		int frameWidth = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
 		this.setSize(frameHeight, frameWidth);
 		this.setVisible(true);
+	}
+
+	public boolean getAnimationComplete() {
+		return animationComplete;
 	}
 }
