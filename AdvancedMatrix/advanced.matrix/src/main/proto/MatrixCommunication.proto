@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package learning.solutions.advanced.matrix;
+
+message MatrixCall{
+	int64 timeStamp = 1;
+	string commandCenter = 2;
+	bytes matrixConfig =3;
+}

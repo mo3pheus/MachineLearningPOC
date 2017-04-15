@@ -18,6 +18,6 @@ public class MatrixCreation {
 		matrixConfig.load(propFile);
 
 		MatrixArchitect creator = new MatrixArchitect(matrixConfig);
-		System.out.println(creator.getHeight());
+		creator.dispose();
 	}
 }

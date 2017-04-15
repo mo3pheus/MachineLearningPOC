@@ -28,7 +28,8 @@ public class MatrixArchitect extends Frame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.exit(NORMAL);
+		canvas.dispose();
+		// System.exit(NORMAL);
 	}
 
 	public void paint(Graphics g) {
