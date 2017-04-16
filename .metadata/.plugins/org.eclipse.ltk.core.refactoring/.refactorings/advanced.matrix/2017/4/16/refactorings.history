@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;advanced.matrix&apos;&#x0A;- Original project: &apos;advanced.matrix&apos;&#x0A;- Original element: &apos;learning.solutions.advanced.matrix.utils.LocalizationUtil.java&apos;" description="Delete element" element1="/src\/main\/java&lt;learning.solutions.advanced.matrix.utils{LocalizationUtil.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1492364564694" subPackages="false" version="1.0"/>
+</session>

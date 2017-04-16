@@ -1,0 +1,24 @@
+package learning.solutions.advanced.matrix.utils;
+
+import java.util.Properties;
+
+public class LocalizationUtil {
+	private Properties matrixConfig = null;
+	private int totalHeight;
+	private int totalWidth;
+	private int cellWidth;
+	
+	public LocalizationUtil(Properties matrixConfig){
+		this.matrixConfig = matrixConfig;
+		initialize();
+	}
+	
+	
+	
+	private void initialize(){
+		
+	}
+	
+	
+
+}

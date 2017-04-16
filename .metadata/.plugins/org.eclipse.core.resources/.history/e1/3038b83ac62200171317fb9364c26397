@@ -1,0 +1,7 @@
+package learning.solutions.advanced.matrix.domain;
+
+public class NavCell {
+	private Point center = null;
+	private int id = -1;
+	private Point[] adjacentNodes = new Point[4];
+}

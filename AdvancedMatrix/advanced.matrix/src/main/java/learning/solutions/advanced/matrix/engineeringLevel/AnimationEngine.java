@@ -43,6 +43,7 @@ public class AnimationEngine {
 			createMatrix(matrixCitizens, canvas, delayMs);
 			oldPosition = position;
 		}
+		// send window closing event
 	}
 
 	private static void createMatrix(List<MatrixElement> matrixCitizens, Graphics2D canvas, long delayMs) {

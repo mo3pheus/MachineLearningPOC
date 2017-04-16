@@ -1,0 +1,21 @@
+package learning.solutions.advanced.matrix.engineeringLevel;
+
+import java.util.Map;
+import java.util.Properties;
+
+import learning.solutions.advanced.matrix.domain.NavCell;
+
+public class NavigationEngine {
+
+	private Map<Integer, NavCell> gridMap = null;
+	private Properties matrixConfig = null;
+	
+	public NavigationEngine(Properties matrixConfig){
+		this.matrixConfig = matrixConfig;
+	}
+	
+	private void populateGridMap(){
+		
+	}
+
+}

@@ -1,0 +1,37 @@
+package learning.solutions.advanced.matrix.engineeringLevel;
+
+import java.awt.Point;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import learning.solutions.advanced.matrix.domain.NavCell;
+import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
+
+public class NavigationEngine {
+
+	private Map<Integer, NavCell> gridMap = null;
+	private Properties matrixConfig = null;
+	
+	public NavigationEngine(Properties matrixConfig){
+		this.matrixConfig = matrixConfig;
+		this.gridMap = new HashMap<Integer, Point>();
+	}
+	
+	private void populateGridMap(){
+		int totalHeight = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+		int cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+
+		int pointCount = totalHeight / cellWidth;
+		int id = 0;
+		for (int i = 1; i < pointCount; i++) {
+			for (int j = 1; j < pointCount; j++) {
+				Point tempPoint = new Point(i * cellWidth, j * cellWidth);
+				NavCell nCell = new NavCell(tempPoint, id);
+				gridMap.put(id, nCell);
+				id++;
+			}
+		}
+	}
+
+}

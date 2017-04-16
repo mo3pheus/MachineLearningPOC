@@ -1,0 +1,41 @@
+package learning.solutions.advanced.matrix.utils;
+
+import java.awt.Point;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import learning.solutions.advanced.matrix.domain.NavCell;
+
+public class LocalizationUtil {
+	private Properties				matrixConfig	= null;
+	private int						totalHeight;
+	private int						cellWidth;
+	private Map<Integer, NavCell>	gridCells;
+
+	public LocalizationUtil(Properties matrixConfig) {
+		this.matrixConfig = matrixConfig;
+		this.gridCells = new HashMap<Integer, NavCell>();
+		initialize();
+	}
+
+	private void initialize() {
+		totalHeight = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+		totalWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+		cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+
+		int pointCount = totalHeight / cellWidth;
+		int id = 0;
+		for (int i = 0; i < pointCount; i++) {
+			for (int j = 0; j < pointCount; j++) {
+				Point tempPoint = new Point( i*cellWidth, j*cellWidth);
+				NavCell nCell = new NavCell(tempPoint, id);
+				gridCells.put(id, nCell);
+				id++;
+			}
+		}
+	}
+	
+	
+
+}

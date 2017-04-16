@@ -3,6 +3,7 @@
  */
 package learning.solutions.advanced.matrix.kafka;
 
+import java.awt.Event;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -55,20 +56,11 @@ public class MatrixReceptor extends Thread {
 						.deserialize(received.getMatrixConfig().toByteArray());
 
 				MatrixArchitect creator = new MatrixArchitect(matrixConfig.getMatrixConfig());
-				while( !creator.getAnimationComplete() ){
-					this.wait();
-				}
-					creator.dispose();
-
-				/* System.out.println("Received userPk=" + received); */
 			} catch (InvalidProtocolBufferException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}
