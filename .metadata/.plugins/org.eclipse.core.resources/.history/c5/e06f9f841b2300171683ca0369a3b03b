@@ -1,0 +1,11 @@
+package learning.solutions.advanced.matrix.engineeringLevel;
+
+public class AdjacencyCalculator {
+	private NavCell center = null;
+	private Properties matrixConfig = null;
+	
+	public AdjacencyCalculator(NavCell center, Properties marixConfig){
+		this.center = center;
+		this.matrixConfig = matrixConfig;
+	}
+}

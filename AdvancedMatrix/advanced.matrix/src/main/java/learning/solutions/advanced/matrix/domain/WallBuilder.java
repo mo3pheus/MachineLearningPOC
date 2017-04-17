@@ -17,10 +17,10 @@ import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
  *
  */
 public class WallBuilder extends VirtualElement {
-	private static final int WALL_DEF_DIMENSION = 4;
+	private static final int	WALL_DEF_DIMENSION	= 4;
 
-	private List<Wall>		walls			= null;
-	private Properties		matrixConfig	= null;
+	private List<Wall>			walls				= null;
+	private Properties			matrixConfig		= null;
 
 	public WallBuilder(Properties matrixConfig) {
 		this.matrixConfig = matrixConfig;
@@ -54,6 +54,10 @@ public class WallBuilder extends VirtualElement {
 	@Override
 	public Color getColor() {
 		return null;
+	}
+
+	public List<Wall> getWalls() {
+		return walls;
 	}
 
 	private int[] getWallDefinition(int wallNo) {

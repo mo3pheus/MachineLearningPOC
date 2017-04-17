@@ -7,6 +7,7 @@ import java.util.Properties;
 
 import learning.solutions.advanced.matrix.domain.NavCell;
 import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
+import learning.solutions.advanced.matrix.utils.NavUtil;
 
 public class NavigationEngine {
 
@@ -16,7 +17,7 @@ public class NavigationEngine {
 	public NavigationEngine(Properties matrixConfig) {
 		this.matrixConfig = matrixConfig;
 		this.gridMap = new HashMap<Integer, NavCell>();
-		populateGridMap();
+		gridMap = NavUtil.populateGridMap(matrixConfig);
 	}
 
 	public String toString() {
@@ -29,19 +30,4 @@ public class NavigationEngine {
 		return sb.toString();
 	}
 
-	private void populateGridMap() {
-		int totalHeight = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
-		int cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
-
-		int pointCount = totalHeight / cellWidth;
-		int id = 0;
-		for (int i = 1; i < pointCount; i++) {
-			for (int j = 1; j < pointCount; j++) {
-				Point tempPoint = new Point(i * cellWidth, j * cellWidth);
-				NavCell nCell = new NavCell(tempPoint, id);
-				gridMap.put(id, nCell);
-				id++;
-			}
-		}
-	}
 }

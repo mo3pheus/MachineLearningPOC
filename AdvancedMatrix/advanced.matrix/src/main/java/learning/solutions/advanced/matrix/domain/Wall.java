@@ -16,7 +16,7 @@ public class Wall extends VirtualElement {
 	private int					cellWidth;
 	private int[]				definition		= new int[4];
 	private Properties			matrixConfig	= null;
-	
+
 	public static class IllegalWallDefinitionException extends Exception {
 
 		/**
@@ -33,8 +33,8 @@ public class Wall extends VirtualElement {
 		return new Rectangle2D.Double((double) definition[0], (double) definition[1], (double) definition[2],
 				(double) definition[3]);
 	}
-	
-	public Wall(Properties matrixConfig){
+
+	public Wall(Properties matrixConfig) {
 		this.matrixConfig = matrixConfig;
 		build();
 	}

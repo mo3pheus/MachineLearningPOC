@@ -1,0 +1,29 @@
+package learning.solutions.advanced.matrix.engineeringLevel;
+
+import java.util.Properties;
+
+import learning.solutions.advanced.matrix.domain.NavCell;
+import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
+
+public class AdjacencyCalculator {
+	private static final int VALID_DIR = 4;
+	private NavCell		center			= null;
+	private int			cellWidth		= -1;
+	private Properties	matrixConfig	= null;
+	private NavCell[]	adjacentNodes	= new NavCell[VALID_DIR];
+
+	public AdjacencyCalculator(NavCell center, Properties matrixConfig) {
+		this.center = center;
+		this.matrixConfig = matrixConfig;
+
+		cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+		for(int i = 0; i < 4; i++){
+			
+		}
+
+	}
+
+	public NavCell[] getAdjacentNodes() {
+		return adjacentNodes;
+	}
+}

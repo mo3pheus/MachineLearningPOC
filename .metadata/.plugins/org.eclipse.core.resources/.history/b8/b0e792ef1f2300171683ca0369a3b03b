@@ -1,0 +1,68 @@
+package learning.solutions.advanced.matrix.engineeringLevel;
+
+import java.awt.Point;
+import java.util.Map;
+import java.util.Properties;
+
+import learning.solutions.advanced.matrix.domain.NavCell;
+import learning.solutions.advanced.matrix.domain.NavCell.Direction;
+import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
+
+public class AdjacencyCalculator {
+	private static final int		VALID_DIR		= 4;
+	private Point					center			= null;
+	private int						cellWidth		= -1;
+	private int						frameHeight		= -1;
+	private int						frameWidth		= -1;
+	private Properties				matrixConfig	= null;
+	private Point[]					adjNodes		= new Point[VALID_DIR];
+	private NavCell[]				adjacentNodes	= new NavCell[VALID_DIR];
+	private Map<Integer, NavCell>	gridMap			= null;
+
+	public AdjacencyCalculator(Point center, Properties matrixConfig) {
+		this.center = center;
+		this.matrixConfig = matrixConfig;
+
+		cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+		frameHeight = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+		frameWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+		adjNodes[Direction.NORTH.getValue()] = new Point(center.x, center.y - cellWidth);
+		adjNodes[Direction.SOUTH.getValue()] = new Point(center.x, center.y + cellWidth);
+		adjNodes[Direction.EAST.getValue()] = new Point(center.x + cellWidth, center.y);
+		adjNodes[Direction.WEST.getValue()] = new Point(center.x - cellWidth, center.y);
+	}
+
+	public NavCell[] getAdjacentNodes() {
+		for (int i = 0; i < VALID_DIR; i++) {
+			Point temp = adjNodes[i];
+			if (temp.x <= 0 || temp.x >= frameWidth || temp.y <= 0 || temp.y >= frameHeight) {
+				NavCell nCell = new NavCell(null, -1);
+				adjacentNodes[i] = nCell;
+				continue;
+			} else if (frameWidth > 0) { // check walls here
+
+			} else {
+				int id = findNavId(temp);
+				NavCell nCell = new NavCell(temp, id);
+				adjacentNodes[i] = nCell;
+			}
+		}
+
+		return adjacentNodes;
+	}
+
+	private int findNavId(Point center) {
+		int id = -1;
+
+		for (int i : gridMap.keySet()) {
+			NavCell temp = gridMap.get(i);
+			if (temp.getCenter().equals(center)) {
+				id = i;
+				break;
+			}
+		}
+
+		return id;
+	}
+
+}
