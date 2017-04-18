@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
@@ -11,11 +13,11 @@ import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 public class Wall extends VirtualElement {
 
 	private static final String	WALL_COLOR		= "maze.environment.wall.color";
+	private int[]				definition		= new int[4];
+	private Properties			matrixConfig	= null;
 	private int					frameWidth;
 	private int					frameHeight;
 	private int					cellWidth;
-	private int[]				definition		= new int[4];
-	private Properties			matrixConfig	= null;
 
 	public static class IllegalWallDefinitionException extends Exception {
 
@@ -32,6 +34,31 @@ public class Wall extends VirtualElement {
 	private Rectangle2D getWall() {
 		return new Rectangle2D.Double((double) definition[0], (double) definition[1], (double) definition[2],
 				(double) definition[3]);
+	}
+
+	public int[] getDefinition() {
+		return definition;
+	}
+
+	/**
+	 * This function returns a list of points that make up the wall.
+	 * 
+	 * @return
+	 */
+	public List<Point> getWallPoints() {
+		List<Point> wallPoints = new ArrayList<Point>();
+		Point wallStart = new Point(definition[0], definition[1]);
+		int hCells = definition[3] / cellWidth;
+		int wCells = definition[2] / cellWidth;
+
+		for (int i = 0; i < hCells; i++) {
+			for (int j = 0; j < wCells; j++) {
+				Point temp = new Point(wallStart.x + (j * cellWidth), wallStart.y + (i * cellWidth));
+				wallPoints.add(temp);
+			}
+		}
+
+		return wallPoints;
 	}
 
 	public Wall(Properties matrixConfig) {

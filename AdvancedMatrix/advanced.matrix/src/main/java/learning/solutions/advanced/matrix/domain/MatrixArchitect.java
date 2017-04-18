@@ -32,6 +32,7 @@ public class MatrixArchitect extends Frame {
 			e.printStackTrace();
 		}
 		animationComplete = true;
+		//System.exit(NORMAL);
 	}
 
 	public void paint(Graphics g) {
@@ -55,6 +56,7 @@ public class MatrixArchitect extends Frame {
 		this.setVisible(true);
 
 		this.navigationEngine = new NavigationEngine(matrixConfig);
+		System.out.println(navigationEngine.toString());
 	}
 
 	public boolean getAnimationComplete() {

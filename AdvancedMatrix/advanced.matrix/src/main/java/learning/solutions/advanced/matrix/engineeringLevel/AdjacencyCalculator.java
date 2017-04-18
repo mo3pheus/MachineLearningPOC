@@ -24,7 +24,7 @@ public class AdjacencyCalculator {
 	public AdjacencyCalculator(Point center, Properties matrixConfig) {
 		this.gridMap = NavUtil.populateGridMap(matrixConfig);
 		this.wallBuilder = new WallBuilder(matrixConfig);
-
+		
 		cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 		frameHeight = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
 		frameWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
@@ -44,7 +44,7 @@ public class AdjacencyCalculator {
 	public NavCell[] getAdjacentNodes() {
 		for (int i = 0; i < VALID_DIR; i++) {
 			Point temp = adjNodes[i];
-			if (temp.x <= 0 || temp.x >= frameWidth || temp.y <= 0 || temp.y >= frameHeight || intersectsWall(temp)) {
+			if (temp.x < 0 || temp.x >= frameWidth || temp.y < 0 || temp.y >= frameHeight || intersectsWall(temp)) {
 				NavCell nCell = new NavCell(null, -1);
 				adjacentNodes[i] = nCell;
 				continue;

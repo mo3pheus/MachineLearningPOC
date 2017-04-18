@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
 import learning.solutions.advanced.matrix.domain.MatrixArchitect;
-import learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine;
 
 public class MatrixCreation {
 

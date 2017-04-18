@@ -15,9 +15,9 @@ public class NavUtil {
 		int pointCount = totalHeight / cellWidth;
 		int id = 0;
 		Map<Integer, NavCell> gridMap = new HashMap<Integer, NavCell>();
-		for (int i = 1; i < pointCount; i++) {
-			for (int j = 1; j < pointCount; j++) {
-				Point tempPoint = new Point(i * cellWidth, j * cellWidth);
+		for (int i = 0; i < pointCount; i++) {
+			for (int j = 0; j < pointCount; j++) {
+				Point tempPoint = new Point(j * cellWidth, i * cellWidth);
 				NavCell nCell = new NavCell(tempPoint, id);
 				gridMap.put(id, nCell);
 				id++;
@@ -39,4 +39,5 @@ public class NavUtil {
 
 		return id;
 	}
+
 }
