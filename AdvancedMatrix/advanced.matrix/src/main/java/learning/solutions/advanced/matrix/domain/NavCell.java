@@ -1,8 +1,9 @@
 package learning.solutions.advanced.matrix.domain;
 
 import java.awt.Point;
+import java.util.Comparator;
 
-public class NavCell {
+public class NavCell implements Comparator<NavCell> {
 	public enum Direction {
 		NORTH(0), SOUTH(1), WEST(2), EAST(3);
 		private final int value;
@@ -21,13 +22,13 @@ public class NavCell {
 	private Point		center			= null;
 	private int			id				= -1;
 	private double		gCost			= 0.0d;
-	private double		fCost			= 0.0d;
 	private double		hCost			= 0.0d;
+	private double		fCost			= 0.0d;
 
 	/**
 	 * @return the parent
 	 */
-	public NavCell getPaarent() {
+	public NavCell getParent() {
 		return parent;
 	}
 
@@ -35,7 +36,7 @@ public class NavCell {
 	 * @param parent
 	 *            the parent to set
 	 */
-	public void setPaarent(NavCell parent) {
+	public void setParent(NavCell parent) {
 		this.parent = parent;
 	}
 
@@ -43,9 +44,6 @@ public class NavCell {
 	 * @return the gCost
 	 */
 	public double getgCost() {
-		if (parent != null) {
-			return parent.getgCost() + center.distance(parent.getCenter());
-		}
 		return gCost;
 	}
 
@@ -64,10 +62,10 @@ public class NavCell {
 		return fCost;
 	}
 
-	/**
-	 * @param fCost
-	 *            the fCost to set
-	 */
+	public void sethCost(double hCost) {
+		this.hCost = hCost;
+	}
+
 	public void setfCost(double fCost) {
 		this.fCost = fCost;
 	}
@@ -83,8 +81,8 @@ public class NavCell {
 	 * @param hCost
 	 *            the hCost to set
 	 */
-	public void sethCost(double hCost) {
-		this.hCost = hCost;
+	public void sethCost(Point destination) {
+		this.hCost = center.distance(destination);
 	}
 
 	public NavCell(Point center, int id) {
@@ -119,12 +117,10 @@ public class NavCell {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(" Id = " + id + " Center = " + center.toString());
-		int j = 0;
 		for (int i = 0; i < adjacentNodes.length; i++) {
 			NavCell nCell = adjacentNodes[i];
 			if (nCell != null && nCell.getCenter() != null) {
 				sb.append("\n adId = " + nCell.getId() + " Location => " + nCell.getCenter().toString());
-				j++;
 			}
 		}
 
@@ -132,5 +128,13 @@ public class NavCell {
 			sb.append(" \n Parent = " + parent.toString());
 		}
 		return sb.toString();
+	}
+
+	public int compare(NavCell o1, NavCell o2) {
+		if (o1.getCenter().equals(o2.getCenter())) {
+			return 0;
+		} else {
+			return 1;
+		}
 	}
 }
