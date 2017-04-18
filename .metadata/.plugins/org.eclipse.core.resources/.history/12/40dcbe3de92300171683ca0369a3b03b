@@ -2,7 +2,6 @@ package learning.solutions.advanced.matrix.utils;
 
 import java.awt.Point;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -40,31 +39,13 @@ public class NavUtil {
 
 		return id;
 	}
-
-	public static final double getGCost(NavCell current, NavCell start, int cellWidth) {
-		if (current == null || current.equals(start)) {
-			return 0.0d;
-		} else
-			return cellWidth + getGCost(current.getParent(), start, cellWidth);
-	}
-
-	public static final double getFCost(NavCell current, NavCell start, NavCell end, int cellWidth) {
-		return (getGCost(current, start, cellWidth) + current.getCenter().distance(end.getCenter()));
-	}
 	
-	public static final int getMinFCell(List<NavCell> listCells, NavCell start, NavCell end, int cellWidth){
-		double minFScore = Double.MAX_VALUE;
-		int minFId = 0;
-		
-		for(int i = 0; i < listCells.size(); i++){
-			NavCell nCell = listCells.get(i);
-			double currentFScore = getFCost(nCell, start, end, cellWidth);
-			if( currentFScore < minFScore ){
-				minFId = i;
-				minFScore = currentFScore;
-			}
+	
+	public static final double getGCost(NavCell current, NavCell start, int cellWidth){
+		if( current == null || current.equals(start)){
+			return 0.0d;
 		}
-		
-		return minFId;
+		else return cellWidth + getGCost(current.getParent(), start, cellWidth);
 	}
+
 }

@@ -52,7 +52,7 @@ public class NavUtil {
 		return (getGCost(current, start, cellWidth) + current.getCenter().distance(end.getCenter()));
 	}
 	
-	public static final int getMinFCell(List<NavCell> listCells, NavCell start, NavCell end, int cellWidth){
+	public static final NavCell getMinFCell(List<NavCell> listCells, NavCell start, NavCell end, int cellWidth){
 		double minFScore = Double.MAX_VALUE;
 		int minFId = 0;
 		
@@ -61,10 +61,8 @@ public class NavUtil {
 			double currentFScore = getFCost(nCell, start, end, cellWidth);
 			if( currentFScore < minFScore ){
 				minFId = i;
-				minFScore = currentFScore;
+				minFScore = 
 			}
 		}
-		
-		return minFId;
 	}
 }
