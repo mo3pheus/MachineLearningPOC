@@ -11,6 +11,7 @@ import learning.solutions.advanced.matrix.engineeringLevel.AnimationEngine;
 import learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine;
 import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 import learning.solutions.advanced.matrix.utils.MatrixDataIllusion;
+import learning.solutions.advanced.matrix.utils.NavUtil;
 
 public class MatrixArchitect extends Frame {
 
@@ -56,7 +57,8 @@ public class MatrixArchitect extends Frame {
 		this.setVisible(true);
 
 		this.navigationEngine = new NavigationEngine(matrixConfig);
-		System.out.println(navigationEngine.toString());
+		
+		//System.out.println(navigationEngine.toString());
 	}
 
 	public boolean getAnimationComplete() {

@@ -1,6 +1,5 @@
 package learning.solutions.advanced.matrix.engineeringLevel;
 
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,11 +15,13 @@ public class NavigationEngine implements PerformsNavigation {
 
 	private Map<Integer, NavCell>	gridMap			= null;
 	private Properties				matrixConfig	= null;
+	private int						cellWidth		= 0;
 
 	public NavigationEngine(Properties matrixConfig) {
 		this.matrixConfig = matrixConfig;
 		this.gridMap = new HashMap<Integer, NavCell>();
 		gridMap = NavUtil.populateGridMap(matrixConfig);
+		this.cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 		configureAdjacency();
 	}
 
@@ -40,53 +41,48 @@ public class NavigationEngine implements PerformsNavigation {
 	 * to point end. The following code implements the A* algorithm.
 	 */
 	public List<NavCell> navigate(NavCell start, NavCell end) {
-		List<NavCell> path = new ArrayList<NavCell>();
 		List<NavCell> open = new ArrayList<NavCell>();
 		List<NavCell> closed = new ArrayList<NavCell>();
 
-		if (start.equals(end)) {
-			path.add(start);
-			return path;
-		}
-
-		open.add(start);
+		NavUtil.addUniqueToOpen(NavUtil.getAdjNodesFromGrid(gridMap, start.getAdjacentNodes()), open, closed);
+		setParent(start, open);
+		saveCosts(start, end, open);
+		closed.add(start);
 		boolean cont = true;
 		while (cont) {
-			NavCell current = getMinFNode(open);
+			int minFIndex = NavUtil.getMinFCell(open, start, end, cellWidth);
+			NavCell current = open.get(minFIndex);
+			open.remove(minFIndex);
 			closed.add(current);
 
-			if (current.equals(end)) {
-				end = current;
+			if (current.equals(end) || (!current.equals(end) && open.isEmpty())) {
 				cont = false;
-				break;
 			}
 
-			double gCost = 0.0d;
-			double hCost = start.getCenter().distance(end.getCenter());
-			double fCost = gCost + hCost;
+			List<NavCell> currAdjNodes = NavUtil.getAdjNodesFromGrid(gridMap, current.getAdjacentNodes());
+			NavUtil.addUniqueToOpen(currAdjNodes, open, closed);
 
-			for (NavCell adjNode : current.getAdjacentNodes()) {
-				checkAndUpdateCost(current, adjNode, open, closed,
-						current.getfCost() + (current.getCenter().distance(adjNode.getCenter())));
-
-				if ((adjNode.getCenter() != null) && (!closed.contains(adjNode))) {
-					double newGCost = current.getgCost() + current.getCenter().distance(adjNode.getCenter());
-					if ((newGCost < adjNode.getCenter().distance(start.getCenter())) || (!open.contains(adjNode))) {
-
-						adjNode.setParent(current);
-						if (!open.contains(adjNode)) {
-							open.add(adjNode);
-						}
-					}
+			for (NavCell nCell : currAdjNodes) {
+				if (closed.contains(nCell)) {
+					continue;
+				}
+				/* check to see if this path is better */
+				double newGCost = current.getgCost() + current.getCenter().distance(nCell.getCenter());
+				if (NavUtil.getGCost(nCell, start, cellWidth) > newGCost) {
+					nCell.setParent(current);
+					nCell.setgCost(newGCost);
+					nCell.sethCost(nCell.getCenter().distance(end.getCenter()));
+					nCell.setfCost(nCell.getgCost() + nCell.gethCost());
 				}
 			}
 		}
 
+		/* no path */
 		if (open.isEmpty() && !closed.contains(end)) {
-			// no path
 			return null;
 		}
 
+		List<NavCell> path = new ArrayList<NavCell>();
 		NavCell tempNode = end;
 		while (tempNode.getParent() != null) {
 			path.add(tempNode);
@@ -96,19 +92,29 @@ public class NavigationEngine implements PerformsNavigation {
 		return path;
 	}
 
-	private void checkAndUpdateCost(NavCell current, NavCell t, List<NavCell> open, List<NavCell> closed, double cost) {
-		if (t.getCenter() == null || closed.contains(t)) {
-			return;
-		}
+	/**
+	 * @return the gridMap
+	 */
+	public Map<Integer, NavCell> getGridMap() {
+		return gridMap;
+	}
 
-		double tFCost = t.gethCost() + cost;
-		boolean inOpen = open.contains(t);
-		if (!inOpen || tFCost < t.getfCost()) {
-			t.setfCost(tFCost);
-			t.setParent(current);
-			if (!inOpen) {
-				open.add(t);
-			}
+	/**
+	 * @param gridMap
+	 *            the gridMap to set
+	 */
+	public void setGridMap(Map<Integer, NavCell> gridMap) {
+		this.gridMap = gridMap;
+	}
+
+	private void saveCosts(NavCell start, NavCell end, List<NavCell> openList) {
+		for (NavCell nCell : openList) {
+			double gCost = NavUtil.getGCost(nCell, start, cellWidth);
+			double hCost = nCell.getCenter().distance(end.getCenter());
+			double fCost = gCost + hCost;
+			nCell.setfCost(fCost);
+			nCell.setgCost(gCost);
+			nCell.sethCost(hCost);
 		}
 	}
 
@@ -117,22 +123,12 @@ public class NavigationEngine implements PerformsNavigation {
 			NavCell nCell = gridMap.get(id);
 			AdjacencyCalculator adSensor = new AdjacencyCalculator(nCell.getCenter(), matrixConfig);
 			nCell.setAdjacentNodes(adSensor.getAdjacentNodes());
-			gridMap.put(id, nCell);
 		}
 	}
 
-	private NavCell getMinFNode(List<NavCell> list) {
-		int minIndex = 0;
-		double minFScore = Double.MAX_VALUE;
-		for (int i = 0; i < list.size(); i++) {
-			NavCell nCell = list.get(i);
-			if (nCell.getfCost() < minFScore) {
-				minFScore = nCell.getfCost();
-				minIndex = i;
-			}
+	private void setParent(NavCell parent, List<NavCell> children) {
+		for (NavCell child : children) {
+			child.setParent(parent);
 		}
-		NavCell leastFCell = list.remove(minIndex);
-		return leastFCell;
 	}
-
 }

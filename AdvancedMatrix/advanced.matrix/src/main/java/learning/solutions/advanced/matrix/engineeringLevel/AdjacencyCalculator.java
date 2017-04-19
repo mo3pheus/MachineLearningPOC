@@ -45,12 +45,11 @@ public class AdjacencyCalculator {
 		for (int i = 0; i < VALID_DIR; i++) {
 			Point temp = adjNodes[i];
 			if (temp.x < 0 || temp.x >= frameWidth || temp.y < 0 || temp.y >= frameHeight || intersectsWall(temp)) {
-				NavCell nCell = new NavCell(null, -1);
-				adjacentNodes[i] = nCell;
+				adjacentNodes[i] = null;
 				continue;
 			} else {
 				int id = NavUtil.findNavId(gridMap, temp);
-				NavCell nCell = new NavCell(temp, id);
+				NavCell nCell = gridMap.get(id);
 				adjacentNodes[i] = nCell;
 			}
 		}

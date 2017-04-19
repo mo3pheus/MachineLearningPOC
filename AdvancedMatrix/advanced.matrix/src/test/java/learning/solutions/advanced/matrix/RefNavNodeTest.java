@@ -3,11 +3,16 @@
  */
 package learning.solutions.advanced.matrix;
 
+import java.util.List;
 import java.awt.Point;
 import java.util.HashMap;
 import java.util.Map;
 
+import learning.solutions.advanced.matrix.domain.MatrixArchitect;
 import learning.solutions.advanced.matrix.domain.NavCell;
+import learning.solutions.advanced.matrix.driver.MatrixCreation;
+import learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine;
+import learning.solutions.advanced.matrix.utils.NavUtil;
 
 /**
  * @author sanketkorgaonkar
@@ -15,7 +20,7 @@ import learning.solutions.advanced.matrix.domain.NavCell;
  */
 public class RefNavNodeTest {
 
-	public static void main(String[] args) {
+	public static void mainTestNavRef(String[] args) {
 		Map<Integer, NavCell> graph = new HashMap<Integer, NavCell>();
 		int x = 0;
 		int y = 0;
@@ -29,13 +34,32 @@ public class RefNavNodeTest {
 		NavCell grandParent = new NavCell(new Point(0, 0), -1);
 		for (int i : graph.keySet()) {
 			NavCell nCell = graph.get(i);
-			nCell.setPaarent(grandParent);
+			nCell.setParent(grandParent);
 		}
 
 		for (int i : graph.keySet()) {
 			System.out.println(graph.get(i).toString());
 		}
 
+	}
+
+	public static void main(String[] args) throws Exception {
+		MatrixArchitect creator = new MatrixArchitect(MatrixCreation.getMatrixConfig());
+
+		NavigationEngine navEngine = creator.getNavigationEngine();
+		int startId = NavUtil.findNavId(navEngine.getGridMap(), new Point(25, 25));
+		int endId = NavUtil.findNavId(navEngine.getGridMap(), new Point(125, 175));
+
+		System.out.println("Startid = " + startId + " endId = " + endId);
+
+		NavCell start = navEngine.getGridMap().get(startId);
+		NavCell end = navEngine.getGridMap().get(endId);
+
+		List<NavCell> path = navEngine.navigate(start, end);
+		int i = 0;
+		for (NavCell nCell : path) {
+			System.out.println(" Index = " + i + " " + nCell.toString());
+		}
 	}
 
 }

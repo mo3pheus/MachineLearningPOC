@@ -1,7 +1,11 @@
 package learning.solutions.advanced.matrix.domain;
 
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.List;
 
 public class NavCell implements Comparator<NavCell> {
 	public enum Direction {
@@ -91,7 +95,19 @@ public class NavCell implements Comparator<NavCell> {
 	}
 
 	public NavCell[] getAdjacentNodes() {
-		return adjacentNodes;
+		List<NavCell> validNodes = new ArrayList<NavCell>();
+		for (NavCell nCell : adjacentNodes) {
+			if (nCell != null && nCell.getCenter() != null) {
+				validNodes.add(nCell);
+			}
+		}
+		NavCell[] vNodes = new NavCell[validNodes.size()];
+
+		for (int i = 0; i < validNodes.size(); i++) {
+			vNodes[i] = validNodes.get(i);
+		}
+
+		return vNodes;
 	}
 
 	public void setAdjacentNodes(NavCell[] adjacentNodes) {

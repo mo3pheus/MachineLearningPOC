@@ -1,6 +1,7 @@
 package learning.solutions.advanced.matrix.utils;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,6 +42,14 @@ public class NavUtil {
 		return id;
 	}
 
+	public static void addUniqueToOpen(List<NavCell> source, List<NavCell> open, List<NavCell> closed) {
+		for (NavCell nCell : source) {
+			if (!open.contains(nCell) && !closed.contains(nCell)) {
+				open.add(nCell);
+			}
+		}
+	}
+
 	public static final double getGCost(NavCell current, NavCell start, int cellWidth) {
 		if (current == null || current.equals(start)) {
 			return 0.0d;
@@ -48,23 +57,38 @@ public class NavUtil {
 			return cellWidth + getGCost(current.getParent(), start, cellWidth);
 	}
 
-	public static final double getFCost(NavCell current, NavCell start, NavCell end, int cellWidth) {
-		return (getGCost(current, start, cellWidth) + current.getCenter().distance(end.getCenter()));
+	public static final List<NavCell> getAdjNodesFromGrid(Map<Integer, NavCell> gridMap, NavCell[] adjNodes) {
+		List<NavCell> adjacentNodes = new ArrayList<NavCell>();
+
+		for (NavCell nCell : adjNodes) {
+			int id = NavUtil.findNavId(gridMap, nCell.getCenter());
+			adjacentNodes.add(gridMap.get(id));
+		}
+		return adjacentNodes;
 	}
-	
-	public static final int getMinFCell(List<NavCell> listCells, NavCell start, NavCell end, int cellWidth){
+
+	/**
+	 * Returns the index of the cell with the lowest fScore.
+	 * 
+	 * @param listCells
+	 * @param start
+	 * @param end
+	 * @param cellWidth
+	 * @return
+	 */
+	public static final int getMinFCell(List<NavCell> listCells, NavCell start, NavCell end, int cellWidth) {
 		double minFScore = Double.MAX_VALUE;
 		int minFId = 0;
-		
-		for(int i = 0; i < listCells.size(); i++){
+
+		for (int i = 0; i < listCells.size(); i++) {
 			NavCell nCell = listCells.get(i);
-			double currentFScore = getFCost(nCell, start, end, cellWidth);
-			if( currentFScore < minFScore ){
+			double currentFScore = nCell.getfCost();
+			if (currentFScore < minFScore) {
 				minFId = i;
 				minFScore = currentFScore;
 			}
 		}
-		
+
 		return minFId;
 	}
 }
