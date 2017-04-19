@@ -8,9 +8,12 @@ public class EnvironmentUtils {
 	public static final String	CELL_WIDTH_PROPERTY					= "maze.environment.cell.width";
 	public static final String	NUM_WALLS_PROPERTY					= "maze.environment.num.walls";
 	public static final String	WALL_DEFS_PROPERTY					= "maze.environment.wall.definitions.";
+	public static final String	START_CELL_POSN						= "maze.environment.starting.position";
+	public static final String	START_CELL_COLOR					= "maze.environment.starting.position.color";
 	public static final String	START_POSN_PROPERTY					= "maze.environment.start.position";
 	public static final String	DESTN_POSN_PROPERTY					= "maze.environment.destination.position";
 	public static final String	ROBOT_START_LOCATION				= "maze.environment.robot.position";
+	public static final String	DESTN_COLOR_PROPERTY				= "maze.environment.destination.color";
 	public static final String	ANIMATION_PACE_DELAY				= "maze.environment.animation.pace.delay";
 	public static final String	ANIMATION_STEP_SIZE					= "maze.environment.animation.step.size";
 	public static final String	ANIMATION_PROFILE_NUMBER_POSITIONS	= "maze.environment.animation.number.positions";

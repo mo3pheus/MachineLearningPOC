@@ -26,7 +26,8 @@ public class AnimationEngine {
 
 			Point position = positions.get(i);
 			List<MatrixElement> matrixCitizens = new ArrayList<MatrixElement>();
-			Cell cell = new Cell(matrixConfig);
+			Cell startingCell = getStartLocation(matrixConfig);
+			Cell destination = new Cell(matrixConfig);
 			Grid grid = new Grid(matrixConfig);
 			WallBuilder wallBuilder = new WallBuilder(matrixConfig);
 			Cell robo = new Cell(matrixConfig);
@@ -35,7 +36,8 @@ public class AnimationEngine {
 			robo.setCellWidth(15);
 
 			matrixCitizens.add(grid);
-			matrixCitizens.add(cell);
+			matrixCitizens.add(destination);
+			matrixCitizens.add(startingCell);
 			matrixCitizens.add(wallBuilder);
 			matrixCitizens.add(robo);
 
@@ -44,6 +46,15 @@ public class AnimationEngine {
 			oldPosition = position;
 		}
 		// send window closing event
+	}
+
+	private static Cell getStartLocation(Properties matrixConfig) {
+		Cell start = new Cell(matrixConfig);
+		int sourceX = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]);
+		int sourceY = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[1]);
+		start.setLocation(new Point(sourceX, sourceY));
+		start.setColor(EnvironmentUtils.findColor(matrixConfig.getProperty(EnvironmentUtils.START_CELL_COLOR)));
+		return start;
 	}
 
 	private static void createMatrix(List<MatrixElement> matrixCitizens, Graphics2D canvas, long delayMs) {

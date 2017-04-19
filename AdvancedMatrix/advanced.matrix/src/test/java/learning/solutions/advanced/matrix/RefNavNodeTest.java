@@ -44,21 +44,22 @@ public class RefNavNodeTest {
 	}
 
 	public static void main(String[] args) throws Exception {
-		MatrixArchitect creator = new MatrixArchitect(MatrixCreation.getMatrixConfig());
+		//MatrixArchitect creator = new MatrixArchitect(MatrixCreation.getMatrixConfig());
 
-		NavigationEngine navEngine = creator.getNavigationEngine();
+		NavigationEngine navEngine = new NavigationEngine(MatrixCreation.getMatrixConfig());
 		int startId = NavUtil.findNavId(navEngine.getGridMap(), new Point(25, 25));
 		int endId = NavUtil.findNavId(navEngine.getGridMap(), new Point(125, 175));
 
 		System.out.println("Startid = " + startId + " endId = " + endId);
 
-		NavCell start = navEngine.getGridMap().get(startId);
-		NavCell end = navEngine.getGridMap().get(endId);
+		NavCell start = navEngine.getGridMap().get(201);
+		NavCell end = navEngine.getGridMap().get(199);
 
-		List<NavCell> path = navEngine.navigate(start, end);
+		List<Point> path = navEngine.navigate(start, end);
 		int i = 0;
-		for (NavCell nCell : path) {
-			System.out.println(" Index = " + i + " " + nCell.toString());
+		for (Point nCell : path) {
+			i++;
+			System.out.println(" Index = " + i + " " + NavUtil.findNavId(navEngine.getGridMap(), nCell));
 		}
 	}
 

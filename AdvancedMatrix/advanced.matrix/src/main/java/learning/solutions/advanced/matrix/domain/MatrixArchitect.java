@@ -57,6 +57,11 @@ public class MatrixArchitect extends Frame {
 		this.setVisible(true);
 
 		this.navigationEngine = new NavigationEngine(matrixConfig);
+		robotPositions = navigationEngine.getRobotPath();
+		System.out.println("Robot Path ==>");
+		for(Point p:robotPositions){
+			System.out.println(p.toString());
+		}
 		
 		//System.out.println(navigationEngine.toString());
 	}
