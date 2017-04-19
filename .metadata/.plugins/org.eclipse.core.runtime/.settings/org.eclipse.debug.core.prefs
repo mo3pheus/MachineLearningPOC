@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="actualComponents"/>\n<expression enabled\="true" text\="taskGroup"/>\n<expression enabled\="true" text\="project"/>\n</watchExpressions>\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="actualComponents"/>\n<expression enabled\="true" text\="taskGroup"/>\n<expression enabled\="true" text\="project"/>\n<expression enabled\="true" text\="path"/>\n</watchExpressions>\n

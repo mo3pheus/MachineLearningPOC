@@ -43,50 +43,76 @@ public class NavigationEngine implements PerformsNavigation {
 	public List<NavCell> navigate(NavCell start, NavCell end) {
 		List<NavCell> open = new ArrayList<NavCell>();
 		List<NavCell> closed = new ArrayList<NavCell>();
+		open.add(start);
 
-		NavUtil.addUniqueToOpen(NavUtil.getAdjNodesFromGrid(gridMap, start.getAdjacentNodes()), open, closed);
-		setParent(start, open);
-		saveCosts(start, end, open);
-		closed.add(start);
-		boolean cont = true;
-		while (cont) {
+		boolean done = false;
+		int iter = 0;
+		while (!done) {
+			System.out.println("Iteration = " + iter++);
 			int minFIndex = NavUtil.getMinFCell(open, start, end, cellWidth);
 			NavCell current = open.get(minFIndex);
 			open.remove(minFIndex);
 			closed.add(current);
+			System.out.println("Node added = " + current.getId());
 
-			if (current.equals(end) || (!current.equals(end) && open.isEmpty())) {
-				cont = false;
+			if (current.equals(end)) {
+				System.out.println("You did reach the end");
+				return calcPath(start, current);
 			}
 
-			List<NavCell> currAdjNodes = NavUtil.getAdjNodesFromGrid(gridMap, current.getAdjacentNodes());
-			NavUtil.addUniqueToOpen(currAdjNodes, open, closed);
+			List<NavCell> adjacentNodes = NavUtil.getAdjNodesFromGrid(gridMap, current.getAdjacentNodes());
+			for (int i = 0; i < adjacentNodes.size(); i++) {
+				NavCell cAdjNode = adjacentNodes.get(i);
+				
 
-			for (NavCell nCell : currAdjNodes) {
-				if (closed.contains(nCell)) {
-					continue;
-				}
-				/* check to see if this path is better */
-				double newGCost = current.getgCost() + current.getCenter().distance(nCell.getCenter());
-				if (NavUtil.getGCost(nCell, start, cellWidth) > newGCost) {
-					nCell.setParent(current);
-					nCell.setgCost(newGCost);
-					nCell.sethCost(nCell.getCenter().distance(end.getCenter()));
-					nCell.setfCost(nCell.getgCost() + nCell.gethCost());
+				if (!open.contains(cAdjNode)) {
+					cAdjNode.setParent(current);
+					double gCost = NavUtil.getGCost(cAdjNode, start, cellWidth);
+					cAdjNode.setgCost(gCost);
+					int hCost = Math.abs(cAdjNode.getCenter().x - end.getCenter().x)
+							+ Math.abs(cAdjNode.getCenter().y - end.getCenter().y);
+					cAdjNode.sethCost(hCost);
+					cAdjNode.setfCost(hCost + cAdjNode.getgCost());
+					open.add(cAdjNode);
+				} else {
+					double newGCost = NavUtil.getGCost(current, start, cellWidth);
+					if (cAdjNode.getgCost() > newGCost) {
+						cAdjNode.setgCost(newGCost);
+						cAdjNode.setParent(current);
+					}
 				}
 			}
 		}
 
-		/* no path */
-		if (open.isEmpty() && !closed.contains(end)) {
+		if (open.isEmpty()) {
+			System.out.println(
+					"No path was found between start => " + start.toString() + " and end => " + end.toString());
 			return null;
 		}
+		return null;
+	}
 
+	private List<NavCell> calcPath(NavCell start, NavCell current) {
 		List<NavCell> path = new ArrayList<NavCell>();
-		NavCell tempNode = end;
-		while (tempNode.getParent() != null) {
-			path.add(tempNode);
-			tempNode = tempNode.getParent();
+
+		while (true) {
+			System.out.println(" Node along path = " + current.getId());
+			try {
+				Thread.sleep(10000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			path.add(current);
+			if (current.getParent() != null) {
+				if (current.getParent().equals(start)) {
+					path.add(start);
+					return path;
+				}
+				path.addAll(calcPath(start, current.getParent()));
+			} else {
+				break;
+			}
 		}
 
 		return path;
