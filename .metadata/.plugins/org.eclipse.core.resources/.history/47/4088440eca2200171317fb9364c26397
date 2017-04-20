@@ -1,7 +1,0 @@
-package learning.solutions.advanced.matrix.engineeringLevel;
-
-public class NavigationEngine {
-
-	private Map<Integer, NavCell> gridMap = null;
-
-}

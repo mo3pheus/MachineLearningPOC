@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="solutions.egen.bhpb.UserStoryOne.LinearProgrammingModule.LPProto"/>
-<fullyQualifiedTypeName name="solutions.egen.bhpb.UserStoryOne.LinearProgrammingModule.LPProto.Constraint"/>
-<fullyQualifiedTypeName name="solutions.egen.bhpb.UserStoryOne.LinearProgrammingModule.LPProto.Objective"/>
-<fullyQualifiedTypeName name="com.joptimizer.functions.LinearMultivariateRealFunction"/>
-<fullyQualifiedTypeName name="com.joptimizer.functions.ConvexMultivariateRealFunction"/>
-<fullyQualifiedTypeName name="com.joptimizer.optimizers.OptimizationRequest"/>
 <fullyQualifiedTypeName name="com.joptimizer.optimizers.JOptimizer"/>
 <fullyQualifiedTypeName name="com.joptimizer.optimizers.LPOptimizationRequest"/>
 <fullyQualifiedTypeName name="com.joptimizer.optimizers.LPPrimalDualMethod"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.kafka.MatrixController.KafkaShipmentBuilder"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.kafka.MatrixReceptor"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.utils.AnimationUtil"/>
+<fullyQualifiedTypeName name="org.slf4j.Logger"/>
+<fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+<fullyQualifiedTypeName name="org.apache.log4j.FileAppender"/>
+<fullyQualifiedTypeName name="org.apache.log4j.PatternLayout"/>
 </qualifiedTypeNameHistroy>
