@@ -1,0 +1,163 @@
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], entering consume 
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], begin registering consumer test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26 in ZK
+Path: /consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26, Prefix: /consumers, Suffix: /test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26
+Creating /consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26 (is it secure? false)
+Path: /consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26, Prefix: /consumers, Suffix: /test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26
+Path: /consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26, Prefix: /consumers/test-coms-zion-controlRoom, Suffix: /ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26
+Path: /consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26, Prefix: /consumers/test-coms-zion-controlRoom/ids, Suffix: /test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26
+Path: /consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26, Prefix: /consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26, Suffix: 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:/consumers serverPath:/consumers finished:false header:: 1,1  replyHeader:: 1,1845,-110  request:: '/consumers,,v{s{31,s{'world,'anyone}}},0  response::  
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:/consumers/test-coms-zion-controlRoom serverPath:/consumers/test-coms-zion-controlRoom finished:false header:: 2,1  replyHeader:: 2,1846,-110  request:: '/consumers/test-coms-zion-controlRoom,,v{s{31,s{'world,'anyone}}},0  response::  
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:/consumers/test-coms-zion-controlRoom/ids serverPath:/consumers/test-coms-zion-controlRoom/ids finished:false header:: 3,1  replyHeader:: 3,1847,-110  request:: '/consumers/test-coms-zion-controlRoom/ids,,v{s{31,s{'world,'anyone}}},0  response::  
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:/consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26 serverPath:/consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26 finished:false header:: 4,1  replyHeader:: 4,1848,0  request:: '/consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26,#7b2276657273696f6e223a312c22737562736372697074696f6e223a7b226e656275636861646e657a7a61722e6d61696e2e6465636b2e636f6d2e30223a317d2c227061747465726e223a22737461746963222c2274696d657374616d70223a2231343932363538393932353336227d,v{s{31,s{'world,'anyone}}},1  response:: '/consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26 
+Result of znode creation is: OK
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], end registering consumer test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26 in ZK
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], starting watcher executor thread for consumer test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], Adding topicThreadId (nebuchadnezzar.main.deck.com.0,test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26-0) and queue [] to topicThreadIdAndQueues data structure
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], adding topic nebuchadnezzar.main.deck.com.0 and 1 streams to map.
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 5,3  replyHeader:: 5,1848,0  request:: '/consumers/test-coms-zion-controlRoom/ids,T  response:: s{948,948,1492288113003,1492288113003,0,71,0,0,0,1,1848} 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 6,8  replyHeader:: 6,1848,0  request:: '/consumers/test-coms-zion-controlRoom/ids,T  response:: v{'test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26} 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 7,3  replyHeader:: 7,1848,0  request:: '/brokers/topics/nebuchadnezzar.main.deck.com.0,T  response:: s{954,954,1492290876490,1492290876490,0,1,0,0,36,1,957} 
+Subscribed data changes for /brokers/topics/nebuchadnezzar.main.deck.com.0
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], begin rebalancing consumer test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26 try #0
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 8,8  replyHeader:: 8,1848,0  request:: '/brokers/ids,F  response:: v{'0} 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 9,4  replyHeader:: 9,1848,0  request:: '/brokers/ids/0,F  response:: #7b226a6d785f706f7274223a2d312c2274696d657374616d70223a2231343932363437313630363435222c22656e64706f696e7473223a5b22504c41494e544558543a2f2f7a696f6e6d61696e6672616d653a39303932225d2c22686f7374223a227a696f6e6d61696e6672616d65222c2276657273696f6e223a332c22706f7274223a393039327d,s{1648,1648,1492647160650,1492647160650,0,0,0,97815465571844096,137,0,1648} 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 10,4  replyHeader:: 10,1848,0  request:: '/consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26,F  response:: #7b2276657273696f6e223a312c22737562736372697074696f6e223a7b226e656275636861646e657a7a61722e6d61696e2e6465636b2e636f6d2e30223a317d2c227061747465726e223a22737461746963222c2274696d657374616d70223a2231343932363538393932353336227d,s{1848,1848,1492658992573,1492658992573,0,0,0,97815465571844115,112,0,1848} 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 11,8  replyHeader:: 11,1848,0  request:: '/brokers/ids,F  response:: v{'0} 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 12,4  replyHeader:: 12,1848,0  request:: '/brokers/ids/0,F  response:: #7b226a6d785f706f7274223a2d312c2274696d657374616d70223a2231343932363437313630363435222c22656e64706f696e7473223a5b22504c41494e544558543a2f2f7a696f6e6d61696e6672616d653a39303932225d2c22686f7374223a227a696f6e6d61696e6672616d65222c2276657273696f6e223a332c22706f7274223a393039327d,s{1648,1648,1492647160650,1492647160650,0,0,0,97815465571844096,137,0,1648} 
+[ConsumerFetcherManager-1492658992497] Stopping leader finder thread
+[ConsumerFetcherManager-1492658992497] Stopping all fetchers
+[ConsumerFetcherManager-1492658992497] All connections stopped
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], Cleared all relevant queues for this fetcher
+Clearing the current data chunk for this consumer iterator
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], Cleared the data chunks in all the consumer message iterators
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], Committing all offsets after clearing the fetcher queues
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], No updates to offsets since last commit.
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], Releasing partition ownership
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 13,4  replyHeader:: 13,1848,0  request:: '/consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26,F  response:: #7b2276657273696f6e223a312c22737562736372697074696f6e223a7b226e656275636861646e657a7a61722e6d61696e2e6465636b2e636f6d2e30223a317d2c227061747465726e223a22737461746963222c2274696d657374616d70223a2231343932363538393932353336227d,s{1848,1848,1492658992573,1492658992573,0,0,0,97815465571844115,112,0,1848} 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 14,4  replyHeader:: 14,1848,0  request:: '/brokers/topics/nebuchadnezzar.main.deck.com.0,T  response:: #7b2276657273696f6e223a312c22706172746974696f6e73223a7b2230223a5b305d7d7d,s{954,954,1492290876490,1492290876490,0,1,0,0,36,1,957} 
+Partition map for /brokers/topics/nebuchadnezzar.main.deck.com.0 is Map(0 -> List(0))
+partition assignment of /brokers/topics/nebuchadnezzar.main.deck.com.0 is Map(0 -> List(0))
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 15,8  replyHeader:: 15,1848,0  request:: '/consumers/test-coms-zion-controlRoom/ids,T  response:: v{'test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26} 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 16,4  replyHeader:: 16,1848,0  request:: '/consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26,F  response:: #7b2276657273696f6e223a312c22737562736372697074696f6e223a7b226e656275636861646e657a7a61722e6d61696e2e6465636b2e636f6d2e30223a317d2c227061747465726e223a22737461746963222c2274696d657374616d70223a2231343932363538393932353336227d,s{1848,1848,1492658992573,1492658992573,0,0,0,97815465571844115,112,0,1848} 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 17,8  replyHeader:: 17,1848,0  request:: '/consumers/test-coms-zion-controlRoom/ids,T  response:: v{'test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26} 
+Consumer test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26 rebalancing the following partitions: ArrayBuffer(0) for topic nebuchadnezzar.main.deck.com.0 with consumers: List(test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26-0)
+test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26-0 attempting to claim partition 0
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 18,4  replyHeader:: 18,1848,0  request:: '/consumers/test-coms-zion-controlRoom/offsets/nebuchadnezzar.main.deck.com.0/0,F  response:: #3137,s{995,1842,1492291740830,1492658359316,24,0,0,0,2,0,995} 
+initial consumer offset of nebuchadnezzar.main.deck.com.0:0: fetched offset = 17: consumed offset = 17 is 17
+initial fetch offset of nebuchadnezzar.main.deck.com.0:0: fetched offset = 17: consumed offset = 17 is 17
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], nebuchadnezzar.main.deck.com.0:0: fetched offset = 17: consumed offset = 17 selected new offset 17
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 19,3  replyHeader:: 19,1848,0  request:: '/,F  response:: s{0,0,0,0,0,36,0,0,0,8,1643} 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 20,1  replyHeader:: 20,1849,0  request:: '/consumers/test-coms-zion-controlRoom/owners/nebuchadnezzar.main.deck.com.0/0,#746573742d636f6d732d7a696f6e2d636f6e74726f6c526f6f6d5f7a696f6e6d61696e6672616d652d313439323635383939323430382d39353738326132362d30,v{s{31,s{'world,'anyone}}},1  response:: '/consumers/test-coms-zion-controlRoom/owners/nebuchadnezzar.main.deck.com.0/0 
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26-0 successfully owned partition 0 for topic nebuchadnezzar.main.deck.com.0
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], Consumer test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26 selected partitions : nebuchadnezzar.main.deck.com.0:0: fetched offset = 17: consumed offset = 17
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26-leader-finder-thread], Starting 
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26], end rebalancing consumer test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26 try #0
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 21,8  replyHeader:: 21,1849,0  request:: '/brokers/ids,F  response:: v{'0} 
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 22,4  replyHeader:: 22,1849,0  request:: '/brokers/ids/0,F  response:: #7b226a6d785f706f7274223a2d312c2274696d657374616d70223a2231343932363437313630363435222c22656e64706f696e7473223a5b22504c41494e544558543a2f2f7a696f6e6d61696e6672616d653a39303932225d2c22686f7374223a227a696f6e6d61696e6672616d65222c2276657273696f6e223a332c22706f7274223a393039327d,s{1648,1648,1492647160650,1492647160650,0,0,0,97815465571844096,137,0,1648} 
+Verifying properties
+Property client.id is overridden to test-coms-zion-controlRoom
+Property metadata.broker.list is overridden to zionmainframe:9092
+Property request.timeout.ms is overridden to 30000
+Fetching metadata from broker BrokerEndPoint(0,zionmainframe,9092) with correlation id 0 for 1 topic(s) Set(nebuchadnezzar.main.deck.com.0)
+Created socket with SO_TIMEOUT = 30000 (requested 30000), SO_RCVBUF = 530904 (requested -1), SO_SNDBUF = 102400 (requested 102400), connectTimeoutMs = 30000.
+Connected to zionmainframe:9092 for producing
+Disconnecting from zionmainframe:9092
+Successfully fetched metadata for 1 topic(s) Set(nebuchadnezzar.main.deck.com.0)
+[test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26-leader-finder-thread], {TopicMetadata for topic nebuchadnezzar.main.deck.com.0 -> 
+Metadata for partition [nebuchadnezzar.main.deck.com.0,0] is 	partition 0	leader: BrokerEndPoint(0,zionmainframe,9092)	replicas: BrokerEndPoint(0,zionmainframe,9092)	isr: BrokerEndPoint(0,zionmainframe,9092)	isUnderReplicated: false}
+[ConsumerFetcherThread-test-coms-zion-controlRoom_zionmainframe-1492658992408-95782a26-0-0], Starting 
+[ConsumerFetcherManager-1492658992497] Added fetcher for partitions ArrayBuffer([[nebuchadnezzar.main.deck.com.0,0], initOffset 17 to broker BrokerEndPoint(0,zionmainframe,9092)] )
+Disconnecting from zionmainframe:9092
+Created socket with SO_TIMEOUT = 30000 (requested 30000), SO_RCVBUF = 65536 (requested 65536), SO_SNDBUF = 1313280 (requested -1), connectTimeoutMs = 30000.
+Got ping response for sessionid: 0x15b82a5cef30013 after 1ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 1ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+updated fetch offset of (nebuchadnezzar.main.deck.com.0:0: fetched offset = 18: consumed offset = 17) to 18
+reset consume offset of nebuchadnezzar.main.deck.com.0:0: fetched offset = 18: consumed offset = 18 to 18
+navEnginePosn :: java.awt.Point[x=350,y=550]
+navEnginePosn :: java.awt.Point[x=350,y=525]
+navEnginePosn :: java.awt.Point[x=325,y=525]
+navEnginePosn :: java.awt.Point[x=300,y=525]
+navEnginePosn :: java.awt.Point[x=275,y=525]
+navEnginePosn :: java.awt.Point[x=250,y=525]
+navEnginePosn :: java.awt.Point[x=225,y=525]
+navEnginePosn :: java.awt.Point[x=200,y=525]
+navEnginePosn :: java.awt.Point[x=175,y=525]
+navEnginePosn :: java.awt.Point[x=175,y=500]
+navEnginePosn :: java.awt.Point[x=175,y=475]
+navEnginePosn :: java.awt.Point[x=175,y=450]
+navEnginePosn :: java.awt.Point[x=175,y=425]
+navEnginePosn :: java.awt.Point[x=175,y=400]
+navEnginePosn :: java.awt.Point[x=175,y=375]
+navEnginePosn :: java.awt.Point[x=175,y=350]
+navEnginePosn :: java.awt.Point[x=175,y=325]
+navEnginePosn :: java.awt.Point[x=175,y=300]
+navEnginePosn :: java.awt.Point[x=175,y=275]
+navEnginePosn :: java.awt.Point[x=175,y=250]
+navEnginePosn :: java.awt.Point[x=175,y=225]
+navEnginePosn :: java.awt.Point[x=200,y=225]
+navEnginePosn :: java.awt.Point[x=225,y=225]
+navEnginePosn :: java.awt.Point[x=250,y=225]
+navEnginePosn :: java.awt.Point[x=275,y=225]
+navEnginePosn :: java.awt.Point[x=300,y=225]
+navEnginePosn :: java.awt.Point[x=325,y=225]
+navEnginePosn :: java.awt.Point[x=350,y=225]
+navEnginePosn :: java.awt.Point[x=350,y=200]
+navEnginePosn :: java.awt.Point[x=350,y=175]
+navEnginePosn :: java.awt.Point[x=350,y=150]
+navEnginePosn :: java.awt.Point[x=325,y=150]
+navEnginePosn :: java.awt.Point[x=300,y=150]
+navEnginePosn :: java.awt.Point[x=275,y=150]
+navEnginePosn :: java.awt.Point[x=250,y=150]
+navEnginePosn :: java.awt.Point[x=225,y=150]
+navEnginePosn :: java.awt.Point[x=200,y=150]
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Reading reply sessionid:0x15b82a5cef30013, packet:: clientPath:null serverPath:null finished:false header:: 23,5  replyHeader:: 23,1850,0  request:: '/consumers/test-coms-zion-controlRoom/offsets/nebuchadnezzar.main.deck.com.0/0,#3138,-1  response:: s{995,1850,1492291740830,1492659052508,25,0,0,0,2,0,995} 
+Got ping response for sessionid: 0x15b82a5cef30013 after 3ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 1ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 1ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms
+Got ping response for sessionid: 0x15b82a5cef30013 after 0ms

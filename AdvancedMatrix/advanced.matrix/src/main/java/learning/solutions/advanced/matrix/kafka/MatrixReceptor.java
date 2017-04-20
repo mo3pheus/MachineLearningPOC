@@ -20,6 +20,7 @@ import kafka.javaapi.consumer.ConsumerConnector;
 import learning.solutions.advanced.matrix.MatrixCommunication.MatrixCall;
 import learning.solutions.advanced.matrix.domain.MatrixArchitect;
 import learning.solutions.advanced.matrix.domain.PortableMatrixConfig;
+import learning.solutions.advanced.matrix.driver.MatrixCreation;
 import learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine;
 import learning.solutions.advanced.matrix.utils.SerializationUtil;
 
@@ -38,6 +39,7 @@ public class MatrixReceptor extends Thread {
 		properties.put("group.id", "test-coms-zion-controlRoom");
 		ConsumerConfig consumerConfig = new ConsumerConfig(properties);
 		consumerConnector = Consumer.createJavaConsumerConnector(consumerConfig);
+		MatrixCreation.configureLogging();
 	}
 
 	@Override

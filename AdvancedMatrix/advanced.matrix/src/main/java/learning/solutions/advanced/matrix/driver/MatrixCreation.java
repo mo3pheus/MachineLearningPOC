@@ -22,7 +22,7 @@ public class MatrixCreation {
 		new MatrixArchitect(getMatrixConfig(), navEngine.getAnimationCalibratedRobotPath());
 	}
 
-	private static void configureLogging() {
+	public static void configureLogging() {
 		FileAppender fa = new FileAppender();
 		fa.setFile("navEngineOutput/navEnginePath_" + Long.toString(System.currentTimeMillis()) + ".txt");
 		fa.setLayout(new PatternLayout(PatternLayout.DEFAULT_CONVERSION_PATTERN));

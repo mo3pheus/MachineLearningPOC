@@ -40,7 +40,6 @@
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.MatrixCommunication"/>
 <fullyQualifiedTypeName name="learning.solutions.advanced.matrix.MatrixCommunication.MatrixCall"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
-<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.driver.MatrixCreation"/>
 <fullyQualifiedTypeName name="java.util.Properties"/>
 <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
 <fullyQualifiedTypeName name="org.apache.log4j.FileAppender"/>
 <fullyQualifiedTypeName name="org.apache.log4j.PatternLayout"/>
+<fullyQualifiedTypeName name="learning.solutions.advanced.matrix.driver.MatrixCreation"/>
 </qualifiedTypeNameHistroy>
