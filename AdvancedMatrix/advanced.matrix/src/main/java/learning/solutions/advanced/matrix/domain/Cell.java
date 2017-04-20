@@ -10,8 +10,8 @@ import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 
 public class Cell extends VirtualElement {
 	public static final String	CELL_WIDTH		= "maze.environment.cell.width";
-	public static final String	CELL_LOCATION	= "maze.environment.cell.location";
-	public static final String	CELL_COLOR		= "maze.environment.cell.color";
+	public static final String	CELL_LOCATION	= "maze.environment.destination.position";
+	public static final String	CELL_COLOR		= "maze.environment.destination.color";
 	private Color				cellColor		= null;
 	private Point				location		= null;
 	private Properties			matrixConfig	= null;

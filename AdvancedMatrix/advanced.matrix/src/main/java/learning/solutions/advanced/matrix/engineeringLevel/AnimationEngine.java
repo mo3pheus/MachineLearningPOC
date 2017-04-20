@@ -22,6 +22,9 @@ public class AnimationEngine {
 		int cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 		Point oldPosition = positions.get(0);
 		for (int i = 0; i < positions.size(); i++) {
+			if (i % 20 == 0) {
+				System.out.println("roboLocationPing:: " + oldPosition.toString());
+			}
 			canvas.clearRect(oldPosition.x, oldPosition.y, cellWidth, cellWidth);
 
 			Point position = positions.get(i);
@@ -32,8 +35,8 @@ public class AnimationEngine {
 			WallBuilder wallBuilder = new WallBuilder(matrixConfig);
 			Cell robo = new Cell(matrixConfig);
 			robo.setLocation(position);
-			robo.setColor(EnvironmentUtils.findColor("royalBlue"));
-			robo.setCellWidth(15);
+			robo.setCellWidth(14);
+			robo.setColor(EnvironmentUtils.findColor(matrixConfig.getProperty(EnvironmentUtils.ROBOT_COLOR)));
 
 			matrixCitizens.add(grid);
 			matrixCitizens.add(destination);

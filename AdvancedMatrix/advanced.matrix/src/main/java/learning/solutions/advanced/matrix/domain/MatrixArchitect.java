@@ -22,18 +22,15 @@ public class MatrixArchitect extends Frame {
 	private Properties			matrixConfig		= null;
 	private List<Point>			robotPositions		= null;
 	private boolean				animationComplete	= false;
-	private NavigationEngine	navigationEngine	= null;
 
 	private void render(Graphics2D canvas) {
-		robotPositions = (robotPositions == null) ? MatrixDataIllusion.generateAnimationProfile(matrixConfig)
-				: robotPositions;
 		try {
 			AnimationEngine.animateRobot(canvas, robotPositions, matrixConfig);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		animationComplete = true;
-		//System.exit(NORMAL);
+		// System.exit(NORMAL);
 	}
 
 	public void paint(Graphics g) {
@@ -55,22 +52,20 @@ public class MatrixArchitect extends Frame {
 		int frameWidth = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
 		this.setSize(frameHeight, frameWidth);
 		this.setVisible(true);
+	}
 
-		this.navigationEngine = new NavigationEngine(matrixConfig);
-		robotPositions = navigationEngine.getRobotPath();
-		System.out.println("Robot Path ==>");
-		for(Point p:robotPositions){
-			System.out.println(p.toString());
-		}
-		
-		//System.out.println(navigationEngine.toString());
+	public MatrixArchitect(Properties matrixDefinition, List<Point> robotPath) {
+		super("Matrix");
+		this.matrixConfig = matrixDefinition;
+
+		int frameHeight = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+		int frameWidth = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+		this.setSize(frameHeight, frameWidth);
+		this.setVisible(true);
+		this.robotPositions = robotPath;
 	}
 
 	public boolean getAnimationComplete() {
 		return animationComplete;
-	}
-
-	public NavigationEngine getNavigationEngine() {
-		return navigationEngine;
 	}
 }

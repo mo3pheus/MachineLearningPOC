@@ -10,25 +10,32 @@ import java.util.Properties;
 
 import learning.solutions.advanced.matrix.domain.NavCell;
 import learning.solutions.advanced.matrix.domain.PerformsNavigation;
+import learning.solutions.advanced.matrix.utils.AnimationUtil;
 import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 import learning.solutions.advanced.matrix.utils.NavUtil;
 
 public class NavigationEngine implements PerformsNavigation {
 
-	private Map<Integer, NavCell>	gridMap			= null;
-	private Properties				matrixConfig	= null;
-	private int						cellWidth		= 0;
-	private NavCell					source			= null;
-	private NavCell					destination		= null;
-	private List<Point>				robotPath		= null;
+	private Map<Integer, NavCell>	gridMap				= null;
+	private Properties				matrixConfig		= null;
+	private int						cellWidth			= 0;
+	private int						animationStepSize	= 5;
+	private NavCell					source				= null;
+	private NavCell					destination			= null;
+	private List<Point>				robotPath			= null;
 
 	public NavigationEngine(Properties matrixConfig) {
+		/* Environment config */
 		this.matrixConfig = matrixConfig;
 		this.gridMap = new HashMap<Integer, NavCell>();
 		gridMap = NavUtil.populateGridMap(matrixConfig);
 		this.cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+		this.animationStepSize = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ANIMATION_STEP_SIZE));
+
+		/* Adjacency matrix config for navEngine */
 		configureAdjacency();
 
+		/* Path computation */
 		try {
 			int sourceX = Integer
 					.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]);
@@ -48,6 +55,19 @@ public class NavigationEngine implements PerformsNavigation {
 
 	public List<Point> getRobotPath() {
 		return robotPath;
+	}
+
+	public List<Point> getAnimationCalibratedRobotPath() {
+		List<Point> calibratedPath = new ArrayList<Point>();
+		if (robotPath != null) {
+			for (int i = 0; i < robotPath.size() - 1; i++) {
+				Point start = robotPath.get(i);
+				Point end = robotPath.get(i + 1);
+				List<Point> tempPoints = AnimationUtil.generateRobotPositions(start, end, animationStepSize);
+				calibratedPath.addAll(tempPoints);
+			}
+		}
+		return calibratedPath;
 	}
 
 	public String toString() {

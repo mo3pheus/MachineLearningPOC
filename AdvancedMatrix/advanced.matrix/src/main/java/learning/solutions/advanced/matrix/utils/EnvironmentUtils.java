@@ -13,6 +13,7 @@ public class EnvironmentUtils {
 	public static final String	START_POSN_PROPERTY					= "maze.environment.start.position";
 	public static final String	DESTN_POSN_PROPERTY					= "maze.environment.destination.position";
 	public static final String	ROBOT_START_LOCATION				= "maze.environment.robot.position";
+	public static final String	ROBOT_COLOR							= "maze.environment.robot.color";
 	public static final String	DESTN_COLOR_PROPERTY				= "maze.environment.destination.color";
 	public static final String	ANIMATION_PACE_DELAY				= "maze.environment.animation.pace.delay";
 	public static final String	ANIMATION_STEP_SIZE					= "maze.environment.animation.step.size";
@@ -38,6 +39,10 @@ public class EnvironmentUtils {
 			return new Color(102, 51, 0);
 		} else if (color.equals("royalBlue")) {
 			return new Color(0, 102, 255);
+		} else if (color.equals("lavendar")) {
+			return new Color(123, 104, 238);
+		} else if (color.equals("black")) {
+			return Color.BLACK;
 		}
 
 		else {

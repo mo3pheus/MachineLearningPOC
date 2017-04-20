@@ -20,6 +20,7 @@ import kafka.javaapi.consumer.ConsumerConnector;
 import learning.solutions.advanced.matrix.MatrixCommunication.MatrixCall;
 import learning.solutions.advanced.matrix.domain.MatrixArchitect;
 import learning.solutions.advanced.matrix.domain.PortableMatrixConfig;
+import learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine;
 import learning.solutions.advanced.matrix.utils.SerializationUtil;
 
 /**
@@ -55,7 +56,9 @@ public class MatrixReceptor extends Thread {
 				PortableMatrixConfig matrixConfig = (PortableMatrixConfig) SerializationUtil
 						.deserialize(received.getMatrixConfig().toByteArray());
 
-				MatrixArchitect creator = new MatrixArchitect(matrixConfig.getMatrixConfig());
+				NavigationEngine navEngine = new NavigationEngine(matrixConfig.getMatrixConfig());
+				new MatrixArchitect(matrixConfig.getMatrixConfig(), navEngine.getAnimationCalibratedRobotPath());
+
 			} catch (InvalidProtocolBufferException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
