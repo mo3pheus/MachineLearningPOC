@@ -1,0 +1,15 @@
+package egen.solutions.artificial.neural.networks;
+
+public class NeuralNetworkEngine {
+	private int numInputNeurons;
+	private int numHiddenNeurons;
+	private int numOutputNeurons;
+	
+	public NeuralNetworkEngine(int numInputNeurons, int numHiddenNeurons, int numOutputNeurons){
+		this.numInputNeurons = numInputNeurons;
+		this.numHiddenNeurons = numHiddenNeurons;
+		this.numOutputNeurons = numOutputNeurons;
+	}
+	
+
+}

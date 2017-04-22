@@ -1,0 +1,5 @@
+package egen.solutions.artificial.neural.networks;
+
+public class NeuralNetworkEngine {
+
+}

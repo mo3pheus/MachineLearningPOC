@@ -1,0 +1,76 @@
+173  [Thread-0] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], begin registering consumer test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2 in ZK
+192  [Thread-0] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/test-coms-zion-controlRoom/ids/test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2 (is it secure? false)
+201  [Thread-0] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+201  [Thread-0] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], end registering consumer test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2 in ZK
+205  [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], starting watcher executor thread for consumer test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2
+216  [Thread-0] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], begin rebalancing consumer test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2 try #0
+287  [Thread-0] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1492829908575] Stopping leader finder thread
+288  [Thread-0] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1492829908575] Stopping all fetchers
+288  [Thread-0] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1492829908575] All connections stopped
+288  [Thread-0] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], Cleared all relevant queues for this fetcher
+289  [Thread-0] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], Cleared the data chunks in all the consumer message iterators
+289  [Thread-0] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], Committing all offsets after clearing the fetcher queues
+290  [Thread-0] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], Releasing partition ownership
+313  [Thread-0] INFO  kafka.consumer.RangeAssignor  - Consumer test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2 rebalancing the following partitions: ArrayBuffer(0) for topic nebuchadnezzar.main.deck.com.0 with consumers: List(test-coms-zion-controlRoom_zionmainframe-1492829760685-42363f5c-0, test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-0)
+315  [Thread-0] INFO  kafka.consumer.RangeAssignor  - test-coms-zion-controlRoom_zionmainframe-1492829760685-42363f5c-0 attempting to claim partition 0
+316  [Thread-0] WARN  kafka.consumer.RangeAssignor  - No broker partitions consumed by consumer thread test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-0 for topic nebuchadnezzar.main.deck.com.0
+327  [Thread-0] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], Consumer test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2 selected partitions : 
+328  [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread], Starting 
+329  [Thread-0] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], end rebalancing consumer test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2 try #0
+3584 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], begin rebalancing consumer test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2 try #0
+3615 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1492829908575] Stopping leader finder thread
+3616 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread], Shutting down
+3617 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread], Stopped 
+3617 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread], Shutdown completed
+3617 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1492829908575] Stopping all fetchers
+3617 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1492829908575] All connections stopped
+3617 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], Cleared all relevant queues for this fetcher
+3617 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], Cleared the data chunks in all the consumer message iterators
+3617 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], Committing all offsets after clearing the fetcher queues
+3617 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], Releasing partition ownership
+3638 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.RangeAssignor  - Consumer test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2 rebalancing the following partitions: ArrayBuffer(0) for topic nebuchadnezzar.main.deck.com.0 with consumers: List(test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-0)
+3638 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.RangeAssignor  - test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-0 attempting to claim partition 0
+3659 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-0 successfully owned partition 0 for topic nebuchadnezzar.main.deck.com.0
+3667 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], Consumer test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2 selected partitions : nebuchadnezzar.main.deck.com.0:0: fetched offset = 3: consumed offset = 3
+3667 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread], Starting 
+3667 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2], end rebalancing consumer test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2 try #0
+3684 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+3685 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to test-coms-zion-controlRoom
+3685 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zionmainframe:9092
+3685 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+3693 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zionmainframe,9092) with correlation id 0 for 1 topic(s) Set(nebuchadnezzar.main.deck.com.0)
+3699 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to zionmainframe:9092 for producing
+3708 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from zionmainframe:9092
+3720 [ConsumerFetcherThread-test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-0-0], Starting 
+3723 [test-coms-zion-controlRoom_zionmainframe-1492829908503-385f62b2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1492829908575] Added fetcher for partitions ArrayBuffer([[nebuchadnezzar.main.deck.com.0,0], initOffset 3 to broker BrokerEndPoint(0,zionmainframe,9092)] )
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=450,y=550]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=425,y=550]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=425,y=575]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=425,y=600]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=425,y=625]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=425,y=650]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=400,y=650]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=375,y=650]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=375,y=625]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=375,y=600]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=375,y=575]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=375,y=550]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=375,y=525]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=350,y=525]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=325,y=525]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=300,y=525]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=275,y=525]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=250,y=525]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=225,y=525]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=200,y=525]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=175,y=525]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=175,y=500]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=175,y=475]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=200,y=475]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=225,y=475]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=225,y=450]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=250,y=450]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=275,y=450]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=300,y=450]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=325,y=450]
+6375 [Thread-0] INFO  learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine  - navEnginePosn :: java.awt.Point[x=350,y=450]

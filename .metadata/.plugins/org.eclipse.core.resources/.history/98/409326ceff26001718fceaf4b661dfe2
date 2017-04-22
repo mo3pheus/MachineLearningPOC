@@ -1,0 +1,25 @@
+package egen.solutions.artificial.neural.networks.driver;
+
+import egen.solutions.artificial.neural.networks.NeuralNetworkEngine;
+
+public class NNDriver {
+	public static void main(String[] args){
+		NeuralNetworkEngine artificialBrain = new NeuralNetworkEngine(3, 2, 3);
+		boolean train  = true;
+		int maxIter = 2000;
+		int i = 0;
+		
+		while(train){
+		for(int i = 0; i < 150; i++){
+			//needs input[] and expectedOutput[]
+			artificialBrain.calculateOutput(null, null);
+		}
+		
+		if(artificialBrain.getBackpropError() < ERR_MARGIN || i > maxiter){
+			
+		}
+		
+		i++;
+		}
+	}
+}

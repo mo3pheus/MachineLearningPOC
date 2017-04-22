@@ -1,0 +1,11 @@
+package egen.solutions.artificial.neural.networks;
+
+public class NeuralNetworkEngine {
+	private int numInputNeurons;
+	private int numHiddenNeurons;
+	private int numOutputNeurons;
+	
+	public NeuralNetworkEngine(int numInput)
+	
+
+}

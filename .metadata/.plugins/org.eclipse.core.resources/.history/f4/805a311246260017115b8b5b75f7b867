@@ -1,0 +1,22 @@
+package egen.solutions.artificial.neural.networks;
+
+public class NeuralNetworkEngine {
+	private int			numInputNeurons;
+	private int			numHiddenNeurons;
+	private int			numOutputNeurons;
+	private double[][]	weightIHMatrix	= null;
+	private double[][]	weightHOMatrix	= null;
+
+	private double		learningRate;
+	private double		momentum;
+
+	public NeuralNetworkEngine(int numInputNeurons, int numHiddenNeurons, int numOutputNeurons) {
+		this.numInputNeurons = numInputNeurons;
+		this.numHiddenNeurons = numHiddenNeurons;
+		this.numOutputNeurons = numOutputNeurons;
+
+		this.weightIHMatrix = new double[numInputNeurons + 1][numHiddenNeurons];
+		this.weightHOMatrix = new double[numHiddenNeurons + 1][numOutputNeurons];
+	}
+
+}

@@ -6,7 +6,9 @@ import java.net.URL;
 import java.util.Properties;
 
 import org.apache.log4j.FileAppender;
+import org.apache.log4j.Level;
 import org.apache.log4j.PatternLayout;
+import org.apache.log4j.Priority;
 
 import learning.solutions.advanced.matrix.domain.MatrixArchitect;
 import learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine;
@@ -25,7 +27,8 @@ public class MatrixCreation {
 	public static void configureLogging() {
 		FileAppender fa = new FileAppender();
 		fa.setFile("navEngineOutput/navEnginePath_" + Long.toString(System.currentTimeMillis()) + ".txt");
-		fa.setLayout(new PatternLayout(PatternLayout.DEFAULT_CONVERSION_PATTERN));
+		fa.setLayout(new PatternLayout("%-4r [%t] %-5p %c %x - %m%n"));
+		fa.setThreshold(Level.toLevel(Priority.INFO_INT));
 		fa.activateOptions();
 		org.apache.log4j.Logger.getRootLogger().addAppender(fa);
 	}

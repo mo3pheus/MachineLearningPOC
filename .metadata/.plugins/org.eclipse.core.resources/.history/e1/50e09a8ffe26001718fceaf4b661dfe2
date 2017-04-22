@@ -1,0 +1,9 @@
+package egen.solutions.artificial.neural.networks.driver;
+
+import egen.solutions.artificial.neural.networks.NeuralNetworkEngine;
+
+public class NNDriver {
+	public static void main(String[] args){
+		NeuralNetworkEngine artificialBrain = new NeuralNetworkEngine();
+	}
+}
