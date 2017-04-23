@@ -13,7 +13,7 @@ public class CommandControl {
 		MatrixController zionComs = new MatrixController(builder);
 
 		int choice = 0;
-		while (choice != 1) {
+		while (choice != 2) {
 			System.out.println("0. Send Message");
 			System.out.println("1. Send partialMessages");
 			System.out.println("2. Exit");

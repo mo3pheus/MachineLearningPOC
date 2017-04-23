@@ -43,7 +43,7 @@ public class MatrixController {
 
 		List<Point> tempPoints = new ArrayList<Point>();
 		for (int i = 0; i < fullPath.size(); i++) {
-			if ((i % 10 == 0) || (i < 10)) {
+			if ((i % 1000 == 0) || (i % 1000 < 1000)) {
 				NavigationPath navPath = new NavigationPath(tempPoints);
 				navSequence.add(navPath);
 				tempPoints = new ArrayList<Point>();
@@ -106,7 +106,7 @@ public class MatrixController {
 					new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
 			System.out.println(" Sending canned interrupt messages to " + kafkaProperties.getProperty("sourceTopic"));
 			System.out.println(" Sent message = " + MatrixCall.parseFrom(outputKafkaBytes));
-			Thread.sleep(150l);
+			Thread.sleep(1l);
 		}
 	}
 
