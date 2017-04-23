@@ -1,6 +1,7 @@
 package learning.solutions.advanced.matrix.domain;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.ArrayList;
@@ -10,9 +11,13 @@ import java.util.Properties;
 import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 
 public class Grid extends VirtualElement {
-	private static final String	GRID_COLOR		= "maze.environment.grid.color";
-	private List<Line>			gridLines		= null;
-	private Properties			matrixConfig	= null;
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 4717059892660341230L;
+	private static final String	GRID_COLOR			= "maze.environment.grid.color";
+	private List<Line>			gridLines			= null;
+	private Properties			matrixConfig		= null;
 
 	private class Line {
 		public Point	x;
@@ -30,6 +35,8 @@ public class Grid extends VirtualElement {
 	}
 
 	public void build() {
+		super.setMatrixConfig(matrixConfig);
+		super.setLayout();
 		gridLines = new ArrayList<Line>();
 
 		int frameHeight = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
@@ -53,5 +60,10 @@ public class Grid extends VirtualElement {
 		for (int i = 0; i < gridLines.size(); i++) {
 			g2.drawLine(gridLines.get(i).x.x, gridLines.get(i).x.y, gridLines.get(i).y.x, gridLines.get(i).y.y);
 		}
+	}
+
+	@Override
+	public void paint(Graphics g) {
+		draw((Graphics2D) g);
 	}
 }

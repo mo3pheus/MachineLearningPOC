@@ -1,6 +1,7 @@
 package learning.solutions.advanced.matrix.domain;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Rectangle2D;
@@ -9,12 +10,16 @@ import java.util.Properties;
 import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 
 public class Cell extends VirtualElement {
-	public static final String	CELL_WIDTH		= "maze.environment.cell.width";
-	public static final String	CELL_LOCATION	= "maze.environment.destination.position";
-	public static final String	CELL_COLOR		= "maze.environment.destination.color";
-	private Color				cellColor		= null;
-	private Point				location		= null;
-	private Properties			matrixConfig	= null;
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 185332095563001046L;
+	public static final String	CELL_WIDTH			= "maze.environment.cell.width";
+	public static final String	CELL_LOCATION		= "maze.environment.destination.position";
+	public static final String	CELL_COLOR			= "maze.environment.destination.color";
+	private Color				cellColor			= null;
+	private Point				location			= null;
+	private Properties			matrixConfig		= null;
 	private int					cellWidth;
 
 	private Rectangle2D getCell() {
@@ -27,6 +32,8 @@ public class Cell extends VirtualElement {
 	}
 
 	public void build() {
+		super.setMatrixConfig(matrixConfig);
+		super.setLayout();
 		cellWidth = Integer.parseInt(matrixConfig.getProperty(CELL_WIDTH));
 		location = new Point(Integer.parseInt(matrixConfig.getProperty(CELL_LOCATION).split(",")[0]),
 				Integer.parseInt(matrixConfig.getProperty(CELL_LOCATION).split(",")[1]));
@@ -57,5 +64,10 @@ public class Cell extends VirtualElement {
 	@Override
 	public Color getColor() {
 		return EnvironmentUtils.findColor(matrixConfig.getProperty(CELL_COLOR));
+	}
+
+	@Override
+	public void paint(Graphics g) {
+		draw((Graphics2D) g);
 	}
 }

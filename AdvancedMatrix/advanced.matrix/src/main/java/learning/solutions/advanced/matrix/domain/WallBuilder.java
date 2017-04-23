@@ -4,6 +4,7 @@
 package learning.solutions.advanced.matrix.domain;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +18,15 @@ import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
  *
  */
 public class WallBuilder extends VirtualElement {
-	private static final int	WALL_DEF_DIMENSION	= 4;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8073507793314915381L;
 
-	private List<Wall>			walls				= null;
-	private Properties			matrixConfig		= null;
+	private static final int WALL_DEF_DIMENSION = 4;
+
+	private List<Wall>	walls			= null;
+	private Properties	matrixConfig	= null;
 
 	public WallBuilder(Properties matrixConfig) {
 		this.matrixConfig = matrixConfig;
@@ -37,6 +43,8 @@ public class WallBuilder extends VirtualElement {
 
 	@Override
 	public void build() {
+		super.setMatrixConfig(matrixConfig);
+		super.setLayout();
 		int wallNum = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.NUM_WALLS_PROPERTY));
 
 		for (int i = 0; i < wallNum; i++) {
@@ -68,5 +76,10 @@ public class WallBuilder extends VirtualElement {
 			wallDef[i] = Integer.parseInt(wallProps[i]);
 		}
 		return wallDef;
+	}
+
+	@Override
+	public void paint(Graphics g) {
+		draw((Graphics2D) g);
 	}
 }

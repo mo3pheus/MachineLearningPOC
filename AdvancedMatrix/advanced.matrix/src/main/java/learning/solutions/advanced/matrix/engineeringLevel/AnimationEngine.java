@@ -12,6 +12,7 @@ import learning.solutions.advanced.matrix.domain.MatrixElement;
 import learning.solutions.advanced.matrix.domain.WallBuilder;
 import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 
+@Deprecated
 public class AnimationEngine {
 	public static void animateRobot(Graphics2D canvas, List<Point> positions, Properties matrixConfig)
 			throws Exception {

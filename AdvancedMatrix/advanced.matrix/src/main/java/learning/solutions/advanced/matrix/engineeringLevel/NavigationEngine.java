@@ -29,17 +29,14 @@ public class NavigationEngine implements PerformsNavigation {
 	private Logger					logger				= LoggerFactory.getLogger(NavigationEngine.class);
 
 	public NavigationEngine(Properties matrixConfig) {
-		/* Environment config */
 		this.matrixConfig = matrixConfig;
 		this.gridMap = new HashMap<Integer, NavCell>();
 		gridMap = NavUtil.populateGridMap(matrixConfig);
 		this.cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 		this.animationStepSize = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ANIMATION_STEP_SIZE));
 
-		/* Adjacency matrix config for navEngine */
 		configureAdjacency();
 
-		/* Path computation */
 		try {
 			int sourceX = Integer
 					.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]);

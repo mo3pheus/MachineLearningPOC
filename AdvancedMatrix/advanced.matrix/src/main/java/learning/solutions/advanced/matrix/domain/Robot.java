@@ -1,6 +1,7 @@
 package learning.solutions.advanced.matrix.domain;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.AffineTransform;
@@ -14,10 +15,14 @@ import javax.imageio.ImageIO;
 import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 
 public class Robot extends VirtualElement {
-	private static final String	roboImageLocation		= "robot-tool.png";
-	private Properties			matrixConfig			= null;
-	private Point				location				= null;
-	private BufferedImage		robotImage				= null;
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 8487913539143758790L;
+	private static final String	roboImageLocation	= "robot-tool.png";
+	private Properties			matrixConfig		= null;
+	private Point				location			= null;
+	private BufferedImage		robotImage			= null;
 
 	public Point getLocation() {
 		return location;
@@ -34,6 +39,8 @@ public class Robot extends VirtualElement {
 
 	@Override
 	public void build() {
+		super.setMatrixConfig(matrixConfig);
+		super.setLayout();
 		BufferedImage img = null;
 		try {
 			img = ImageIO.read(new File(Robot.class.getClassLoader().getResource(roboImageLocation).getPath()));
@@ -42,7 +49,8 @@ public class Robot extends VirtualElement {
 		}
 		robotImage = (BufferedImage) img;
 
-		location = new Point(Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]),
+		location = new Point(
+				Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]),
 				Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[1]));
 	}
 
@@ -57,5 +65,10 @@ public class Robot extends VirtualElement {
 		int cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 		at.scale(cellWidth, cellWidth);
 		g2.drawImage(robotImage, null, location.x, location.y);
+	}
+
+	@Override
+	public void paint(Graphics g) {
+		draw((Graphics2D) g);
 	}
 }
