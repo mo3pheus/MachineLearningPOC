@@ -36,6 +36,16 @@ public class LayeredAnimationEngine {
 		this.robotPositions = robotPositions;
 	}
 
+	public LayeredAnimationEngine(Properties matrixConfig, JFrame frame) {
+		this.matrixConfig = matrixConfig;
+		this.frame = frame;
+	}
+
+	public void updateRobotPosition(List<Point> robotPositions) {
+		this.robotPositions = robotPositions;
+		renderAnimation();
+	}
+
 	public void renderAnimation() {
 		int delayMs = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ANIMATION_PACE_DELAY));
 		JLayeredPane contentPane = getContent();

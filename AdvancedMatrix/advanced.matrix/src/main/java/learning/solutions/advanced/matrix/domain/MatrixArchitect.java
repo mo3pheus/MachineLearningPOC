@@ -25,4 +25,19 @@ public class MatrixArchitect {
 		this.animationEngine = new LayeredAnimationEngine(matrixConfig, matrixWorld, robotPath);
 		animationEngine.renderAnimation();
 	}
+	
+	public MatrixArchitect(Properties matrixDefinition) {
+		this.matrixConfig = matrixDefinition;
+		this.matrixWorld = new JFrame();
+		int frameHeight = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+		int frameWidth = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+
+		matrixWorld.setSize(frameWidth, frameHeight);
+		matrixWorld.setTitle("Matrix");
+		this.animationEngine = new LayeredAnimationEngine(matrixConfig, matrixWorld);
+	}
+	
+	public void updateRobotPositions(List<Point> robotPath){
+		animationEngine.updateRobotPosition(robotPath);
+	}
 }

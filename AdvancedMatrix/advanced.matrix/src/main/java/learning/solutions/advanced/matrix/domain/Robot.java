@@ -18,8 +18,8 @@ public class Robot extends VirtualElement {
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 8487913539143758790L;
-	private static final String	roboImageLocation	= "robot-tool.png";
+	private static final long serialVersionUID = 8487913539143758790L;
+	private static final String roboImageLocation = "robot-tool.png";
 	private Properties			matrixConfig		= null;
 	private Point				location			= null;
 	private BufferedImage		robotImage			= null;
