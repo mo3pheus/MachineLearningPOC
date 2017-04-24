@@ -7,6 +7,10 @@ import java.awt.Point;
 import java.awt.geom.Rectangle2D;
 import java.util.Properties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import learning.solutions.advanced.matrix.engineeringLevel.NavigationEngine;
 import learning.solutions.advanced.matrix.utils.EnvironmentUtils;
 
 public class Cell extends VirtualElement {
@@ -20,6 +24,7 @@ public class Cell extends VirtualElement {
 	private Color				cellColor			= null;
 	private Point				location			= null;
 	private Properties			matrixConfig		= null;
+	private Logger				logger				= LoggerFactory.getLogger(Cell.class);
 	private int					cellWidth;
 
 	private Rectangle2D getCell() {
@@ -48,6 +53,9 @@ public class Cell extends VirtualElement {
 	}
 
 	public void setColor(Color cellColor) {
+		if (cellColor == EnvironmentUtils.findColor("lavendar")) {
+			logger.info("Location = " + location.toString());
+		}
 		this.cellColor = cellColor;
 	}
 
